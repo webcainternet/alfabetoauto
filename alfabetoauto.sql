@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Mar 09, 2015 at 01:31 AM
+-- Generation Time: Mar 11, 2015 at 04:13 PM
 -- Server version: 5.5.38
 -- PHP Version: 5.3.29
 
@@ -150,39 +150,17 @@ CREATE TABLE `oc_attribute_description` (
 --
 
 INSERT INTO `oc_attribute_description` (`attribute_id`, `language_id`, `name`) VALUES
-(1, 1, 'Description'),
-(2, 1, 'No. of Cores'),
-(4, 1, 'test 1'),
-(5, 1, 'test 2'),
-(6, 1, 'test 3'),
-(7, 1, 'test 4'),
-(8, 1, 'test 5'),
-(9, 1, 'test 6'),
-(10, 1, 'test 7'),
-(11, 1, 'test 8'),
-(3, 1, 'Clockspeed'),
-(1, 2, 'Description'),
-(2, 2, 'No. of Cores'),
-(4, 2, 'test 1'),
-(5, 2, 'test 2'),
-(6, 2, 'test 3'),
-(7, 2, 'test 4'),
-(8, 2, 'test 5'),
-(9, 2, 'test 6'),
-(10, 2, 'test 7'),
-(11, 2, 'test 8'),
-(3, 2, 'Clockspeed'),
-(1, 3, 'Description'),
-(2, 3, 'No. of Cores'),
-(4, 3, 'test 1'),
-(5, 3, 'test 2'),
-(6, 3, 'test 3'),
-(7, 3, 'test 4'),
-(8, 3, 'test 5'),
-(9, 3, 'test 6'),
-(10, 3, 'test 7'),
-(11, 3, 'test 8'),
-(3, 3, 'Clockspeed');
+(1, 4, 'Description'),
+(2, 4, 'No. of Cores'),
+(4, 4, 'test 1'),
+(5, 4, 'test 2'),
+(6, 4, 'test 3'),
+(7, 4, 'test 4'),
+(8, 4, 'test 5'),
+(9, 4, 'test 6'),
+(10, 4, 'test 7'),
+(11, 4, 'test 8'),
+(3, 4, 'Clockspeed');
 
 -- --------------------------------------------------------
 
@@ -222,18 +200,10 @@ CREATE TABLE `oc_attribute_group_description` (
 --
 
 INSERT INTO `oc_attribute_group_description` (`attribute_group_id`, `language_id`, `name`) VALUES
-(3, 1, 'Memory'),
-(4, 1, 'Technical'),
-(5, 1, 'Motherboard'),
-(6, 1, 'Processor'),
-(3, 2, 'Memory'),
-(4, 2, 'Technical'),
-(5, 2, 'Motherboard'),
-(6, 2, 'Processor'),
-(3, 3, 'Memory'),
-(4, 3, 'Technical'),
-(5, 3, 'Motherboard'),
-(6, 3, 'Processor');
+(3, 4, 'Memory'),
+(4, 4, 'Technical'),
+(5, 4, 'Motherboard'),
+(6, 4, 'Processor');
 
 -- --------------------------------------------------------
 
@@ -266,7 +236,7 @@ CREATE TABLE `oc_banner_image` (
   `banner_id` int(11) NOT NULL,
   `link` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=371 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=379 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `oc_banner_image`
@@ -274,16 +244,16 @@ CREATE TABLE `oc_banner_image` (
 
 INSERT INTO `oc_banner_image` (`banner_image_id`, `banner_id`, `link`, `image`) VALUES
 (354, 15, 'index.php?route=product/product&amp;product_id=32', 'data/slide-2.jpg'),
-(370, 16, 'index.php?route=product/product&amp;product_id=49', 'data/banner-3.jpg'),
-(369, 16, 'index.php?route=product/product&amp;product_id=34', 'data/banner-2.jpg'),
-(368, 16, 'index.php?route=product/product&amp;product_id=45', 'data/banner-1.jpg'),
+(378, 16, 'index.php?route=product/product&amp;product_id=36', 'data/banner-8.jpg'),
+(377, 16, 'index.php?route=product/product&amp;product_id=45', 'data/banner-7.jpg'),
+(376, 16, 'index.php?route=product/product&amp;product_id=44', 'data/banner-6.jpg'),
 (353, 15, 'index.php?route=product/product&amp;product_id=28', 'data/slide-1.jpg'),
 (352, 15, 'index.php?route=product/product&amp;product_id=29', 'data/slide-3.jpg'),
-(367, 16, 'index.php?route=product/product&amp;product_id=46', 'data/banner-4.jpg'),
-(366, 16, 'index.php?route=product/product&amp;product_id=34', 'data/banner-5.jpg'),
-(365, 16, 'index.php?route=product/product&amp;product_id=44', 'data/banner-6.jpg'),
-(364, 16, 'index.php?route=product/product&amp;product_id=45', 'data/banner-7.jpg'),
-(363, 16, 'index.php?route=product/product&amp;product_id=36', 'data/banner-8.jpg');
+(375, 16, 'index.php?route=product/product&amp;product_id=34', 'data/banner-5.jpg'),
+(374, 16, 'index.php?route=product/product&amp;product_id=46', 'data/banner-4.jpg'),
+(373, 16, 'index.php?route=product/product&amp;product_id=45', 'data/banner-1.jpg'),
+(372, 16, 'index.php?route=product/product&amp;product_id=34', 'data/banner-2.jpg'),
+(371, 16, 'index.php?route=product/product&amp;product_id=49', 'data/banner-3.jpg');
 
 -- --------------------------------------------------------
 
@@ -304,39 +274,17 @@ CREATE TABLE `oc_banner_image_description` (
 --
 
 INSERT INTO `oc_banner_image_description` (`banner_image_id`, `language_id`, `banner_id`, `title`, `description`) VALUES
-(369, 1, 16, 'banner-2', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Car AV &lt;br /&gt;tuners&lt;/h1&gt;'),
-(369, 2, 16, 'banner-2', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Car AV &lt;br /&gt;tuners&lt;/h1&gt;'),
-(369, 3, 16, 'banner-2', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Car AV &lt;br /&gt;tuners&lt;/h1&gt;'),
-(370, 1, 16, 'banner-3', '&lt;b&gt;&lt;/b&gt;\r\n&lt;h1&gt;App Radio&lt;/h1&gt;'),
-(370, 2, 16, 'banner-3', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;App Radio&lt;/h1&gt;'),
-(370, 3, 16, 'banner-3', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;App Radio&lt;/h1&gt;'),
-(368, 2, 16, 'banner-1', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Navigation&lt;/h1&gt;'),
-(368, 3, 16, 'banner-1', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Navigation&lt;/h1&gt;'),
-(367, 2, 16, 'banner-4', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Car &lt;br /&gt;\r\nStereo&lt;/h1&gt;'),
-(367, 3, 16, 'banner-4', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Car &lt;br /&gt;\r\nStereo&lt;/h1&gt;'),
-(368, 1, 16, 'banner-1', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Navigation&lt;/h1&gt;'),
-(367, 1, 16, 'banner-4', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Car &lt;br /&gt;\r\nStereo&lt;/h1&gt;'),
-(366, 3, 16, 'banner-5', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Speakers&lt;/h1&gt;'),
-(366, 2, 16, 'banner-5', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Speakers&lt;/h1&gt;'),
-(366, 1, 16, 'banner-5', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Speakers&lt;/h1&gt;'),
-(365, 3, 16, 'banner-6', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;SUBWOOFERS&lt;/h1&gt;'),
-(365, 2, 16, 'banner-6', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;SUBWOOFERS&lt;/h1&gt;'),
-(365, 1, 16, 'banner-6', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;SUBWOOFERS&lt;/h1&gt;'),
-(354, 1, 15, 'slide-3', ''),
-(354, 2, 15, 'slide-3', ''),
-(354, 3, 15, 'slide-3', ''),
-(353, 3, 15, 'slide-1', ''),
-(353, 2, 15, 'slide-1', ''),
-(353, 1, 15, 'slide-1', ''),
-(352, 3, 15, 'slide-2', ''),
-(364, 2, 16, 'banner-7', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Amplifiers&lt;/h1&gt;'),
-(364, 3, 16, 'banner-7', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Amplifiers&lt;/h1&gt;'),
-(352, 2, 15, 'slide-2', ''),
-(352, 1, 15, 'slide-2', ''),
-(364, 1, 16, 'banner-7', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Amplifiers&lt;/h1&gt;'),
-(363, 3, 16, 'banner-8', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;TV Tuner&lt;/h1&gt;'),
-(363, 2, 16, 'banner-8', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;TV Tuner&lt;/h1&gt;'),
-(363, 1, 16, 'banner-8', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;TV Tuner&lt;/h1&gt;  ');
+(375, 4, 16, 'banner-5', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Speakers&lt;/h1&gt;'),
+(374, 4, 16, 'banner-4', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Car &lt;br /&gt;\r\nStereo&lt;/h1&gt;'),
+(373, 4, 16, 'banner-1', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Navigation&lt;/h1&gt;'),
+(372, 4, 16, 'banner-2', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Car AV &lt;br /&gt;tuners&lt;/h1&gt;'),
+(371, 4, 16, 'banner-3', '&lt;b&gt;&lt;/b&gt;\r\n&lt;h1&gt;App Radio&lt;/h1&gt;'),
+(354, 4, 15, 'slide-3', ''),
+(353, 4, 15, 'slide-1', ''),
+(352, 4, 15, 'slide-2', ''),
+(376, 4, 16, 'banner-6', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;SUBWOOFERS&lt;/h1&gt;'),
+(377, 4, 16, 'banner-7', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;Amplifiers&lt;/h1&gt;'),
+(378, 4, 16, 'banner-8', '&lt;b&gt;&lt;/b&gt;&lt;h1&gt;TV Tuner&lt;/h1&gt;');
 
 -- --------------------------------------------------------
 
@@ -398,54 +346,22 @@ CREATE TABLE `oc_category_description` (
 --
 
 INSERT INTO `oc_category_description` (`category_id`, `language_id`, `name`, `description`, `meta_description`, `meta_keyword`) VALUES
-(17, 1, 'App Radio', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(17, 2, 'App Radio', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(25, 1, 'Speakers', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(25, 2, 'Speakers', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(25, 3, 'Speakers', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(29, 1, 'Lorem ipsum dolor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(29, 2, 'Lorem ipsum dolor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(72, 2, 'Accessories', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(72, 3, 'Accessories', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(72, 1, 'Accessories', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(71, 2, 'TV Tuner', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(71, 3, 'TV Tuner', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(24, 1, 'Car Stereo', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(24, 2, 'Car Stereo', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(24, 3, 'Car Stereo', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(57, 1, 'Car AV tuners', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(57, 2, 'Car AV tuners', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(35, 1, 'Ut labore et ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(35, 2, 'Ut labore et ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(36, 1, 'Dolore magna aliqua', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(36, 2, 'Dolore magna aliqua', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(70, 2, 'Amplifiers ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(59, 3, 'SUBWOOFERS', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(70, 1, 'Amplifiers ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(32, 1, 'Tmpor incididunt ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(32, 2, 'Tmpor incididunt ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(31, 1, 'Sed do eiusmod', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(31, 2, 'Sed do eiusmod', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(30, 1, 'Ctetur adipisicing ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(30, 2, 'Ctetur adipisicing ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(28, 1, 'Sit amet conse ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(28, 2, 'Sit amet conse ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(70, 3, 'Amplifiers ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(71, 1, 'TV Tuner', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(17, 3, 'App Radio', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(29, 3, 'Lorem ipsum dolor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(57, 3, 'Car AV tuners', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(20, 3, 'Navigation / GPS ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(20, 1, 'Navigation / GPS ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', 'Example of category description', ''),
-(20, 2, 'Navigation / GPS ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(59, 1, 'SUBWOOFERS', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(59, 2, 'SUBWOOFERS', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(36, 3, 'Dolore magna aliqua', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(35, 3, 'Ut labore et ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(30, 3, 'Ctetur adipisicing ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(31, 3, 'Sed do eiusmod', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(32, 3, 'Tmpor incididunt ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(28, 3, 'Sit amet conse ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '');
+(17, 4, 'App Radio', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(25, 4, 'Speakers', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(29, 4, 'Lorem ipsum dolor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(72, 4, 'Accessories', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(24, 4, 'Car Stereo', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(57, 4, 'Car AV tuners', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(35, 4, 'Ut labore et ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(36, 4, 'Dolore magna aliqua', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(70, 4, 'Amplifiers ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(32, 4, 'Tmpor incididunt ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(31, 4, 'Sed do eiusmod', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(30, 4, 'Ctetur adipisicing ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(28, 4, 'Sit amet conse ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(71, 4, 'TV Tuner', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
+(20, 4, 'Navigation / GPS ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', 'Example of category description', ''),
+(59, 4, 'SUBWOOFERS', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '');
 
 -- --------------------------------------------------------
 
@@ -953,16 +869,14 @@ CREATE TABLE `oc_currency` (
   `value` float(15,8) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `oc_currency`
 --
 
 INSERT INTO `oc_currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-(1, 'Pound Sterling', 'GBP', '£', '', '2', 0.58459997, 1, '2014-07-17 12:33:47'),
-(2, 'US Dollar', 'USD', '$', '', '2', 1.00000000, 1, '2014-07-17 12:34:00'),
-(3, 'Euro', 'EUR', '', '€', '2', 0.73909998, 1, '2014-07-17 12:33:47');
+(4, 'Real', 'BRL', 'R$ ', '', '2', 1.00000000, 1, '2015-03-11 13:30:11');
 
 -- --------------------------------------------------------
 
@@ -1066,9 +980,7 @@ CREATE TABLE `oc_customer_group_description` (
 --
 
 INSERT INTO `oc_customer_group_description` (`customer_group_id`, `language_id`, `name`, `description`) VALUES
-(1, 1, 'Default', 'test'),
-(1, 2, 'Default', 'test'),
-(1, 3, 'Default', 'test');
+(1, 4, 'Default', 'test');
 
 -- --------------------------------------------------------
 
@@ -1247,21 +1159,19 @@ CREATE TABLE `oc_extension` (
 `extension_id` int(11) NOT NULL,
   `type` varchar(32) NOT NULL,
   `code` varchar(32) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=497 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=499 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `oc_extension`
 --
 
 INSERT INTO `oc_extension` (`extension_id`, `type`, `code`) VALUES
-(23, 'payment', 'cod'),
 (22, 'total', 'shipping'),
 (57, 'total', 'sub_total'),
 (58, 'total', 'tax'),
 (59, 'total', 'total'),
 (468, 'module', 'latest'),
 (390, 'total', 'credit'),
-(387, 'shipping', 'flat'),
 (349, 'total', 'handling'),
 (350, 'total', 'low_order_fee'),
 (389, 'total', 'coupon'),
@@ -1269,7 +1179,6 @@ INSERT INTO `oc_extension` (`extension_id`, `type`, `code`) VALUES
 (464, 'module', 'account'),
 (393, 'total', 'reward'),
 (398, 'total', 'voucher'),
-(407, 'payment', 'free_checkout'),
 (444, 'module', 'featured'),
 (440, 'module', 'banner'),
 (467, 'module', 'information'),
@@ -1277,10 +1186,11 @@ INSERT INTO `oc_extension` (`extension_id`, `type`, `code`) VALUES
 (466, 'module', 'bestseller'),
 (493, 'module', 'newcarousel'),
 (449, 'module', 'special'),
-(481, 'shipping', 'free'),
+(498, 'payment', 'pagseguro'),
 (494, 'module', 'compare'),
 (495, 'module', 'vqmod_manager'),
-(496, 'module', 'manufacturer');
+(496, 'module', 'manufacturer'),
+(497, 'shipping', 'correios');
 
 -- --------------------------------------------------------
 
@@ -1393,18 +1303,10 @@ CREATE TABLE `oc_information_description` (
 --
 
 INSERT INTO `oc_information_description` (`information_id`, `language_id`, `title`, `description`) VALUES
-(4, 1, 'About Us', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
-(5, 1, 'Terms &amp; Conditions', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
-(3, 1, 'Privacy Policy', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
-(6, 1, 'Delivery Information', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
-(4, 2, 'About Us', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
-(4, 3, 'About Us', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
-(6, 2, 'Delivery Information', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
-(6, 3, 'Delivery Information', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
-(3, 2, 'Privacy Policy', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
-(3, 3, 'Privacy Policy', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
-(5, 2, 'Terms &amp; Conditions', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
-(5, 3, 'Terms &amp; Conditions', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n');
+(4, 4, 'Quem somos', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
+(5, 4, 'Termos e condições', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
+(3, 4, 'Políticas de privacidade', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n'),
+(6, 4, 'Informações de entrega', '&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-thumbs-up&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non proident&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-gift&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;conse ctetur adipisicing elit sed do eiusmod tempor incididunt ut labore et&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;Excepteur sint occaecat cupidatat non&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;about-page&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&amp;nbsp;&lt;/i&gt;\r\n\r\n&lt;div class=&quot;extra-wrap&quot;&gt;\r\n&lt;h3&gt;proident sunt in culpa qui offici&lt;/h3&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n');
 
 -- --------------------------------------------------------
 
@@ -1455,16 +1357,14 @@ CREATE TABLE `oc_language` (
   `filename` varchar(64) NOT NULL,
   `sort_order` int(3) NOT NULL DEFAULT '0',
   `status` tinyint(1) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `oc_language`
 --
 
 INSERT INTO `oc_language` (`language_id`, `name`, `code`, `locale`, `image`, `directory`, `filename`, `sort_order`, `status`) VALUES
-(1, 'English', 'en', 'en_US.UTF-8,en_US,en-gb,english', 'gb.png', 'english', 'english', 1, 1),
-(2, 'German', 'de', 'de_DE.UTF-8,de_DE,de-de,german', 'de.png', 'german', 'german', 2, 1),
-(3, 'Spanish', 'es', 'es_ES.UTF-8,es_ES,es_es,Español', 'es.png', 'spanish', 'spanish', 3, 1);
+(4, 'Português (BR)', 'pt-br', 'pt_BR.UTF-8, pt_BR, UTF-8', 'br.png', 'portuguese-br', 'portuguese-br', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1561,15 +1461,9 @@ CREATE TABLE `oc_length_class_description` (
 --
 
 INSERT INTO `oc_length_class_description` (`length_class_id`, `language_id`, `title`, `unit`) VALUES
-(1, 1, 'Centimeter', 'cm'),
-(2, 1, 'Millimeter', 'mm'),
-(3, 1, 'Inch', 'in'),
-(1, 2, 'Centimeter', 'cm'),
-(2, 2, 'Millimeter', 'mm'),
-(3, 2, 'Inch', 'in'),
-(1, 3, 'Centimeter', 'cm'),
-(2, 3, 'Millimeter', 'mm'),
-(3, 3, 'Inch', 'in');
+(1, 4, 'Centimeter', 'cm'),
+(2, 4, 'Millimeter', 'mm'),
+(3, 4, 'Inch', 'in');
 
 -- --------------------------------------------------------
 
@@ -1689,39 +1583,17 @@ CREATE TABLE `oc_option_description` (
 --
 
 INSERT INTO `oc_option_description` (`option_id`, `language_id`, `name`) VALUES
-(1, 1, 'Radio'),
-(2, 1, 'Checkbox'),
-(4, 1, 'Text'),
-(6, 1, 'Textarea'),
-(8, 1, 'Date'),
-(7, 1, 'File'),
-(5, 1, 'Select'),
-(9, 1, 'Time'),
-(10, 1, 'Date &amp; Time'),
-(12, 1, 'Delivery Date'),
-(11, 1, 'Size'),
-(1, 2, 'Radio'),
-(2, 2, 'Checkbox'),
-(4, 2, 'Text'),
-(6, 2, 'Textarea'),
-(8, 2, 'Date'),
-(7, 2, 'File'),
-(5, 2, 'Select'),
-(9, 2, 'Time'),
-(10, 2, 'Date &amp; Time'),
-(12, 2, 'Delivery Date'),
-(11, 2, 'Size'),
-(1, 3, 'Radio'),
-(2, 3, 'Checkbox'),
-(4, 3, 'Text'),
-(6, 3, 'Textarea'),
-(8, 3, 'Date'),
-(7, 3, 'File'),
-(5, 3, 'Select'),
-(9, 3, 'Time'),
-(10, 3, 'Date &amp; Time'),
-(12, 3, 'Delivery Date'),
-(11, 3, 'Size');
+(1, 4, 'Radio'),
+(2, 4, 'Checkbox'),
+(4, 4, 'Text'),
+(6, 4, 'Textarea'),
+(8, 4, 'Date'),
+(7, 4, 'File'),
+(5, 4, 'Select'),
+(9, 4, 'Time'),
+(10, 4, 'Date &amp; Time'),
+(12, 4, 'Delivery Date'),
+(11, 4, 'Size');
 
 -- --------------------------------------------------------
 
@@ -1774,48 +1646,20 @@ CREATE TABLE `oc_option_value_description` (
 --
 
 INSERT INTO `oc_option_value_description` (`option_value_id`, `language_id`, `option_id`, `name`) VALUES
-(43, 1, 1, 'Large'),
-(32, 1, 1, 'Small'),
-(45, 1, 2, 'Checkbox 4'),
-(44, 1, 2, 'Checkbox 3'),
-(31, 1, 1, 'Medium'),
-(42, 1, 5, 'Yellow'),
-(41, 1, 5, 'Green'),
-(39, 1, 5, 'Red'),
-(40, 1, 5, 'Blue'),
-(23, 1, 2, 'Checkbox 1'),
-(24, 1, 2, 'Checkbox 2'),
-(48, 1, 11, 'Large'),
-(47, 1, 11, 'Medium'),
-(46, 1, 11, 'Small'),
-(43, 2, 1, 'Large'),
-(32, 2, 1, 'Small'),
-(45, 2, 2, 'Checkbox 4'),
-(44, 2, 2, 'Checkbox 3'),
-(31, 2, 1, 'Medium'),
-(42, 2, 5, 'Yellow'),
-(41, 2, 5, 'Green'),
-(39, 2, 5, 'Red'),
-(40, 2, 5, 'Blue'),
-(23, 2, 2, 'Checkbox 1'),
-(24, 2, 2, 'Checkbox 2'),
-(48, 2, 11, 'Large'),
-(47, 2, 11, 'Medium'),
-(46, 2, 11, 'Small'),
-(43, 3, 1, 'Large'),
-(32, 3, 1, 'Small'),
-(45, 3, 2, 'Checkbox 4'),
-(44, 3, 2, 'Checkbox 3'),
-(31, 3, 1, 'Medium'),
-(42, 3, 5, 'Yellow'),
-(41, 3, 5, 'Green'),
-(39, 3, 5, 'Red'),
-(40, 3, 5, 'Blue'),
-(23, 3, 2, 'Checkbox 1'),
-(24, 3, 2, 'Checkbox 2'),
-(48, 3, 11, 'Large'),
-(47, 3, 11, 'Medium'),
-(46, 3, 11, 'Small');
+(43, 4, 1, 'Large'),
+(32, 4, 1, 'Small'),
+(45, 4, 2, 'Checkbox 4'),
+(44, 4, 2, 'Checkbox 3'),
+(31, 4, 1, 'Medium'),
+(42, 4, 5, 'Yellow'),
+(41, 4, 5, 'Green'),
+(39, 4, 5, 'Red'),
+(40, 4, 5, 'Blue'),
+(23, 4, 2, 'Checkbox 1'),
+(24, 4, 2, 'Checkbox 2'),
+(48, 4, 11, 'Large'),
+(47, 4, 11, 'Medium'),
+(46, 4, 11, 'Small');
 
 -- --------------------------------------------------------
 
@@ -2088,48 +1932,20 @@ CREATE TABLE `oc_order_status` (
 --
 
 INSERT INTO `oc_order_status` (`order_status_id`, `language_id`, `name`) VALUES
-(2, 1, 'Processing'),
-(3, 1, 'Shipped'),
-(7, 1, 'Canceled'),
-(5, 1, 'Complete'),
-(8, 1, 'Denied'),
-(9, 1, 'Canceled Reversal'),
-(10, 1, 'Failed'),
-(11, 1, 'Refunded'),
-(12, 1, 'Reversed'),
-(13, 1, 'Chargeback'),
-(1, 1, 'Pending'),
-(16, 1, 'Voided'),
-(15, 1, 'Processed'),
-(14, 1, 'Expired'),
-(2, 2, 'Processing'),
-(3, 2, 'Shipped'),
-(7, 2, 'Canceled'),
-(5, 2, 'Complete'),
-(8, 2, 'Denied'),
-(9, 2, 'Canceled Reversal'),
-(10, 2, 'Failed'),
-(11, 2, 'Refunded'),
-(12, 2, 'Reversed'),
-(13, 2, 'Chargeback'),
-(1, 2, 'Pending'),
-(16, 2, 'Voided'),
-(15, 2, 'Processed'),
-(14, 2, 'Expired'),
-(2, 3, 'Processing'),
-(3, 3, 'Shipped'),
-(7, 3, 'Canceled'),
-(5, 3, 'Complete'),
-(8, 3, 'Denied'),
-(9, 3, 'Canceled Reversal'),
-(10, 3, 'Failed'),
-(11, 3, 'Refunded'),
-(12, 3, 'Reversed'),
-(13, 3, 'Chargeback'),
-(1, 3, 'Pending'),
-(16, 3, 'Voided'),
-(15, 3, 'Processed'),
-(14, 3, 'Expired');
+(2, 4, 'Processing'),
+(3, 4, 'Shipped'),
+(7, 4, 'Canceled'),
+(5, 4, 'Complete'),
+(8, 4, 'Denied'),
+(9, 4, 'Canceled Reversal'),
+(10, 4, 'Failed'),
+(11, 4, 'Refunded'),
+(12, 4, 'Reversed'),
+(13, 4, 'Chargeback'),
+(1, 4, 'Pending'),
+(16, 4, 'Voided'),
+(15, 4, 'Processed'),
+(14, 4, 'Expired');
 
 -- --------------------------------------------------------
 
@@ -2251,21 +2067,11 @@ CREATE TABLE `oc_product_attribute` (
 --
 
 INSERT INTO `oc_product_attribute` (`product_id`, `attribute_id`, `language_id`, `text`) VALUES
-(43, 4, 1, '8gb'),
-(47, 4, 3, ''),
-(43, 4, 2, ''),
-(42, 3, 3, ''),
-(47, 4, 2, ''),
-(47, 4, 1, '16GB'),
-(42, 3, 2, ''),
-(43, 2, 3, ''),
-(47, 2, 3, ''),
-(43, 4, 3, ''),
-(47, 2, 2, ''),
-(43, 2, 2, ''),
-(47, 2, 1, '4'),
-(42, 3, 1, '100mhz'),
-(43, 2, 1, '1');
+(43, 4, 4, '8gb'),
+(47, 4, 4, '16GB'),
+(47, 2, 4, '4'),
+(42, 3, 4, '100mhz'),
+(43, 2, 4, '1');
 
 -- --------------------------------------------------------
 
@@ -2288,63 +2094,25 @@ CREATE TABLE `oc_product_description` (
 --
 
 INSERT INTO `oc_product_description` (`product_id`, `language_id`, `name`, `description`, `meta_description`, `meta_keyword`, `tag`) VALUES
-(36, 1, 'Lorem sett mollit anim id est laborum.', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(36, 2, 'Lorem sett mollit anim id est laborum.', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(36, 3, 'Lorem sett mollit anim id est laborum.', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(43, 2, 'Lorem ipsum dolor sit amet conse ctetur', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(32, 3, 'Excepteur sint occaecat cupidatat no', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(45, 3, 'deserunt mollit anim id est laborum', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(45, 1, 'deserunt mollit anim id est laborum', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(45, 2, 'deserunt mollit anim id est laborum', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(31, 1, 'Lorem ipsum conse ctetur', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(31, 2, 'Lorem ipsum conse ctetur', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(31, 3, 'Lorem ipsum conse ctetur', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(34, 1, 'Incididunt ut', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(34, 2, 'Incididunt ut', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(30, 1, 'Lorem ipsum dolor sit amet conse ctetur adipisicing eli', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(30, 3, 'Lorem ipsum dolor sit amet conse ctetur adipisicing eli', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(30, 2, 'Lorem ipsum dolor sit amet conse ctetur adipisicing eli', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(29, 1, 'sunt in culpa qui officia ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(29, 2, 'sunt in culpa qui officia ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(29, 3, 'sunt in culpa qui officia ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(33, 3, 'Ecco enswom sucaal Ecco enswom sucaal', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(40, 3, 'Ipsum dolor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(35, 3, 'Eiusmod tempor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(42, 3, 'Lorem ipsum dolor sit', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(47, 3, 'Ipsum dolor conse', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(49, 3, 'Mfgna set dolor sit amet', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(41, 3, 'Gyllamn sticba Gyllamn sticba', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(28, 3, 'Magna aliqua tation ullamcorper', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(44, 3, 'ISpsum dolor sit amet', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(46, 3, 'Esse cillum dolore', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(48, 3, 'Ut labore et Ut labore et', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(34, 3, 'Incididunt ut', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(33, 1, 'Ecco enswom sucaal Ecco enswom sucaal', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(33, 2, 'Ecco enswom sucaal Ecco enswom sucaal', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(32, 1, 'Excepteur sint occaecat cupidatat no', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(32, 2, 'Excepteur sint occaecat cupidatat no', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(43, 3, 'Lorem ipsum dolor sit amet conse ctetur', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(42, 1, 'Lorem ipsum dolor sit', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(42, 2, 'Lorem ipsum dolor sit', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(35, 1, 'Eiusmod tempor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(35, 2, 'Eiusmod tempor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(40, 1, 'Ipsum dolor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(40, 2, 'Ipsum dolor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(41, 1, 'Gyllamn sticba Gyllamn sticba', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(41, 2, 'Gyllamn sticba Gyllamn sticba', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(49, 1, 'Mfgna set dolor sit amet', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(49, 2, 'Mfgna set dolor sit amet', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(47, 1, 'Ipsum dolor conse', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(47, 2, 'Ipsum dolor conse', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(46, 1, 'Esse cillum dolore', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(46, 2, 'Esse cillum dolore', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(44, 1, 'ISpsum dolor sit amet', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(44, 2, 'ISpsum dolor sit amet', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(28, 1, 'Magna aliqua tation ullamcorper', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(28, 2, 'Magna aliqua tation ullamcorper', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(48, 1, 'Ut labore et Ut labore et', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(48, 2, 'Ut labore et Ut labore et', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
-(43, 1, 'Lorem ipsum dolor sit amet conse ctetur', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', 'lorem, ipsum, dolore');
+(36, 4, 'Lorem sett mollit anim id est laborum.', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(45, 4, 'deserunt mollit anim id est laborum', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(31, 4, 'Lorem ipsum conse ctetur', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(34, 4, 'Incididunt ut', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(30, 4, 'Lorem ipsum dolor sit amet conse ctetur adipisicing eli', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(29, 4, 'sunt in culpa qui officia ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(33, 4, 'Ecco enswom sucaal Ecco enswom sucaal', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(32, 4, 'Excepteur sint occaecat cupidatat no', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(42, 4, 'Lorem ipsum dolor sit', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(35, 4, 'Eiusmod tempor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(40, 4, 'Ipsum dolor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(41, 4, 'Gyllamn sticba Gyllamn sticba', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(49, 4, 'Mfgna set dolor sit amet', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(47, 4, 'Ipsum dolor conse', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(46, 4, 'Esse cillum dolore', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(44, 4, 'ISpsum dolor sit amet', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(28, 4, 'Magna aliqua tation ullamcorper', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(48, 4, 'Ut labore et Ut labore et', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', ''),
+(43, 4, 'Lorem ipsum dolor sit amet conse ctetur', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '', 'lorem, ipsum, dolore');
 
 -- --------------------------------------------------------
 
@@ -2867,15 +2635,9 @@ CREATE TABLE `oc_return_action` (
 --
 
 INSERT INTO `oc_return_action` (`return_action_id`, `language_id`, `name`) VALUES
-(1, 1, 'Refunded'),
-(2, 1, 'Credit Issued'),
-(3, 1, 'Replacement Sent'),
-(1, 2, 'Refunded'),
-(2, 2, 'Credit Issued'),
-(3, 2, 'Replacement Sent'),
-(1, 3, 'Refunded'),
-(2, 3, 'Credit Issued'),
-(3, 3, 'Replacement Sent');
+(1, 4, 'Refunded'),
+(2, 4, 'Credit Issued'),
+(3, 4, 'Replacement Sent');
 
 -- --------------------------------------------------------
 
@@ -2909,21 +2671,11 @@ CREATE TABLE `oc_return_reason` (
 --
 
 INSERT INTO `oc_return_reason` (`return_reason_id`, `language_id`, `name`) VALUES
-(1, 1, 'Dead On Arrival'),
-(2, 1, 'Received Wrong Item'),
-(3, 1, 'Order Error'),
-(4, 1, 'Faulty, please supply details'),
-(5, 1, 'Other, please supply details'),
-(1, 2, 'Dead On Arrival'),
-(2, 2, 'Received Wrong Item'),
-(3, 2, 'Order Error'),
-(4, 2, 'Faulty, please supply details'),
-(5, 2, 'Other, please supply details'),
-(1, 3, 'Dead On Arrival'),
-(2, 3, 'Received Wrong Item'),
-(3, 3, 'Order Error'),
-(4, 3, 'Faulty, please supply details'),
-(5, 3, 'Other, please supply details');
+(1, 4, 'Dead On Arrival'),
+(2, 4, 'Received Wrong Item'),
+(3, 4, 'Order Error'),
+(4, 4, 'Faulty, please supply details'),
+(5, 4, 'Other, please supply details');
 
 -- --------------------------------------------------------
 
@@ -2942,15 +2694,9 @@ CREATE TABLE `oc_return_status` (
 --
 
 INSERT INTO `oc_return_status` (`return_status_id`, `language_id`, `name`) VALUES
-(1, 1, 'Pending'),
-(3, 1, 'Complete'),
-(2, 1, 'Awaiting Products'),
-(1, 2, 'Pending'),
-(3, 2, 'Complete'),
-(2, 2, 'Awaiting Products'),
-(1, 3, 'Pending'),
-(3, 3, 'Complete'),
-(2, 3, 'Awaiting Products');
+(1, 4, 'Pending'),
+(3, 4, 'Complete'),
+(2, 4, 'Awaiting Products');
 
 -- --------------------------------------------------------
 
@@ -2983,7 +2729,7 @@ CREATE TABLE `oc_setting` (
   `key` varchar(64) NOT NULL,
   `value` text NOT NULL,
   `serialized` tinyint(1) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=4924 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5145 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `oc_setting`
@@ -2997,35 +2743,17 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 (5, 0, 'total', 'total_sort_order', '9', 0),
 (6, 0, 'total', 'total_status', '1', 0),
 (7, 0, 'tax', 'tax_sort_order', '5', 0),
-(8, 0, 'free_checkout', 'free_checkout_sort_order', '1', 0),
-(9, 0, 'cod', 'cod_sort_order', '5', 0),
-(10, 0, 'cod', 'cod_total', '0.01', 0),
-(11, 0, 'cod', 'cod_order_status_id', '1', 0),
-(12, 0, 'cod', 'cod_geo_zone_id', '0', 0),
-(13, 0, 'cod', 'cod_status', '1', 0),
 (14, 0, 'shipping', 'shipping_status', '1', 0),
 (15, 0, 'shipping', 'shipping_estimator', '1', 0),
 (4812, 0, 'newcarousel', 'newcarousel_module', 'a:1:{i:0;a:7:{s:9:"banner_id";s:2:"15";s:5:"width";s:3:"870";s:6:"height";s:3:"469";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
 (27, 0, 'coupon', 'coupon_sort_order', '4', 0),
 (28, 0, 'coupon', 'coupon_status', '1', 0),
-(3047, 0, 'flat', 'flat_sort_order', '1', 0),
-(3046, 0, 'flat', 'flat_status', '1', 0),
-(3045, 0, 'flat', 'flat_geo_zone_id', '0', 0),
-(3044, 0, 'flat', 'flat_tax_class_id', '9', 0),
-(4897, 0, 'config', 'config_smtp_password', '', 0),
-(4898, 0, 'config', 'config_smtp_port', '25', 0),
-(4899, 0, 'config', 'config_smtp_timeout', '5', 0),
-(4900, 0, 'config', 'config_alert_mail', '0', 0),
-(4901, 0, 'config', 'config_account_mail', '0', 0),
-(4902, 0, 'config', 'config_alert_emails', '', 0),
-(4903, 0, 'config', 'config_fraud_detection', '0', 0),
-(4904, 0, 'config', 'config_fraud_key', '', 0),
-(4905, 0, 'config', 'config_fraud_score', '', 0),
-(4906, 0, 'config', 'config_fraud_status_id', '7', 0),
-(4907, 0, 'config', 'config_secure', '0', 0),
-(4908, 0, 'config', 'config_shared', '0', 0),
-(4909, 0, 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai''hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwget\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', 0),
-(3043, 0, 'flat', 'flat_cost', '5.00', 0),
+(5134, 0, 'correios', 'correios_contrato_codigo', '', 0),
+(5133, 0, 'correios', 'correios_41106', '1', 0),
+(5119, 0, 'config', 'config_seo_url', '0', 0),
+(5120, 0, 'config', 'config_file_extension_allowed', 'txt\r\npng\r\njpe\r\njpeg\r\njpg\r\ngif\r\nbmp\r\nico\r\ntiff\r\ntif\r\nsvg\r\nsvgz\r\nzip\r\nrar\r\nmsi\r\ncab\r\nmp3\r\nqt\r\nmov\r\npdf\r\npsd\r\nai\r\neps\r\nps\r\ndoc\r\nrtf\r\nxls\r\nppt\r\nodt\r\nods', 0),
+(5121, 0, 'config', 'config_file_mime_allowed', 'text/plain\r\nimage/png\r\nimage/jpeg\r\nimage/jpeg\r\nimage/jpeg\r\nimage/gif\r\nimage/bmp\r\nimage/vnd.microsoft.icon\r\nimage/tiff\r\nimage/tiff\r\nimage/svg+xml\r\nimage/svg+xml\r\napplication/zip\r\napplication/x-rar-compressed\r\napplication/x-msdownload\r\napplication/vnd.ms-cab-compressed\r\naudio/mpeg\r\nvideo/quicktime\r\nvideo/quicktime\r\napplication/pdf\r\nimage/vnd.adobe.photoshop\r\napplication/postscript\r\napplication/postscript\r\napplication/postscript\r\napplication/msword\r\napplication/rtf\r\napplication/vnd.ms-excel\r\napplication/vnd.ms-powerpoint\r\napplication/vnd.oasis.opendocument.text\r\napplication/vnd.oasis.opendocument.spreadsheet', 0),
+(5132, 0, 'correios', 'correios_40215', '1', 0),
 (42, 0, 'credit', 'credit_sort_order', '7', 0),
 (43, 0, 'credit', 'credit_status', '1', 0),
 (53, 0, 'reward', 'reward_sort_order', '2', 0),
@@ -3035,114 +2763,129 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 (4805, 0, 'compare', 'compare_module', 'a:2:{i:0;a:4:{s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:1;a:4:{s:9:"layout_id";s:1:"2";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
 (94, 0, 'voucher', 'voucher_sort_order', '8', 0),
 (95, 0, 'voucher', 'voucher_status', '1', 0),
-(103, 0, 'free_checkout', 'free_checkout_status', '1', 0),
-(104, 0, 'free_checkout', 'free_checkout_order_status_id', '1', 0),
 (4802, 0, 'affiliate', 'affiliate_module', 'a:1:{i:0;a:4:{s:9:"layout_id";s:2:"10";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}}', 1),
 (4809, 0, 'filter', 'filter_module', 'a:1:{i:0;a:4:{s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
 (4817, 0, 'information', 'information_module', 'a:1:{i:0;a:4:{s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"9";}}', 1),
-(4912, 0, 'config', 'config_file_mime_allowed', 'text/plain\r\nimage/png\r\nimage/jpeg\r\nimage/jpeg\r\nimage/jpeg\r\nimage/gif\r\nimage/bmp\r\nimage/vnd.microsoft.icon\r\nimage/tiff\r\nimage/tiff\r\nimage/svg+xml\r\nimage/svg+xml\r\napplication/zip\r\napplication/x-rar-compressed\r\napplication/x-msdownload\r\napplication/vnd.ms-cab-compressed\r\naudio/mpeg\r\nvideo/quicktime\r\nvideo/quicktime\r\napplication/pdf\r\nimage/vnd.adobe.photoshop\r\napplication/postscript\r\napplication/postscript\r\napplication/postscript\r\napplication/msword\r\napplication/rtf\r\napplication/vnd.ms-excel\r\napplication/vnd.ms-powerpoint\r\napplication/vnd.oasis.opendocument.text\r\napplication/vnd.oasis.opendocument.spreadsheet', 0),
-(4911, 0, 'config', 'config_file_extension_allowed', 'txt\r\npng\r\njpe\r\njpeg\r\njpg\r\ngif\r\nbmp\r\nico\r\ntiff\r\ntif\r\nsvg\r\nsvgz\r\nzip\r\nrar\r\nmsi\r\ncab\r\nmp3\r\nqt\r\nmov\r\npdf\r\npsd\r\nai\r\neps\r\nps\r\ndoc\r\nrtf\r\nxls\r\nppt\r\nodt\r\nods', 0),
-(4910, 0, 'config', 'config_seo_url', '0', 0),
-(4896, 0, 'config', 'config_smtp_username', '', 0),
-(4895, 0, 'config', 'config_smtp_host', '', 0),
-(4894, 0, 'config', 'config_mail_parameter', '', 0),
-(4893, 0, 'config', 'config_mail_protocol', 'mail', 0),
-(4892, 0, 'config', 'config_ftp_status', '0', 0),
-(4891, 0, 'config', 'config_ftp_root', '', 0),
+(5118, 0, 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai''hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwget\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', 0),
+(5117, 0, 'config', 'config_shared', '0', 0),
+(5116, 0, 'config', 'config_secure', '0', 0),
+(5115, 0, 'config', 'config_fraud_status_id', '7', 0),
+(5114, 0, 'config', 'config_fraud_score', '', 0),
+(5113, 0, 'config', 'config_fraud_key', '', 0),
+(5112, 0, 'config', 'config_fraud_detection', '0', 0),
+(5111, 0, 'config', 'config_alert_emails', '', 0),
+(5107, 0, 'config', 'config_smtp_port', '25', 0),
+(5108, 0, 'config', 'config_smtp_timeout', '5', 0),
+(5109, 0, 'config', 'config_alert_mail', '0', 0),
+(5110, 0, 'config', 'config_account_mail', '0', 0),
+(5106, 0, 'config', 'config_smtp_password', '', 0),
+(5104, 0, 'config', 'config_smtp_host', '', 0),
+(5105, 0, 'config', 'config_smtp_username', '', 0),
+(5103, 0, 'config', 'config_mail_parameter', '', 0),
 (4803, 0, 'banner', 'banner_module', 'a:1:{i:0;a:7:{s:9:"banner_id";s:2:"16";s:5:"width";s:3:"430";s:6:"height";s:3:"129";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";}}', 1),
-(4890, 0, 'config', 'config_ftp_password', '', 0),
-(4889, 0, 'config', 'config_ftp_username', '', 0),
-(4888, 0, 'config', 'config_ftp_port', '21', 0),
-(4887, 0, 'config', 'config_ftp_host', '192.168.9.2', 0),
-(4886, 0, 'config', 'config_image_cart_height', '47', 0),
-(4885, 0, 'config', 'config_image_cart_width', '47', 0),
-(4884, 0, 'config', 'config_image_wishlist_height', '47', 0),
-(4883, 0, 'config', 'config_image_wishlist_width', '47', 0),
-(4882, 0, 'config', 'config_image_compare_height', '90', 0),
-(4881, 0, 'config', 'config_image_compare_width', '90', 0),
-(4880, 0, 'config', 'config_image_related_height', '170', 0),
-(4879, 0, 'config', 'config_image_related_width', '170', 0),
-(4878, 0, 'config', 'config_image_additional_height', '70', 0),
-(4877, 0, 'config', 'config_image_additional_width', '70', 0),
-(4876, 0, 'config', 'config_image_product_height', '180', 0),
-(4875, 0, 'config', 'config_image_product_width', '180', 0),
-(4874, 0, 'config', 'config_image_popup_height', '600', 0),
-(4873, 0, 'config', 'config_image_popup_width', '600', 0),
-(4872, 0, 'config', 'config_image_thumb_height', '270', 0),
+(5102, 0, 'config', 'config_mail_protocol', 'mail', 0),
+(5101, 0, 'config', 'config_ftp_status', '0', 0),
+(5099, 0, 'config', 'config_ftp_password', '', 0),
+(5100, 0, 'config', 'config_ftp_root', '', 0),
+(5098, 0, 'config', 'config_ftp_username', '', 0),
+(5097, 0, 'config', 'config_ftp_port', '21', 0),
+(5095, 0, 'config', 'config_image_cart_height', '47', 0),
+(5096, 0, 'config', 'config_ftp_host', '192.168.9.2', 0),
+(5094, 0, 'config', 'config_image_cart_width', '47', 0),
+(5093, 0, 'config', 'config_image_wishlist_height', '47', 0),
+(5092, 0, 'config', 'config_image_wishlist_width', '47', 0),
+(5091, 0, 'config', 'config_image_compare_height', '90', 0),
+(5090, 0, 'config', 'config_image_compare_width', '90', 0),
+(5089, 0, 'config', 'config_image_related_height', '170', 0),
+(5088, 0, 'config', 'config_image_related_width', '170', 0),
 (2056, 0, 'newslideshow', 'slideshow_module', 'a:1:{i:0;a:7:{s:9:"banner_id";s:2:"14";s:5:"width";s:4:"1000";s:6:"height";s:3:"400";s:9:"layout_id";s:1:"6";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}}', 1),
-(4871, 0, 'config', 'config_image_thumb_width', '270', 0),
-(4870, 0, 'config', 'config_image_category_height', '190', 0),
-(4869, 0, 'config', 'config_image_category_width', '190', 0),
-(4868, 0, 'config', 'config_icon', 'data/favicon.png', 0),
-(4867, 0, 'config', 'config_logo', 'data/logo.png', 0),
-(4866, 0, 'config', 'config_return_status_id', '2', 0),
-(4865, 0, 'config', 'config_return_id', '0', 0),
-(3051, 0, 'free', 'free_sort_order', '2', 0),
-(3050, 0, 'free', 'free_status', '0', 0),
-(3049, 0, 'free', 'free_geo_zone_id', '0', 0),
-(3048, 0, 'free', 'free_total', '', 0),
+(5087, 0, 'config', 'config_image_additional_height', '70', 0),
+(5086, 0, 'config', 'config_image_additional_width', '70', 0),
+(5085, 0, 'config', 'config_image_product_height', '180', 0),
+(5084, 0, 'config', 'config_image_product_width', '180', 0),
+(5083, 0, 'config', 'config_image_popup_height', '600', 0),
+(5131, 0, 'correios', 'correios_40010', '1', 0),
+(5130, 0, 'correios', 'correios_postcode', '09560260', 0),
 (4804, 0, 'bestseller', 'bestseller_module', 'a:4:{i:0;a:7:{s:5:"limit";s:1:"1";s:11:"image_width";s:3:"180";s:12:"image_height";s:3:"180";s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:1;a:7:{s:5:"limit";s:1:"1";s:11:"image_width";s:3:"180";s:12:"image_height";s:3:"180";s:9:"layout_id";s:1:"4";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:2;a:7:{s:5:"limit";s:1:"1";s:11:"image_width";s:3:"180";s:12:"image_height";s:3:"180";s:9:"layout_id";s:1:"2";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:3;a:7:{s:5:"limit";s:1:"1";s:11:"image_width";s:3:"180";s:12:"image_height";s:3:"180";s:9:"layout_id";s:1:"8";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}}', 1),
-(4864, 0, 'config', 'config_commission', '5', 0),
 (4811, 0, 'latest', 'latest_module', 'a:4:{i:0;a:7:{s:5:"limit";s:1:"1";s:11:"image_width";s:3:"180";s:12:"image_height";s:3:"180";s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:1;a:7:{s:5:"limit";s:1:"1";s:11:"image_width";s:3:"180";s:12:"image_height";s:3:"180";s:9:"layout_id";s:1:"4";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:2;a:7:{s:5:"limit";s:1:"1";s:11:"image_width";s:3:"180";s:12:"image_height";s:3:"180";s:9:"layout_id";s:1:"9";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:3;a:7:{s:5:"limit";s:1:"1";s:11:"image_width";s:3:"180";s:12:"image_height";s:3:"180";s:9:"layout_id";s:1:"2";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}}', 1),
 (4815, 0, 'featured', 'featured_product', '43,32,29,45,31,36', 0),
 (4816, 0, 'featured', 'featured_module', 'a:1:{i:0;a:7:{s:5:"limit";s:1:"6";s:11:"image_width";s:3:"180";s:12:"image_height";s:3:"180";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";}}', 1),
-(4863, 0, 'config', 'config_affiliate_id', '4', 0),
-(4861, 0, 'config', 'config_stock_checkout', '0', 0),
-(4862, 0, 'config', 'config_stock_status_id', '5', 0),
-(4860, 0, 'config', 'config_stock_warning', '0', 0),
-(4859, 0, 'config', 'config_stock_display', '0', 0),
-(4858, 0, 'config', 'config_complete_status_id', '5', 0),
-(4857, 0, 'config', 'config_order_status_id', '1', 0),
-(4856, 0, 'config', 'config_invoice_prefix', 'INV-2012-00', 0),
-(4855, 0, 'config', 'config_order_edit', '100', 0),
-(4854, 0, 'config', 'config_checkout_id', '5', 0),
-(4853, 0, 'config', 'config_guest_checkout', '1', 0),
-(4852, 0, 'config', 'config_cart_weight', '1', 0),
-(4851, 0, 'config', 'config_account_id', '3', 0),
-(4850, 0, 'config', 'config_customer_price', '0', 0),
-(4849, 0, 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:"1";}', 1),
+(5082, 0, 'config', 'config_image_popup_width', '600', 0),
+(5081, 0, 'config', 'config_image_thumb_height', '270', 0),
+(5080, 0, 'config', 'config_image_thumb_width', '270', 0),
+(5079, 0, 'config', 'config_image_category_height', '190', 0),
+(5078, 0, 'config', 'config_image_category_width', '190', 0),
+(5077, 0, 'config', 'config_icon', 'data/favicon.png', 0),
+(5076, 0, 'config', 'config_logo', 'data/logo.png', 0),
+(5075, 0, 'config', 'config_return_status_id', '2', 0),
+(5074, 0, 'config', 'config_return_id', '0', 0),
 (4814, 0, 'featured', 'product', 'Ecco enswom sucaal', 0),
-(4848, 0, 'config', 'config_customer_group_id', '1', 0),
-(4847, 0, 'config', 'config_customer_online', '0', 0),
-(4846, 0, 'config', 'config_tax_customer', 'shipping', 0),
-(4845, 0, 'config', 'config_tax_default', 'shipping', 0),
-(4844, 0, 'config', 'config_vat', '0', 0),
-(4843, 0, 'config', 'config_tax', '1', 0),
-(4842, 0, 'config', 'config_voucher_max', '1000', 0),
-(4841, 0, 'config', 'config_voucher_min', '1', 0),
-(4840, 0, 'config', 'config_download', '1', 0),
-(4839, 0, 'config', 'config_review_status', '1', 0),
-(4838, 0, 'config', 'config_product_count', '1', 0),
-(4837, 0, 'config', 'config_admin_limit', '20', 0),
-(4836, 0, 'config', 'config_catalog_limit', '6', 0),
-(4835, 0, 'config', 'config_weight_class_id', '1', 0),
-(4834, 0, 'config', 'config_length_class_id', '1', 0),
-(4833, 0, 'config', 'config_currency_auto', '1', 0),
-(4832, 0, 'config', 'config_currency', 'USD', 0),
-(4823, 0, 'config', 'config_fax', '1-800-234-5678', 0),
-(4824, 0, 'config', 'config_title', 'Car audio', 0),
-(4825, 0, 'config', 'config_meta_description', 'Car audio', 0),
-(4826, 0, 'config', 'config_template', 'theme437', 0),
-(4827, 0, 'config', 'config_layout_id', '4', 0),
-(4828, 0, 'config', 'config_country_id', '222', 0),
-(4829, 0, 'config', 'config_zone_id', '3563', 0),
-(4830, 0, 'config', 'config_language', 'en', 0),
-(4831, 0, 'config', 'config_admin_language', 'en', 0),
-(4822, 0, 'config', 'config_telephone', '1-800-234-5677', 0),
-(4921, 0, 'config', 'config_email', 'fernando.mendes@webca.com.br', 0),
-(4820, 0, 'config', 'config_address', '8901 Marmora Road, Glasgow, D04 89GR', 0),
-(4819, 0, 'config', 'config_owner', 'Car audio', 0),
-(4818, 0, 'config', 'config_name', 'Car audio', 0),
+(5073, 0, 'config', 'config_commission', '5', 0),
+(5072, 0, 'config', 'config_affiliate_id', '4', 0),
+(5071, 0, 'config', 'config_stock_status_id', '5', 0),
+(5070, 0, 'config', 'config_stock_checkout', '0', 0),
+(5069, 0, 'config', 'config_stock_warning', '0', 0),
+(5068, 0, 'config', 'config_stock_display', '0', 0),
+(5067, 0, 'config', 'config_complete_status_id', '5', 0),
+(5066, 0, 'config', 'config_order_status_id', '1', 0),
+(5065, 0, 'config', 'config_invoice_prefix', 'INV-2012-00', 0),
+(5064, 0, 'config', 'config_order_edit', '100', 0),
+(5063, 0, 'config', 'config_checkout_id', '5', 0),
+(5062, 0, 'config', 'config_guest_checkout', '1', 0),
+(5061, 0, 'config', 'config_cart_weight', '1', 0),
+(5060, 0, 'config', 'config_account_id', '3', 0),
+(5059, 0, 'config', 'config_customer_price', '0', 0),
+(5058, 0, 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:"1";}', 1),
+(5057, 0, 'config', 'config_customer_group_id', '1', 0),
+(5056, 0, 'config', 'config_customer_online', '0', 0),
+(5054, 0, 'config', 'config_tax_default', 'shipping', 0),
+(5055, 0, 'config', 'config_tax_customer', 'shipping', 0),
+(5053, 0, 'config', 'config_vat', '0', 0),
 (4800, 0, 'manufacturer', 'manufacturer_module', 'a:11:{i:0;a:4:{s:9:"layout_id";s:1:"6";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:1;a:4:{s:9:"layout_id";s:2:"10";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:2;a:4:{s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:3;a:4:{s:9:"layout_id";s:1:"7";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:4;a:4:{s:9:"layout_id";s:1:"8";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:5;a:4:{s:9:"layout_id";s:1:"4";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:6;a:4:{s:9:"layout_id";s:1:"1";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:7;a:4:{s:9:"layout_id";s:2:"11";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:8;a:4:{s:9:"layout_id";s:1:"5";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:9;a:4:{s:9:"layout_id";s:1:"2";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:10;a:4:{s:9:"layout_id";s:1:"9";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
-(4913, 0, 'config', 'config_maintenance', '0', 0),
-(4914, 0, 'config', 'config_password', '1', 0),
-(4923, 0, 'config', 'config_encryption', '30ae39a01e38f96ae63e286872439330', 0),
-(4916, 0, 'config', 'config_compression', '0', 0),
-(4917, 0, 'config', 'config_error_display', '1', 0),
-(4918, 0, 'config', 'config_error_log', '1', 0),
-(4919, 0, 'config', 'config_error_filename', 'error.txt', 0),
-(4920, 0, 'config', 'config_google_analytics', '', 0),
-(4922, 0, 'config', 'config_url', 'http://homolog.alfabetoauto.com.br/', 0);
+(5052, 0, 'config', 'config_tax', '1', 0),
+(5051, 0, 'config', 'config_voucher_max', '1000', 0),
+(5049, 0, 'config', 'config_download', '1', 0),
+(5050, 0, 'config', 'config_voucher_min', '1', 0),
+(5048, 0, 'config', 'config_review_status', '1', 0),
+(5047, 0, 'config', 'config_product_count', '1', 0),
+(5046, 0, 'config', 'config_admin_limit', '20', 0),
+(5043, 0, 'config', 'config_length_class_id', '1', 0),
+(5044, 0, 'config', 'config_weight_class_id', '1', 0),
+(5045, 0, 'config', 'config_catalog_limit', '6', 0),
+(5031, 0, 'config', 'config_telephone', '1-800-234-5677', 0),
+(5032, 0, 'config', 'config_fax', '1-800-234-5678', 0),
+(5033, 0, 'config', 'config_title', 'Alfabeto Auto', 0),
+(5034, 0, 'config', 'config_meta_description', 'Alfabeto Auto', 0),
+(5035, 0, 'config', 'config_template', 'theme437', 0),
+(5036, 0, 'config', 'config_layout_id', '4', 0),
+(5037, 0, 'config', 'config_country_id', '30', 0),
+(5038, 0, 'config', 'config_zone_id', '464', 0),
+(5039, 0, 'config', 'config_language', 'pt-br', 0),
+(5040, 0, 'config', 'config_admin_language', 'pt-br', 0),
+(5041, 0, 'config', 'config_currency', 'BRL', 0),
+(5042, 0, 'config', 'config_currency_auto', '1', 0),
+(5030, 0, 'config', 'config_email', 'fernando.mendes@webca.com.br', 0),
+(5029, 0, 'config', 'config_address', '8901 Marmora Road, Glasgow, D04 89GR', 0),
+(5028, 0, 'config', 'config_owner', 'Alfabeto Auto', 0),
+(5027, 0, 'config', 'config_name', 'Alfabeto Auto', 0),
+(5122, 0, 'config', 'config_maintenance', '0', 0),
+(5123, 0, 'config', 'config_password', '1', 0),
+(5124, 0, 'config', 'config_encryption', '30ae39a01e38f96ae63e286872439330', 0),
+(5125, 0, 'config', 'config_compression', '0', 0),
+(5126, 0, 'config', 'config_error_display', '1', 0),
+(5127, 0, 'config', 'config_error_log', '1', 0),
+(5128, 0, 'config', 'config_error_filename', 'error.txt', 0),
+(5129, 0, 'config', 'config_google_analytics', '', 0),
+(5135, 0, 'correios', 'correios_contrato_senha', '', 0),
+(5136, 0, 'correios', 'correios_mao_propria', 'n', 0),
+(5137, 0, 'correios', 'correios_aviso_recebimento', 'n', 0),
+(5138, 0, 'correios', 'correios_declarar_valor', 'n', 0),
+(5139, 0, 'correios', 'correios_adicional', '15', 0),
+(5140, 0, 'correios', 'correios_prazo_adicional', '', 0),
+(5141, 0, 'correios', 'correios_tax_class_id', '0', 0),
+(5142, 0, 'correios', 'correios_geo_zone_id', '0', 0),
+(5143, 0, 'correios', 'correios_status', '1', 0),
+(5144, 0, 'correios', 'correios_sort_order', '', 0);
 
 -- --------------------------------------------------------
 
@@ -3161,18 +2904,10 @@ CREATE TABLE `oc_stock_status` (
 --
 
 INSERT INTO `oc_stock_status` (`stock_status_id`, `language_id`, `name`) VALUES
-(7, 1, 'In Stock'),
-(8, 1, 'Pre-Order'),
-(5, 1, 'Out Of Stock'),
-(6, 1, '2 - 3 Days'),
-(7, 2, 'In Stock'),
-(8, 2, 'Pre-Order'),
-(5, 2, 'Out Of Stock'),
-(6, 2, '2 - 3 Days'),
-(7, 3, 'In Stock'),
-(8, 3, 'Pre-Order'),
-(5, 3, 'Out Of Stock'),
-(6, 3, '2 - 3 Days');
+(7, 4, 'In Stock'),
+(8, 4, 'Pre-Order'),
+(5, 4, 'Out Of Stock'),
+(6, 4, '2 - 3 Days');
 
 -- --------------------------------------------------------
 
@@ -3286,7 +3021,7 @@ CREATE TABLE `oc_url_alias` (
 `url_alias_id` int(11) NOT NULL,
   `query` varchar(255) NOT NULL,
   `keyword` varchar(255) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=786 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=788 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `oc_url_alias`
@@ -3298,7 +3033,7 @@ INSERT INTO `oc_url_alias` (`url_alias_id`, `query`, `keyword`) VALUES
 (503, 'category_id=26', 'pc'),
 (505, 'category_id=27', 'mac'),
 (783, 'manufacturer_id=8', 'apple'),
-(778, 'information_id=4', 'about_us'),
+(787, 'information_id=4', 'about_us'),
 (785, 'product_id=42', 'test'),
 (767, 'category_id=34', 'mp3-players'),
 (779, 'category_id=36', 'Normal');
@@ -3329,7 +3064,7 @@ CREATE TABLE `oc_user` (
 --
 
 INSERT INTO `oc_user` (`user_id`, `user_group_id`, `username`, `password`, `salt`, `firstname`, `lastname`, `email`, `code`, `ip`, `status`, `date_added`) VALUES
-(1, 1, 'admin', '2656df71abdcca0e28c1a1c3f5b8963d33856827', '021d24d61', '', '', 'fernando.mendes@webca.com.br', '', '', 1, '2015-03-09 04:06:45');
+(1, 1, 'admin', '2656df71abdcca0e28c1a1c3f5b8963d33856827', '021d24d61', '', '', 'fernando.mendes@webca.com.br', '', '127.0.0.1', 1, '2015-03-09 04:06:45');
 
 -- --------------------------------------------------------
 
@@ -3348,7 +3083,7 @@ CREATE TABLE `oc_user_group` (
 --
 
 INSERT INTO `oc_user_group` (`user_group_id`, `name`, `permission`) VALUES
-(1, 'Top Administrator', 'a:2:{s:6:"access";a:151:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:15:"catalog/profile";i:10;s:14:"catalog/review";i:11;s:18:"common/filemanager";i:12;s:13:"design/banner";i:13;s:19:"design/custom_field";i:14;s:13:"design/layout";i:15;s:14:"extension/feed";i:16;s:17:"extension/manager";i:17;s:16:"extension/module";i:18;s:17:"extension/openbay";i:19;s:17:"extension/payment";i:20;s:18:"extension/shipping";i:21;s:15:"extension/total";i:22;s:16:"feed/google_base";i:23;s:19:"feed/google_sitemap";i:24;s:20:"localisation/country";i:25;s:21:"localisation/currency";i:26;s:21:"localisation/geo_zone";i:27;s:21:"localisation/language";i:28;s:25:"localisation/length_class";i:29;s:25:"localisation/order_status";i:30;s:26:"localisation/return_action";i:31;s:26:"localisation/return_reason";i:32;s:26:"localisation/return_status";i:33;s:25:"localisation/stock_status";i:34;s:22:"localisation/tax_class";i:35;s:21:"localisation/tax_rate";i:36;s:25:"localisation/weight_class";i:37;s:17:"localisation/zone";i:38;s:14:"module/account";i:39;s:16:"module/affiliate";i:40;s:29:"module/amazon_checkout_layout";i:41;s:13:"module/banner";i:42;s:17:"module/bestseller";i:43;s:15:"module/carousel";i:44;s:15:"module/category";i:45;s:18:"module/ebaydisplay";i:46;s:15:"module/featured";i:47;s:13:"module/filter";i:48;s:18:"module/google_talk";i:49;s:18:"module/information";i:50;s:13:"module/latest";i:51;s:17:"module/openbaypro";i:52;s:16:"module/pp_layout";i:53;s:16:"module/slideshow";i:54;s:14:"module/special";i:55;s:12:"module/store";i:56;s:14:"module/welcome";i:57;s:14:"openbay/amazon";i:58;s:22:"openbay/amazon_listing";i:59;s:22:"openbay/amazon_product";i:60;s:16:"openbay/amazonus";i:61;s:24:"openbay/amazonus_listing";i:62;s:24:"openbay/amazonus_product";i:63;s:20:"openbay/ebay_profile";i:64;s:21:"openbay/ebay_template";i:65;s:15:"openbay/openbay";i:66;s:23:"payment/amazon_checkout";i:67;s:24:"payment/authorizenet_aim";i:68;s:21:"payment/bank_transfer";i:69;s:14:"payment/cheque";i:70;s:11:"payment/cod";i:71;s:21:"payment/free_checkout";i:72;s:22:"payment/klarna_account";i:73;s:22:"payment/klarna_invoice";i:74;s:14:"payment/liqpay";i:75;s:20:"payment/moneybookers";i:76;s:14:"payment/nochex";i:77;s:15:"payment/paymate";i:78;s:16:"payment/paypoint";i:79;s:13:"payment/payza";i:80;s:26:"payment/perpetual_payments";i:81;s:18:"payment/pp_express";i:82;s:25:"payment/pp_payflow_iframe";i:83;s:14:"payment/pp_pro";i:84;s:21:"payment/pp_pro_iframe";i:85;s:17:"payment/pp_pro_pf";i:86;s:17:"payment/pp_pro_uk";i:87;s:19:"payment/pp_standard";i:88;s:15:"payment/sagepay";i:89;s:22:"payment/sagepay_direct";i:90;s:18:"payment/sagepay_us";i:91;s:19:"payment/twocheckout";i:92;s:28:"payment/web_payment_software";i:93;s:16:"payment/worldpay";i:94;s:27:"report/affiliate_commission";i:95;s:22:"report/customer_credit";i:96;s:22:"report/customer_online";i:97;s:21:"report/customer_order";i:98;s:22:"report/customer_reward";i:99;s:24:"report/product_purchased";i:100;s:21:"report/product_viewed";i:101;s:18:"report/sale_coupon";i:102;s:17:"report/sale_order";i:103;s:18:"report/sale_return";i:104;s:20:"report/sale_shipping";i:105;s:15:"report/sale_tax";i:106;s:14:"sale/affiliate";i:107;s:12:"sale/contact";i:108;s:11:"sale/coupon";i:109;s:13:"sale/customer";i:110;s:20:"sale/customer_ban_ip";i:111;s:19:"sale/customer_group";i:112;s:10:"sale/order";i:113;s:14:"sale/recurring";i:114;s:11:"sale/return";i:115;s:12:"sale/voucher";i:116;s:18:"sale/voucher_theme";i:117;s:15:"setting/setting";i:118;s:13:"setting/store";i:119;s:16:"shipping/auspost";i:120;s:17:"shipping/citylink";i:121;s:14:"shipping/fedex";i:122;s:13:"shipping/flat";i:123;s:13:"shipping/free";i:124;s:13:"shipping/item";i:125;s:23:"shipping/parcelforce_48";i:126;s:15:"shipping/pickup";i:127;s:19:"shipping/royal_mail";i:128;s:12:"shipping/ups";i:129;s:13:"shipping/usps";i:130;s:15:"shipping/weight";i:131;s:11:"tool/backup";i:132;s:14:"tool/error_log";i:133;s:12:"total/coupon";i:134;s:12:"total/credit";i:135;s:14:"total/handling";i:136;s:16:"total/klarna_fee";i:137;s:19:"total/low_order_fee";i:138;s:12:"total/reward";i:139;s:14:"total/shipping";i:140;s:15:"total/sub_total";i:141;s:9:"total/tax";i:142;s:11:"total/total";i:143;s:13:"total/voucher";i:144;s:9:"user/user";i:145;s:20:"user/user_permission";i:146;s:14:"module/welcome";i:147;s:18:"module/newcarousel";i:148;s:14:"module/compare";i:149;s:20:"module/vqmod_manager";i:150;s:19:"module/manufacturer";}s:6:"modify";a:151:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:15:"catalog/profile";i:10;s:14:"catalog/review";i:11;s:18:"common/filemanager";i:12;s:13:"design/banner";i:13;s:19:"design/custom_field";i:14;s:13:"design/layout";i:15;s:14:"extension/feed";i:16;s:17:"extension/manager";i:17;s:16:"extension/module";i:18;s:17:"extension/openbay";i:19;s:17:"extension/payment";i:20;s:18:"extension/shipping";i:21;s:15:"extension/total";i:22;s:16:"feed/google_base";i:23;s:19:"feed/google_sitemap";i:24;s:20:"localisation/country";i:25;s:21:"localisation/currency";i:26;s:21:"localisation/geo_zone";i:27;s:21:"localisation/language";i:28;s:25:"localisation/length_class";i:29;s:25:"localisation/order_status";i:30;s:26:"localisation/return_action";i:31;s:26:"localisation/return_reason";i:32;s:26:"localisation/return_status";i:33;s:25:"localisation/stock_status";i:34;s:22:"localisation/tax_class";i:35;s:21:"localisation/tax_rate";i:36;s:25:"localisation/weight_class";i:37;s:17:"localisation/zone";i:38;s:14:"module/account";i:39;s:16:"module/affiliate";i:40;s:29:"module/amazon_checkout_layout";i:41;s:13:"module/banner";i:42;s:17:"module/bestseller";i:43;s:15:"module/carousel";i:44;s:15:"module/category";i:45;s:18:"module/ebaydisplay";i:46;s:15:"module/featured";i:47;s:13:"module/filter";i:48;s:18:"module/google_talk";i:49;s:18:"module/information";i:50;s:13:"module/latest";i:51;s:17:"module/openbaypro";i:52;s:16:"module/pp_layout";i:53;s:16:"module/slideshow";i:54;s:14:"module/special";i:55;s:12:"module/store";i:56;s:14:"module/welcome";i:57;s:14:"openbay/amazon";i:58;s:22:"openbay/amazon_listing";i:59;s:22:"openbay/amazon_product";i:60;s:16:"openbay/amazonus";i:61;s:24:"openbay/amazonus_listing";i:62;s:24:"openbay/amazonus_product";i:63;s:20:"openbay/ebay_profile";i:64;s:21:"openbay/ebay_template";i:65;s:15:"openbay/openbay";i:66;s:23:"payment/amazon_checkout";i:67;s:24:"payment/authorizenet_aim";i:68;s:21:"payment/bank_transfer";i:69;s:14:"payment/cheque";i:70;s:11:"payment/cod";i:71;s:21:"payment/free_checkout";i:72;s:22:"payment/klarna_account";i:73;s:22:"payment/klarna_invoice";i:74;s:14:"payment/liqpay";i:75;s:20:"payment/moneybookers";i:76;s:14:"payment/nochex";i:77;s:15:"payment/paymate";i:78;s:16:"payment/paypoint";i:79;s:13:"payment/payza";i:80;s:26:"payment/perpetual_payments";i:81;s:18:"payment/pp_express";i:82;s:25:"payment/pp_payflow_iframe";i:83;s:14:"payment/pp_pro";i:84;s:21:"payment/pp_pro_iframe";i:85;s:17:"payment/pp_pro_pf";i:86;s:17:"payment/pp_pro_uk";i:87;s:19:"payment/pp_standard";i:88;s:15:"payment/sagepay";i:89;s:22:"payment/sagepay_direct";i:90;s:18:"payment/sagepay_us";i:91;s:19:"payment/twocheckout";i:92;s:28:"payment/web_payment_software";i:93;s:16:"payment/worldpay";i:94;s:27:"report/affiliate_commission";i:95;s:22:"report/customer_credit";i:96;s:22:"report/customer_online";i:97;s:21:"report/customer_order";i:98;s:22:"report/customer_reward";i:99;s:24:"report/product_purchased";i:100;s:21:"report/product_viewed";i:101;s:18:"report/sale_coupon";i:102;s:17:"report/sale_order";i:103;s:18:"report/sale_return";i:104;s:20:"report/sale_shipping";i:105;s:15:"report/sale_tax";i:106;s:14:"sale/affiliate";i:107;s:12:"sale/contact";i:108;s:11:"sale/coupon";i:109;s:13:"sale/customer";i:110;s:20:"sale/customer_ban_ip";i:111;s:19:"sale/customer_group";i:112;s:10:"sale/order";i:113;s:14:"sale/recurring";i:114;s:11:"sale/return";i:115;s:12:"sale/voucher";i:116;s:18:"sale/voucher_theme";i:117;s:15:"setting/setting";i:118;s:13:"setting/store";i:119;s:16:"shipping/auspost";i:120;s:17:"shipping/citylink";i:121;s:14:"shipping/fedex";i:122;s:13:"shipping/flat";i:123;s:13:"shipping/free";i:124;s:13:"shipping/item";i:125;s:23:"shipping/parcelforce_48";i:126;s:15:"shipping/pickup";i:127;s:19:"shipping/royal_mail";i:128;s:12:"shipping/ups";i:129;s:13:"shipping/usps";i:130;s:15:"shipping/weight";i:131;s:11:"tool/backup";i:132;s:14:"tool/error_log";i:133;s:12:"total/coupon";i:134;s:12:"total/credit";i:135;s:14:"total/handling";i:136;s:16:"total/klarna_fee";i:137;s:19:"total/low_order_fee";i:138;s:12:"total/reward";i:139;s:14:"total/shipping";i:140;s:15:"total/sub_total";i:141;s:9:"total/tax";i:142;s:11:"total/total";i:143;s:13:"total/voucher";i:144;s:9:"user/user";i:145;s:20:"user/user_permission";i:146;s:14:"module/welcome";i:147;s:18:"module/newcarousel";i:148;s:14:"module/compare";i:149;s:20:"module/vqmod_manager";i:150;s:19:"module/manufacturer";}}'),
+(1, 'Top Administrator', 'a:2:{s:6:"access";a:153:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:15:"catalog/profile";i:10;s:14:"catalog/review";i:11;s:18:"common/filemanager";i:12;s:13:"design/banner";i:13;s:19:"design/custom_field";i:14;s:13:"design/layout";i:15;s:14:"extension/feed";i:16;s:17:"extension/manager";i:17;s:16:"extension/module";i:18;s:17:"extension/openbay";i:19;s:17:"extension/payment";i:20;s:18:"extension/shipping";i:21;s:15:"extension/total";i:22;s:16:"feed/google_base";i:23;s:19:"feed/google_sitemap";i:24;s:20:"localisation/country";i:25;s:21:"localisation/currency";i:26;s:21:"localisation/geo_zone";i:27;s:21:"localisation/language";i:28;s:25:"localisation/length_class";i:29;s:25:"localisation/order_status";i:30;s:26:"localisation/return_action";i:31;s:26:"localisation/return_reason";i:32;s:26:"localisation/return_status";i:33;s:25:"localisation/stock_status";i:34;s:22:"localisation/tax_class";i:35;s:21:"localisation/tax_rate";i:36;s:25:"localisation/weight_class";i:37;s:17:"localisation/zone";i:38;s:14:"module/account";i:39;s:16:"module/affiliate";i:40;s:29:"module/amazon_checkout_layout";i:41;s:13:"module/banner";i:42;s:17:"module/bestseller";i:43;s:15:"module/carousel";i:44;s:15:"module/category";i:45;s:18:"module/ebaydisplay";i:46;s:15:"module/featured";i:47;s:13:"module/filter";i:48;s:18:"module/google_talk";i:49;s:18:"module/information";i:50;s:13:"module/latest";i:51;s:17:"module/openbaypro";i:52;s:16:"module/pp_layout";i:53;s:16:"module/slideshow";i:54;s:14:"module/special";i:55;s:12:"module/store";i:56;s:14:"module/welcome";i:57;s:14:"openbay/amazon";i:58;s:22:"openbay/amazon_listing";i:59;s:22:"openbay/amazon_product";i:60;s:16:"openbay/amazonus";i:61;s:24:"openbay/amazonus_listing";i:62;s:24:"openbay/amazonus_product";i:63;s:20:"openbay/ebay_profile";i:64;s:21:"openbay/ebay_template";i:65;s:15:"openbay/openbay";i:66;s:23:"payment/amazon_checkout";i:67;s:24:"payment/authorizenet_aim";i:68;s:21:"payment/bank_transfer";i:69;s:14:"payment/cheque";i:70;s:11:"payment/cod";i:71;s:21:"payment/free_checkout";i:72;s:22:"payment/klarna_account";i:73;s:22:"payment/klarna_invoice";i:74;s:14:"payment/liqpay";i:75;s:20:"payment/moneybookers";i:76;s:14:"payment/nochex";i:77;s:15:"payment/paymate";i:78;s:16:"payment/paypoint";i:79;s:13:"payment/payza";i:80;s:26:"payment/perpetual_payments";i:81;s:18:"payment/pp_express";i:82;s:25:"payment/pp_payflow_iframe";i:83;s:14:"payment/pp_pro";i:84;s:21:"payment/pp_pro_iframe";i:85;s:17:"payment/pp_pro_pf";i:86;s:17:"payment/pp_pro_uk";i:87;s:19:"payment/pp_standard";i:88;s:15:"payment/sagepay";i:89;s:22:"payment/sagepay_direct";i:90;s:18:"payment/sagepay_us";i:91;s:19:"payment/twocheckout";i:92;s:28:"payment/web_payment_software";i:93;s:16:"payment/worldpay";i:94;s:27:"report/affiliate_commission";i:95;s:22:"report/customer_credit";i:96;s:22:"report/customer_online";i:97;s:21:"report/customer_order";i:98;s:22:"report/customer_reward";i:99;s:24:"report/product_purchased";i:100;s:21:"report/product_viewed";i:101;s:18:"report/sale_coupon";i:102;s:17:"report/sale_order";i:103;s:18:"report/sale_return";i:104;s:20:"report/sale_shipping";i:105;s:15:"report/sale_tax";i:106;s:14:"sale/affiliate";i:107;s:12:"sale/contact";i:108;s:11:"sale/coupon";i:109;s:13:"sale/customer";i:110;s:20:"sale/customer_ban_ip";i:111;s:19:"sale/customer_group";i:112;s:10:"sale/order";i:113;s:14:"sale/recurring";i:114;s:11:"sale/return";i:115;s:12:"sale/voucher";i:116;s:18:"sale/voucher_theme";i:117;s:15:"setting/setting";i:118;s:13:"setting/store";i:119;s:16:"shipping/auspost";i:120;s:17:"shipping/citylink";i:121;s:14:"shipping/fedex";i:122;s:13:"shipping/flat";i:123;s:13:"shipping/free";i:124;s:13:"shipping/item";i:125;s:23:"shipping/parcelforce_48";i:126;s:15:"shipping/pickup";i:127;s:19:"shipping/royal_mail";i:128;s:12:"shipping/ups";i:129;s:13:"shipping/usps";i:130;s:15:"shipping/weight";i:131;s:11:"tool/backup";i:132;s:14:"tool/error_log";i:133;s:12:"total/coupon";i:134;s:12:"total/credit";i:135;s:14:"total/handling";i:136;s:16:"total/klarna_fee";i:137;s:19:"total/low_order_fee";i:138;s:12:"total/reward";i:139;s:14:"total/shipping";i:140;s:15:"total/sub_total";i:141;s:9:"total/tax";i:142;s:11:"total/total";i:143;s:13:"total/voucher";i:144;s:9:"user/user";i:145;s:20:"user/user_permission";i:146;s:14:"module/welcome";i:147;s:18:"module/newcarousel";i:148;s:14:"module/compare";i:149;s:20:"module/vqmod_manager";i:150;s:19:"module/manufacturer";i:151;s:17:"shipping/correios";i:152;s:17:"payment/pagseguro";}s:6:"modify";a:153:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:15:"catalog/profile";i:10;s:14:"catalog/review";i:11;s:18:"common/filemanager";i:12;s:13:"design/banner";i:13;s:19:"design/custom_field";i:14;s:13:"design/layout";i:15;s:14:"extension/feed";i:16;s:17:"extension/manager";i:17;s:16:"extension/module";i:18;s:17:"extension/openbay";i:19;s:17:"extension/payment";i:20;s:18:"extension/shipping";i:21;s:15:"extension/total";i:22;s:16:"feed/google_base";i:23;s:19:"feed/google_sitemap";i:24;s:20:"localisation/country";i:25;s:21:"localisation/currency";i:26;s:21:"localisation/geo_zone";i:27;s:21:"localisation/language";i:28;s:25:"localisation/length_class";i:29;s:25:"localisation/order_status";i:30;s:26:"localisation/return_action";i:31;s:26:"localisation/return_reason";i:32;s:26:"localisation/return_status";i:33;s:25:"localisation/stock_status";i:34;s:22:"localisation/tax_class";i:35;s:21:"localisation/tax_rate";i:36;s:25:"localisation/weight_class";i:37;s:17:"localisation/zone";i:38;s:14:"module/account";i:39;s:16:"module/affiliate";i:40;s:29:"module/amazon_checkout_layout";i:41;s:13:"module/banner";i:42;s:17:"module/bestseller";i:43;s:15:"module/carousel";i:44;s:15:"module/category";i:45;s:18:"module/ebaydisplay";i:46;s:15:"module/featured";i:47;s:13:"module/filter";i:48;s:18:"module/google_talk";i:49;s:18:"module/information";i:50;s:13:"module/latest";i:51;s:17:"module/openbaypro";i:52;s:16:"module/pp_layout";i:53;s:16:"module/slideshow";i:54;s:14:"module/special";i:55;s:12:"module/store";i:56;s:14:"module/welcome";i:57;s:14:"openbay/amazon";i:58;s:22:"openbay/amazon_listing";i:59;s:22:"openbay/amazon_product";i:60;s:16:"openbay/amazonus";i:61;s:24:"openbay/amazonus_listing";i:62;s:24:"openbay/amazonus_product";i:63;s:20:"openbay/ebay_profile";i:64;s:21:"openbay/ebay_template";i:65;s:15:"openbay/openbay";i:66;s:23:"payment/amazon_checkout";i:67;s:24:"payment/authorizenet_aim";i:68;s:21:"payment/bank_transfer";i:69;s:14:"payment/cheque";i:70;s:11:"payment/cod";i:71;s:21:"payment/free_checkout";i:72;s:22:"payment/klarna_account";i:73;s:22:"payment/klarna_invoice";i:74;s:14:"payment/liqpay";i:75;s:20:"payment/moneybookers";i:76;s:14:"payment/nochex";i:77;s:15:"payment/paymate";i:78;s:16:"payment/paypoint";i:79;s:13:"payment/payza";i:80;s:26:"payment/perpetual_payments";i:81;s:18:"payment/pp_express";i:82;s:25:"payment/pp_payflow_iframe";i:83;s:14:"payment/pp_pro";i:84;s:21:"payment/pp_pro_iframe";i:85;s:17:"payment/pp_pro_pf";i:86;s:17:"payment/pp_pro_uk";i:87;s:19:"payment/pp_standard";i:88;s:15:"payment/sagepay";i:89;s:22:"payment/sagepay_direct";i:90;s:18:"payment/sagepay_us";i:91;s:19:"payment/twocheckout";i:92;s:28:"payment/web_payment_software";i:93;s:16:"payment/worldpay";i:94;s:27:"report/affiliate_commission";i:95;s:22:"report/customer_credit";i:96;s:22:"report/customer_online";i:97;s:21:"report/customer_order";i:98;s:22:"report/customer_reward";i:99;s:24:"report/product_purchased";i:100;s:21:"report/product_viewed";i:101;s:18:"report/sale_coupon";i:102;s:17:"report/sale_order";i:103;s:18:"report/sale_return";i:104;s:20:"report/sale_shipping";i:105;s:15:"report/sale_tax";i:106;s:14:"sale/affiliate";i:107;s:12:"sale/contact";i:108;s:11:"sale/coupon";i:109;s:13:"sale/customer";i:110;s:20:"sale/customer_ban_ip";i:111;s:19:"sale/customer_group";i:112;s:10:"sale/order";i:113;s:14:"sale/recurring";i:114;s:11:"sale/return";i:115;s:12:"sale/voucher";i:116;s:18:"sale/voucher_theme";i:117;s:15:"setting/setting";i:118;s:13:"setting/store";i:119;s:16:"shipping/auspost";i:120;s:17:"shipping/citylink";i:121;s:14:"shipping/fedex";i:122;s:13:"shipping/flat";i:123;s:13:"shipping/free";i:124;s:13:"shipping/item";i:125;s:23:"shipping/parcelforce_48";i:126;s:15:"shipping/pickup";i:127;s:19:"shipping/royal_mail";i:128;s:12:"shipping/ups";i:129;s:13:"shipping/usps";i:130;s:15:"shipping/weight";i:131;s:11:"tool/backup";i:132;s:14:"tool/error_log";i:133;s:12:"total/coupon";i:134;s:12:"total/credit";i:135;s:14:"total/handling";i:136;s:16:"total/klarna_fee";i:137;s:19:"total/low_order_fee";i:138;s:12:"total/reward";i:139;s:14:"total/shipping";i:140;s:15:"total/sub_total";i:141;s:9:"total/tax";i:142;s:11:"total/total";i:143;s:13:"total/voucher";i:144;s:9:"user/user";i:145;s:20:"user/user_permission";i:146;s:14:"module/welcome";i:147;s:18:"module/newcarousel";i:148;s:14:"module/compare";i:149;s:20:"module/vqmod_manager";i:150;s:19:"module/manufacturer";i:151;s:17:"shipping/correios";i:152;s:17:"payment/pagseguro";}}'),
 (10, 'Demonstration', '');
 
 -- --------------------------------------------------------
@@ -3423,15 +3158,9 @@ CREATE TABLE `oc_voucher_theme_description` (
 --
 
 INSERT INTO `oc_voucher_theme_description` (`voucher_theme_id`, `language_id`, `name`) VALUES
-(6, 1, 'Christmas'),
-(7, 1, 'Birthday'),
-(8, 1, 'General'),
-(6, 2, 'Christmas'),
-(7, 2, 'Birthday'),
-(8, 2, 'General'),
-(6, 3, 'Christmas'),
-(7, 3, 'Birthday'),
-(8, 3, 'General');
+(6, 4, 'Christmas'),
+(7, 4, 'Birthday'),
+(8, 4, 'General');
 
 -- --------------------------------------------------------
 
@@ -3472,18 +3201,10 @@ CREATE TABLE `oc_weight_class_description` (
 --
 
 INSERT INTO `oc_weight_class_description` (`weight_class_id`, `language_id`, `title`, `unit`) VALUES
-(1, 1, 'Kilogram', 'kg'),
-(2, 1, 'Gram', 'g'),
-(5, 1, 'Pound ', 'lb'),
-(6, 1, 'Ounce', 'oz'),
-(1, 2, 'Kilogram', 'kg'),
-(2, 2, 'Gram', 'g'),
-(5, 2, 'Pound ', 'lb'),
-(6, 2, 'Ounce', 'oz'),
-(1, 3, 'Kilogram', 'kg'),
-(2, 3, 'Gram', 'g'),
-(5, 3, 'Pound ', 'lb'),
-(6, 3, 'Ounce', 'oz');
+(1, 4, 'Kilogram', 'kg'),
+(2, 4, 'Gram', 'g'),
+(5, 4, 'Pound ', 'lb'),
+(6, 4, 'Ounce', 'oz');
 
 -- --------------------------------------------------------
 
@@ -8247,7 +7968,7 @@ MODIFY `banner_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 -- AUTO_INCREMENT for table `oc_banner_image`
 --
 ALTER TABLE `oc_banner_image`
-MODIFY `banner_image_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=371;
+MODIFY `banner_image_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=379;
 --
 -- AUTO_INCREMENT for table `oc_category`
 --
@@ -8277,7 +7998,7 @@ MODIFY `coupon_product_id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `oc_currency`
 --
 ALTER TABLE `oc_currency`
-MODIFY `currency_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `currency_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `oc_customer`
 --
@@ -8332,7 +8053,7 @@ MODIFY `download_id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `oc_extension`
 --
 ALTER TABLE `oc_extension`
-MODIFY `extension_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=497;
+MODIFY `extension_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=499;
 --
 -- AUTO_INCREMENT for table `oc_filter`
 --
@@ -8357,7 +8078,7 @@ MODIFY `information_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT for table `oc_language`
 --
 ALTER TABLE `oc_language`
-MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `oc_layout`
 --
@@ -8517,7 +8238,7 @@ MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `oc_setting`
 --
 ALTER TABLE `oc_setting`
-MODIFY `setting_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4924;
+MODIFY `setting_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5145;
 --
 -- AUTO_INCREMENT for table `oc_stock_status`
 --
@@ -8547,7 +8268,7 @@ MODIFY `tax_rule_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=129;
 -- AUTO_INCREMENT for table `oc_url_alias`
 --
 ALTER TABLE `oc_url_alias`
-MODIFY `url_alias_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=786;
+MODIFY `url_alias_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=788;
 --
 -- AUTO_INCREMENT for table `oc_user`
 --
