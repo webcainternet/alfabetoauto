@@ -7,6 +7,12 @@
 <!-- Footer -->
 <footer>
 	<div class="container">
+		<div class="fb-like-box" data-href="https://www.facebook.com/alfabetoauto" data-width="1200" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+	</div>
+</footer>
+
+<footer>
+	<div class="container">
 		<div class="row">
 			<?php if ($informations) { ?>
 			<div class="col-sm-3">

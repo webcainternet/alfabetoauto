@@ -26,7 +26,7 @@
 		font-size:19px;
 	}
 	.top-search1:hover {
-		background-color:#f7505a;
+		background-color:#e9962e;
 	}
 	.top-search1 {
 		margin-left:30px;
@@ -439,8 +439,8 @@
 		right:10px;
 		background-image:none;
 		color:#fff;
-		background:#f7505a;
-		border-color:#f7505a;
+		background:#e9962e;
+		border-color:#e9962e;
 	}
 	#search .button-search:hover {
 		color:#7e7e7e

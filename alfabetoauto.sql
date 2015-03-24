@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Mar 11, 2015 at 04:13 PM
+-- Generation Time: Mar 24, 2015 at 04:15 PM
 -- Server version: 5.5.38
 -- PHP Version: 5.3.29
 
@@ -302,29 +302,18 @@ CREATE TABLE `oc_category` (
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=77 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `oc_category`
 --
 
 INSERT INTO `oc_category` (`category_id`, `image`, `parent_id`, `top`, `column`, `sort_order`, `status`, `date_added`, `date_modified`) VALUES
-(25, 'data/Fly HUMMER HT2 1 copy.png', 0, 1, 1, 5, 1, '2009-01-31 01:04:25', '2014-07-08 15:28:39'),
-(20, 'data/Anycool T818  1 copy.png', 0, 1, 1, 1, 1, '2009-01-05 21:49:43', '2014-07-08 15:27:55'),
-(24, 'data/FLY E176 1 copy.png', 0, 1, 1, 4, 1, '2009-01-20 02:36:26', '2014-07-08 15:28:30'),
-(17, 'data/FLY E146 1 copy.png', 0, 1, 1, 3, 1, '2009-01-03 21:08:57', '2014-07-08 15:28:14'),
-(28, 'data/product-10.png', 57, 0, 0, 1, 1, '2009-02-02 13:11:12', '2014-07-08 15:27:13'),
-(29, 'data/product-04.png', 57, 0, 0, 1, 1, '2009-02-02 13:11:37', '2014-07-08 15:27:00'),
-(30, 'data/product-01.png', 57, 0, 0, 1, 1, '2009-02-02 13:11:59', '2014-07-08 15:26:54'),
-(31, 'data/product-07.png', 57, 0, 0, 1, 1, '2009-02-03 14:17:24', '2014-07-08 15:27:06'),
-(32, 'data/product-19.png', 57, 0, 0, 1, 1, '2009-02-03 14:17:34', '2014-07-08 15:27:33'),
-(35, 'data/product-16.png', 28, 0, 0, 0, 1, '2010-09-17 10:06:48', '2014-07-08 15:27:24'),
-(36, 'data/product-13.png', 28, 0, 0, 0, 1, '2010-09-17 10:07:13', '2014-07-08 15:27:18'),
-(57, 'data/FLY E145 1 copy.png', 0, 1, 1, 2, 1, '2011-04-26 08:53:16', '2014-07-08 15:28:05'),
-(59, 'data/HTC Desire 1 copy.png', 0, 1, 1, 6, 1, '2012-12-04 17:18:18', '2014-07-08 15:28:53'),
-(70, '', 0, 1, 1, 7, 1, '2014-07-08 15:29:20', '2014-07-08 15:29:20'),
-(71, '', 0, 1, 1, 8, 1, '2014-07-08 15:29:43', '2014-07-08 15:29:43'),
-(72, '', 0, 1, 1, 9, 1, '2014-07-08 15:30:06', '2014-07-08 15:30:06');
+(76, '', 0, 0, 1, 0, 1, '2015-03-24 15:01:16', '2015-03-24 15:01:16'),
+(74, '', 0, 1, 1, 0, 1, '2015-03-24 14:58:56', '2015-03-24 14:58:56'),
+(75, '', 0, 1, 1, 0, 1, '2015-03-24 15:00:57', '2015-03-24 15:00:57'),
+(73, '', 0, 1, 1, 0, 1, '2015-03-24 14:58:03', '2015-03-24 14:58:03'),
+(72, '', 0, 1, 0, 0, 1, '2014-07-08 15:30:06', '2015-03-24 14:58:18');
 
 -- --------------------------------------------------------
 
@@ -346,22 +335,11 @@ CREATE TABLE `oc_category_description` (
 --
 
 INSERT INTO `oc_category_description` (`category_id`, `language_id`, `name`, `description`, `meta_description`, `meta_keyword`) VALUES
-(17, 4, 'App Radio', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(25, 4, 'Speakers', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(29, 4, 'Lorem ipsum dolor', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(72, 4, 'Accessories', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(24, 4, 'Car Stereo', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(57, 4, 'Car AV tuners', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(35, 4, 'Ut labore et ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(36, 4, 'Dolore magna aliqua', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(70, 4, 'Amplifiers ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(32, 4, 'Tmpor incididunt ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(31, 4, 'Sed do eiusmod', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(30, 4, 'Ctetur adipisicing ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(28, 4, 'Sit amet conse ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(71, 4, 'TV Tuner', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', ''),
-(20, 4, 'Navigation / GPS ', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', 'Example of category description', ''),
-(59, 4, 'SUBWOOFERS', '&lt;p&gt;&lt;strong&gt;Our products&lt;/strong&gt; are the perfect combination of the latest &lt;em&gt;fashion&lt;/em&gt; trends, real &lt;em&gt;durability&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt;. You know that nowadays &lt;strong&gt;music&lt;/strong&gt; is one of the main spheres in our society. It is a gigantic machine of production different goods for mental satisfaction. It is a real mainstream; moreover - it is a modern religion.&lt;/p&gt;\r\n\r\n&lt;p&gt;It doesn’t matter what kind of a music you listen because tastes differ but we have collected all possible music-related goods in our store.&lt;/p&gt;\r\n', '', '');
+(72, 4, 'Soleiras', '', '', ''),
+(73, 4, 'Calhas de chuva', '', '', ''),
+(74, 4, 'Capas para automóveis', '', '', ''),
+(75, 4, 'Frisos laterais', '', '', ''),
+(76, 4, 'Protetor de para-choque', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -391,35 +369,13 @@ CREATE TABLE `oc_category_path` (
 --
 
 INSERT INTO `oc_category_path` (`category_id`, `path_id`, `level`) VALUES
-(25, 25, 0),
-(28, 28, 1),
-(28, 57, 0),
-(35, 57, 0),
-(35, 28, 1),
-(35, 35, 2),
-(36, 57, 0),
-(36, 28, 1),
-(36, 36, 2),
-(29, 29, 1),
-(29, 57, 0),
-(30, 30, 1),
-(30, 57, 0),
-(31, 31, 1),
-(31, 57, 0),
-(32, 32, 1),
-(32, 57, 0),
-(20, 20, 0),
-(27, 20, 0),
-(27, 27, 1),
-(26, 20, 0),
-(26, 26, 1),
-(24, 24, 0),
+(75, 75, 0),
+(76, 76, 0),
 (18, 18, 0),
 (45, 18, 0),
 (45, 45, 1),
 (46, 18, 0),
 (46, 46, 1),
-(17, 17, 0),
 (33, 33, 0),
 (34, 34, 0),
 (37, 34, 0),
@@ -461,10 +417,8 @@ INSERT INTO `oc_category_path` (`category_id`, `path_id`, `level`) VALUES
 (55, 55, 1),
 (56, 34, 0),
 (56, 56, 1),
-(57, 57, 0),
-(59, 59, 0),
-(70, 70, 0),
-(71, 71, 0),
+(74, 74, 0),
+(73, 73, 0),
 (72, 72, 0);
 
 -- --------------------------------------------------------
@@ -495,22 +449,11 @@ CREATE TABLE `oc_category_to_store` (
 --
 
 INSERT INTO `oc_category_to_store` (`category_id`, `store_id`) VALUES
-(17, 0),
-(20, 0),
-(24, 0),
-(25, 0),
-(28, 0),
-(29, 0),
-(30, 0),
-(31, 0),
-(32, 0),
-(35, 0),
-(36, 0),
-(57, 0),
-(59, 0),
-(70, 0),
-(71, 0),
-(72, 0);
+(72, 0),
+(73, 0),
+(74, 0),
+(75, 0),
+(76, 0);
 
 -- --------------------------------------------------------
 
@@ -876,7 +819,7 @@ CREATE TABLE `oc_currency` (
 --
 
 INSERT INTO `oc_currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-(4, 'Real', 'BRL', 'R$ ', '', '2', 1.00000000, 1, '2015-03-11 13:30:11');
+(4, 'Real', 'BRL', 'R$ ', '', '2', 1.00000000, 1, '2015-03-24 14:56:33');
 
 -- --------------------------------------------------------
 
@@ -2428,75 +2371,9 @@ CREATE TABLE `oc_product_to_category` (
 --
 
 INSERT INTO `oc_product_to_category` (`product_id`, `category_id`) VALUES
-(28, 20),
-(28, 24),
-(28, 25),
-(28, 29),
-(28, 30),
-(28, 32),
-(28, 57),
-(29, 20),
-(29, 24),
-(29, 29),
-(29, 30),
-(29, 36),
-(29, 57),
-(30, 20),
-(30, 70),
-(30, 71),
 (30, 72),
-(33, 17),
-(33, 20),
-(33, 28),
-(33, 29),
-(33, 32),
-(33, 35),
-(35, 20),
-(36, 25),
-(36, 29),
-(36, 32),
-(36, 35),
-(36, 57),
-(36, 70),
-(36, 71),
 (36, 72),
-(40, 20),
-(40, 24),
-(42, 20),
-(42, 28),
-(42, 59),
-(43, 17),
-(43, 20),
-(43, 30),
-(43, 31),
-(43, 35),
-(43, 70),
-(43, 71),
-(43, 72),
-(44, 17),
-(44, 20),
-(44, 28),
-(44, 35),
-(44, 36),
-(44, 57),
-(45, 17),
-(45, 20),
-(45, 25),
-(45, 28),
-(45, 29),
-(45, 32),
-(46, 20),
-(47, 20),
-(47, 59),
-(48, 20),
-(48, 28),
-(48, 29),
-(48, 31),
-(48, 32),
-(48, 35),
-(48, 36),
-(49, 57),
-(49, 59);
+(43, 72);
 
 -- --------------------------------------------------------
 
@@ -3021,7 +2898,7 @@ CREATE TABLE `oc_url_alias` (
 `url_alias_id` int(11) NOT NULL,
   `query` varchar(255) NOT NULL,
   `keyword` varchar(255) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=788 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=794 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `oc_url_alias`
@@ -3029,14 +2906,15 @@ CREATE TABLE `oc_url_alias` (
 
 INSERT INTO `oc_url_alias` (`url_alias_id`, `query`, `keyword`) VALUES
 (784, 'product_id=48', 'ipod_classic'),
-(780, 'category_id=20', 'desktops'),
-(503, 'category_id=26', 'pc'),
-(505, 'category_id=27', 'mac'),
+(790, 'category_id=72', 'soleiras'),
+(789, 'category_id=73', 'calhas-de-chuva'),
 (783, 'manufacturer_id=8', 'apple'),
 (787, 'information_id=4', 'about_us'),
 (785, 'product_id=42', 'test'),
 (767, 'category_id=34', 'mp3-players'),
-(779, 'category_id=36', 'Normal');
+(791, 'category_id=74', 'capas-para-automoveis'),
+(792, 'category_id=75', 'frisos-laterais'),
+(793, 'category_id=76', 'protetor-de-para-choque');
 
 -- --------------------------------------------------------
 
@@ -7973,7 +7851,7 @@ MODIFY `banner_image_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=379;
 -- AUTO_INCREMENT for table `oc_category`
 --
 ALTER TABLE `oc_category`
-MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=73;
+MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=77;
 --
 -- AUTO_INCREMENT for table `oc_country`
 --
@@ -8268,7 +8146,7 @@ MODIFY `tax_rule_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=129;
 -- AUTO_INCREMENT for table `oc_url_alias`
 --
 ALTER TABLE `oc_url_alias`
-MODIFY `url_alias_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=788;
+MODIFY `url_alias_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=794;
 --
 -- AUTO_INCREMENT for table `oc_user`
 --
