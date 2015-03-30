@@ -1,0 +1,25 @@
+Congratulations on purchasing an iSenseLabs product! 
+
+You now own the product forever. Along with the purchase our system automatically emails you a license code. This code is the guarantee that your purchase is genuine and unlocks your 1 year of Premium Support and complimentary module updates. 
+
+================================
+How does this code look?
+================================
+iSenseLabs license is an unique purchase code. It is a collection of 25 letters and numbers divided into a group of five and separated by dashes. Here is how a demo code looks 1S3NS3-3XAMP-L3C00L-C0D3D-D1SPL
+
+================================
+Where do I find the code?
+================================
+If you have purchased a product from iSenseLabs.com you should receive an email with the license code. If you cannot locate the email please check your SPAM folder. Alternatively you can login to your iSenseLabs profile and click on Downloads/Product Downloads where you should find the product with the product license.
+
+If you have purchased a product from OpenCart.com you should receive an email with the license code. If you have not received an email check your SPAM folder. Make sure that you are checking the same email that you have registered on OpenCart.com. If you have trouble locating your code please get in touch with us at https://isenselabs.com/tickets/open and cite your OpenCart Order ID. 
+
+================================
+How to activate your license?
+================================
+Once you have located the code you need to activate your license. Copy the code from your email or from your iSenseLabs profile. Open the module administration and go to Extensions/Modules/iSenseLabs module/Support. Paste the code and click the Activate button.
+
+================================
+Types of Licenses
+================================
+We offer Single Domain, Up to 5 Domains, Unlimited Domain and Developer License. To find out more about the difference between the licenses visit https://isenselabs.com/pages/licensing

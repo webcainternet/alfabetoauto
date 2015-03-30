@@ -1,0 +1,114 @@
+﻿ExcelPort Release Log
+=====================
+
+ExcelPort 1.8.3
+	- Integrated Options Boost. Note: OpenStock takes precedence over Options Boost
+	- Added Manufacturer ID filter
+	- Bug fixes
+
+ExcelPort 1.8.2
+	- Bug fixes
+
+ExcelPort 1.8.1
+	- Bug fixes
+
+ExcelPort 1.8
+	- Integrated with OpenStock
+	- Bug fixes
+
+ExcelPort 1.7.5
+	- Bug fixes and minor improvements
+	
+ExcelPort 1.7.4
+	- Bug fixes
+
+ExcelPort 1.7.3
+	- Extended the Customer export and import. Addresses are now in a new sheet. Please read the documentation. Address ID's and Category ID's are now mandatory.
+
+ExcelPort 1.7.2
+	- Compatible with OC 1.5.6.4
+	- Bug fixes
+
+ExcelPort 1.7.1
+	- Compatible with OC 1.5.6.3
+	- Bug fixes
+
+ExcelPort 1.7
+	- Introduced Export/Import of Orders
+	- Updated the PHPExcel library to version 1.8.0
+	- The imported sheets can now have lowercase names - "Products" and "product" are both valid
+	- The progress file is now compatible with .htaccess protections
+	- Improved compatibility with MijoShop
+	- Added 2 new filters to Product Export - "Without any Options" and "Without any Attributes"
+	- Added Import / Export buttons to the OpenCart listings of Categories, Options, Attributes, Attribute Groups, Customers, Customer Groups, Orders
+	- Compatible with OC 1.5.6.2
+	- Bug Fixes
+
+ExcelPort 1.6.1
+	- Compatible with OC 1.5.6.1
+	- Bug Fixes
+	
+ExcelPort 1.6
+	- Introduced Export/Import of Options and Option Values
+	- Bug Fixes
+	
+ExcelPort 1.5
+	- Introduced Export/Import of Customers
+	- Introduced Export/Import of Customer Groups
+	- Bug Fixes
+	
+ExcelPort 1.4.1
+	- Compatible with OC 1.5.6
+	- Bug Fixes
+	
+ExcelPort 1.4
+	- Renamed the temp folder to temp_excelport
+	- Added powerful export filters
+	- Bug fixes
+	
+ExcelPort 1.3
+	- Introduced Export/Import of Categories
+	- Introduced Export/Import of Attributes
+	- Added Option to import products as new ones
+	- Bug Fixes
+	
+ExcelPort 1.2.1
+	- Compatible with OC 1513 - 155x
+	- Bug fixes
+	
+ExcelPort 1.2
+	- Bug fixes
+	- Introduced Quick Export/Import, which uses the Static Product data
+	- Moved the SKU field to the top of the table
+	
+ExcelPort 1.1.5
+	- Added vQmod hooks for extra fields
+	- Added Abort button on Export and Import
+	- Added a Product Template
+	- Bug fixes
+	
+ExcelPort 1.1.4
+	- Bug fixes
+	
+ExcelPort 1.1.3
+	- Bug fixes
+	
+ExcelPort 1.1.2
+	- Bug fixes
+	
+ExcelPort 1.1.1
+	- Export and Import is now in chunks
+	- Added option to delete the products before importing
+	
+ExcelPort 1.1
+	- Added loading bar on Export and Import
+	- Reduced server memory and CPU load
+	- Filters field is added to the exported table for compatibility with OC 1551.
+	- Bug Fixes
+	
+ExcelPort 1.0
+	- Initial release
+
+Help & Support
+=====================
+Please address your questions, comments or issues by starting a thread at our forum http://isenselabs.com/forum or opening a support ticket at http://isenselabs.com/tickets/open

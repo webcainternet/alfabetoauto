@@ -1,0 +1,31 @@
+ExcelPort Requirements
+===================================
+1) Please keep in mind that ExcelPort is created to work with Microsoft Excel and compatibility with other spreadsheet software is not guaranteed, nor is it covered by our Support Policy. More information: https://isenselabs.com/pages/supportpolicy
+2) The current version of ExcelPort is compatible with OpenCart installations 1.5.1.3 – 1.5.6.x
+3) php_zip must be enabled on your PHP installation. If it is not enabled, you should contact your hosting provider and ask them to enable it.
+4) vQmod is optional for OpenCart versions 1.5.2 and above. It is required if:
+	a. You need the button Export / Import on the listing pages in the admin panel.
+	b. You are running OpenCart 1.5.1.3. 
+vQmod download and installation instructions can be found here: https://code.google.com/p/vqmod/wiki/Install_OpenCart
+
+ExcelPort Installation Instructions
+===================================
+These installation instructions assume that you have either a fresh or a customized installation of OpenCart.
+
+0) BEFORE YOU BEGIN: If your OpenCart is not a fresh installation, files and database backup is highly recommended.
+1) Unzip the downloaded ZIP file into a new folder
+2) Copy all files from /Upload folder over your current OpenCart installation preserving the directory structure.
+3) Login to your OpenCart admin panel and go to Extensions > Modules, find ExcelPort, and click the [Install] link. Then the screen flickers and [Edit] link shows up.
+4) Click the [Edit] link. 
+The ExcelPort control panel is displayed. Now, this is the place where you edit/customize your ExcelPort module. Try clicking around the menu items to get acquainted with the options.
+5) Congratulations! ExcelPort is now installed and configured.
+
+ExcelPort Documentation
+===================================
+ExcelPort comes with a detailed documentation, which explains all of the available features. It also provides elaborated examples on how to use ExcelPort. The documentation can be found in the /Documentation folder in the downloaded ZIP file. It is recommended that you get acquainted with this documentation before doing any imports.
+
+There are also example files, which explain how the data should be distributed. These files can be found in the /Documentation folder in the downloaded ZIP file.
+
+Help & Support
+===================================
+Please address your questions, comments or issues by starting a thread at our forum http://isenselabs.com/forum or opening a support ticket at http://isenselabs.com/tickets/open
