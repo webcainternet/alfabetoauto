@@ -4,7 +4,7 @@ $_['heading_title']     = 'Encontre seu fabricante favorito.';
 
 // Text
 $_['text_brand']        = 'Fabricante';
-$_['text_index']        = 'Índice de fabricantes:';
+$_['text_index']        = 'Índice de Marcas:';
 $_['text_error']        = 'Fabricante não encontrado!';
 $_['text_empty']        = 'Não há produtos para listar.';
 $_['text_quantity']     = 'Qtd:';

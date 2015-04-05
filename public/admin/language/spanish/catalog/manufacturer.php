@@ -3,7 +3,7 @@
 $_['heading_title']      = 'Fabricante';
 
 // Text
-$_['text_success']       = 'Éxito: has modificado a los fabricantes!';
+$_['text_success']       = 'Éxito: has modificado a los Marcas!';
 $_['text_default']       = 'Por defecto';
 $_['text_image_manager'] = 'Gestor de imágenes';
 $_['text_browse']        = 'Examinar';
@@ -25,7 +25,7 @@ $_['entry_sort_order']   = 'Orden de aparición:';
 $_['entry_type']         = 'Tipo:';
 
 // Error
-$_['error_permission']   = 'Cuidado: No tienes permisos para modificar fabricantes!';
+$_['error_permission']   = 'Cuidado: No tienes permisos para modificar Marcas!';
 $_['error_name']         = 'El nombre de fabricante debe tener entre 3 y 64 carácteres!';
 $_['error_product']      = 'Cuidado: Este fabricante no se puede borrar ya que está actualmente asignado a %s productos!';
 ?>

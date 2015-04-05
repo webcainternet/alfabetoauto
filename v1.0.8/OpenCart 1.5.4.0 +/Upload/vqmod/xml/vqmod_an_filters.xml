@@ -1,0 +1,468 @@
+<modification>
+    <id>Attribute and Price Filters Pro</id>
+    <version>1.0.3</version>
+    <vqmver>1.0.0</vqmver>
+    <author>Adam Nicholson adam-nicholson@live.co.uk</author>
+	
+    <file name="catalog/controller/product/category.php">
+        <operation>
+            <search position="after"><![CDATA[$this->data['products'] = array();]]>
+            </search>
+            <add><![CDATA[
+						// Filters Pro
+						if (isset($this->request->get['filter:price'])) {
+							$price_array = explode('-', $this->request->get['filter:price']);
+							$filter_price = array(
+								'price_from' => $this->currency->convert($price_array[0], $this->currency->getCode(), $this->config->get('config_currency')),
+								'price_to' => $this->currency->convert($price_array[1], $this->currency->getCode(), $this->config->get('config_currency'))
+							);
+						} else {
+							$filter_price = '';
+						}
+						$attribute_filters = array();
+						foreach (array_keys($this->request->get) as $key) {
+							if (strstr($key, 'filter_attribute_')) {
+								$values = array();
+								foreach (explode('_', $this->request->get[$key]) as $value) {
+									$values[] = $value;
+								}
+								$attribute_filters[str_replace('filter_attribute_', '', $key)] = $values;
+							}
+						}
+                                                $manufacturerFilter = array();
+                                                if (isset($this->request->get['filter:manufacturer'])) {
+                                                        $manufacturerFilter = explode(',',$this->request->get['filter:manufacturer']);
+                                                }
+						// Filters Pro
+				]]>
+            </add>
+        </operation>
+		
+        <operation>
+            <search position="after"><![CDATA['limit'              => $limit]]>
+            </search>
+            <add><![CDATA[
+						,'filter:price' 			=> $filter_price,
+						'attribute_filters' 	=> $attribute_filters,
+                                                'filter:manufacturer' 	=> $manufacturerFilter
+				]]>
+            </add>
+        </operation>
+		
+        <operation>
+            <search position="before"><![CDATA[$this->data['sorts'] = array();]]>
+            </search>
+            <add><![CDATA[
+						// Filters Pro
+						if (isset($this->request->get['filter:price'])) {
+							$url .= '&filter:price=' . $this->request->get['filter:price'];
+						}
+                                                if (isset($this->request->get['filter:manufacturer'])) {
+							$url .= '&filter:manufacturer=' . $this->request->get['filter:manufacturer'];
+						}
+						$attribute_filters = array();
+						foreach ($this->request->get as $key => $value) {
+							if (strstr($key, 'filter_attribute_')) {
+								$url .= '&' . $key . '=' . $value;
+							}
+						}
+						// Filters Pro
+				]]>
+            </add>
+        </operation>
+		
+        <operation>
+            <search position="before"><![CDATA[$this->data['limits'] = array();]]>
+            </search>
+            <add><![CDATA[
+						// Filters Pro
+						if (isset($this->request->get['filter:price'])) {
+							$url .= '&filter:price=' . $this->request->get['filter:price'];
+						}
+                                                if (isset($this->request->get['filter:manufacturer'])) {
+							$url .= '&filter:manufacturer=' . $this->request->get['filter:manufacturer'];
+						}
+						$attribute_filters = array();
+						foreach ($this->request->get as $key => $value) {
+							if (strstr($key, 'filter_attribute_')) {
+								$url .= '&' . $key . '=' . $value;
+							}
+						}
+						// Filters Pro
+				]]>
+            </add>
+        </operation>
+		
+        <operation>
+            <search position="before"><![CDATA[$pagination = new Pagination();]]>
+            </search>
+            <add><![CDATA[
+						// Filters Pro
+						if (isset($this->request->get['filter:price'])) {
+							$url .= '&filter:price=' . $this->request->get['filter:price'];
+						}
+                                                if (isset($this->request->get['filter:manufacturer'])) {
+							$url .= '&filter:manufacturer=' . $this->request->get['filter:manufacturer'];
+						}
+						$attribute_filters = array();
+						foreach ($this->request->get as $key => $value) {
+							if (strstr($key, 'filter_attribute_')) {
+								$url .= '&' . $key . '=' . $value;
+							}
+						}
+						// Filters Pro
+				]]>
+            </add>
+        </operation>
+    </file>
+
+	
+	
+    <file name="catalog/model/catalog/product.php">
+        <operation>
+            <search position="replace" index="1"><![CDATA[$sql = "SELECT p.product_id, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)";]]>
+            </search>
+            <add><![CDATA[
+						$sql = "SELECT p.product_id, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, ((p.price * (((	SELECT IFNULL(SUM(tra.rate), 0) FROM " . DB_PREFIX . "tax_rule tru LEFT JOIN " . DB_PREFIX . "tax_rate tra ON (tru.tax_rate_id = tra.tax_rate_id) WHERE tru.tax_class_id = p.tax_class_id AND tra.type = 'P') / 100) + 1)) + (SELECT IFNULL(SUM(tra.rate), 0) FROM " . DB_PREFIX . "tax_rule tru LEFT JOIN " . DB_PREFIX . "tax_rate tra ON (tru.tax_rate_id = tra.tax_rate_id)WHERE tru.tax_class_id = p.tax_class_id AND tra.type = 'F')) AS gross_price, p.price AS price FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)"; 
+				]]>
+            </add>
+        </operation>
+		
+	
+        <operation>
+            <search position="before" index="1"><![CDATA[$sql .= " WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'"; ]]>
+            </search>
+            <add><![CDATA[
+						// Filters Pro
+						if (isset($data['attribute_filters']) && !empty($data['attribute_filters'])) {
+							foreach ($data['attribute_filters'] as $attrId => $attrValues) {
+								$sql .= " LEFT JOIN " . DB_PREFIX . "product_attribute pa" . $attrId . " ON (p.product_id = pa" . $attrId . ".product_id)";
+							}
+						}
+                                                // Manufacturers
+                                                if (isset($data['filter:manufacturer']) && !empty($data['filter:manufacturer'])) {
+                                                        $sql .= " LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id)";
+						}
+						// Filters Pro
+				]]>
+            </add>
+        </operation>
+		
+        <operation>
+            <search position="after" index="1"><![CDATA[$sql .= " WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'"; ]]>
+            </search>
+            <add><![CDATA[
+						// Filters Pro
+						$count = 0;
+						if (isset($data['attribute_filters']) && !empty($data['attribute_filters'])) {
+							$sql .= " AND (";
+
+							$attrValuesCount = 0;
+							foreach ($data['attribute_filters'] as $attrId => $attrValues) {
+								if (!empty($attrValues)) {
+
+									foreach ($attrValues as $value) {
+										$sql .= $attrValuesCount > 0 ? " OR" : "";
+										$sql .= "(";
+
+										$sql .= " pa" . $attrId . ".attribute_id = '" . $attrId . "' AND MD5(pa" . $attrId . ".text) = '" . $value . "'";
+
+										foreach ($data['attribute_filters'] as $attrId2 => $attrValues2) {
+											if (!empty($attrValues2) && $attrId2 != $attrId) {
+
+												$attrValues2Count = 0;
+
+												foreach ($attrValues2 as $value2) {
+
+													$sql .= " AND pa" . $attrId2 . ".attribute_id = '" . $attrId2 . "' AND MD5(pa" . $attrId2 . ".text) = '" . $value2 . "'";
+													$attrValues2Count++;
+												}
+											}
+										}
+										$sql .= ")";
+
+										$attrValuesCount++;
+									}
+								}
+							}
+
+							$sql .= ")";
+						}
+                                                
+                                                // Manufacturers
+                                                if (isset($data['filter:manufacturer']) && !empty($data['filter:manufacturer'])) {
+                                                    $sql .= " AND (";
+                                                    $count = 0;
+                                                    foreach ($data['filter:manufacturer'] as $manufacturerName) {
+                                                        if ($count != 0)
+                                                            $sql .= " OR";
+                                                            
+                                                            
+                                                        $count ++;
+                                                        $sql .= " LOWER(m.name) = '" . $manufacturerName . "'";
+                                                    }
+                                                    $sql .= " )";
+						}           
+						// Filters Pro
+				]]>
+            </add>
+        </operation>
+		
+		
+        <operation>
+            <search position="after"><![CDATA[$sql .= " GROUP BY p.product_id";]]>
+            </search>
+            <add><![CDATA[
+						// Filters Pro							
+						if (isset($data['filter:price']) && isset($data['filter:price']['price_from']) && isset($data['filter:price']['price_to'])) {
+							$sql .= " HAVING ((gross_price IS NOT NULL AND gross_price >= '" . $data['filter:price']['price_from'] . "' AND gross_price <= '" . $data['filter:price']['price_to'] . "') OR (gross_price IS NULL AND price >= '" . $data['filter:price']['price_from'] . "' AND price <= '" . $data['filter:price']['price_to'] . "'))";
+						}
+						// Filters Pro
+				]]>
+            </add>
+        </operation>
+		
+        <operation>
+            <search position="replace"><![CDATA[$sql = "SELECT COUNT(DISTINCT p.product_id) AS total FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)";]]>
+            </search>
+            <add><![CDATA[
+						// Filters Pro
+						$sql = "SELECT p.product_id AS product_id, p.price AS price, p.tax_class_id AS tax_class_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)";
+						// Filters Pro
+				]]>
+            </add>
+        </operation>
+		
+        <operation>
+            <search position="before" index="2"><![CDATA[$sql .= " WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";]]>
+            </search>
+            <add><![CDATA[
+						// Filters Pro
+                                                // Attributes
+						if (isset($data['attribute_filters']) && !empty($data['attribute_filters'])) {
+							foreach ($data['attribute_filters'] as $attrId => $attrValues) {
+								$sql .= " LEFT JOIN " . DB_PREFIX . "product_attribute pa" . $attrId . " ON (p.product_id = pa" . $attrId . ".product_id)";
+							}
+						}
+                                                
+                                                // Manufacturers
+                                                if (isset($data['filter:manufacturer']) && !empty($data['filter:manufacturer'])) {
+                                                        $sql .= " LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id)";
+						}
+						// Filters Pro
+				]]>
+            </add>
+        </operation>
+		
+        <operation>
+            <search position="after" index="2"><![CDATA[$sql .= " WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";]]>
+            </search>
+            <add><![CDATA[
+						// Filters Pro
+						$count = 0;
+						if (isset($data['attribute_filters']) && !empty($data['attribute_filters'])) {
+							$sql .= " AND (";
+							$attrValuesCount = 0;
+							foreach ($data['attribute_filters'] as $attrId => $attrValues) {
+								if (!empty($attrValues)) {
+									foreach ($attrValues as $value) {
+										$sql .= $attrValuesCount > 0 ? " OR " : "";
+                                                                                $sql .= "(";
+										$sql .= " MD5(pa" . $attrId . ".text) = '" . $value . "'";
+										foreach ($data['attribute_filters'] as $attrId2 => $attrValues2) {
+											if (!empty($attrValues2) && $attrId2 != $attrId) {
+
+												$attrValues2Count = 0;
+
+												foreach ($attrValues2 as $value2) {
+
+													$sql .= " AND MD5(pa" . $attrId2 . ".text) = '" . $value2 . "'";
+													$attrValues2Count++;
+												}
+											}
+										}
+										$sql .= ")";
+										$attrValuesCount++;
+									}
+								}
+							}
+							$sql .= ")";
+						}
+                                                
+                                                if (isset($data['attribute_filters_required']) && !empty($data['attribute_filters_required'])) {
+                                                    foreach ($data['attribute_filters_required'] as $key => $value) {
+                                                        $sql .= " AND md5(pa" . $key . ".text) = '" . $value . "'";
+                                                    }
+                                                } 
+                                                
+                                                
+                                                // Manufacturers
+                                                if (isset($data['filter:manufacturer']) && !empty($data['filter:manufacturer'])) {
+                                                    $sql .= " AND (";
+                                                    $count = 0;
+                                                    foreach ($data['filter:manufacturer'] as $manufacturerName) {
+                                                        if ($count != 0)
+                                                            $sql .= " OR";
+                                                            
+                                                            
+                                                        $count ++;
+                                                        $sql .= " LOWER(m.name) = '" . $manufacturerName . "'";
+                                                    }
+                                                    $sql .= " )";
+						}                                                
+						// Filters Pro
+				]]>
+            </add>
+        </operation>
+		
+        <operation>
+            <search position="replace" index="1"><![CDATA[$product_data = $query->row['total'];]]>
+            </search>
+            <add><![CDATA[
+							$product_data = array();
+							foreach ($query->rows as $result) {
+									// Filters Pro
+									if (isset($data['filter:price']) && isset($data['filter:price']['price_from']) && isset($data['filter:price']['price_to'])) {
+										if (($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')) >= $data['filter:price']['price_from']) && ($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')) <= $data['filter:price']['price_to'])) {
+											$product_data[$result['product_id']] = $result['product_id'];
+										}
+									} else {
+										$product_data[$result['product_id']] = $result['product_id'];
+									}
+									// Filters Pro
+							}
+							$product_data = count($product_data);
+							
+				]]>
+            </add>
+        </operation>
+		
+        <operation>
+            <search position="before"><![CDATA[public function getTotalProductSpecials() {]]>
+            </search>
+            <add><![CDATA[
+						public function getAttributes() {
+							$sql = "SELECT * FROM " . DB_PREFIX . "attribute_description ad LEFT JOIN " . DB_PREFIX . "attribute a ON (a.attribute_id = ad.attribute_id) WHERE ad.language_id = '" . $this->config->get('config_language_id') . "' AND a.sort_order != '-1' ORDER BY a.sort_order ASC";
+
+							$query = $this->db->query($sql);
+
+							return $query->rows;
+
+						}
+
+						public function getAttributeValues($data = array()) {
+							$sql = "SELECT * FROM " . DB_PREFIX . "product_attribute pa LEFT JOIN " . DB_PREFIX . "product_to_category p2c ON (pa.product_id = p2c.product_id) LEFT JOIN " . DB_PREFIX . "attribute_text_sort_order atso ON (md5(md5(pa.text)) = md5(atso.attribute_text)) WHERE attribute_id = '" . $data['attribute_id'] . "' AND language_id = '" . $this->config->get('config_language_id') . "' AND sort_order != '-1'";
+							if (isset($data['category_id'])) {
+								$sql .= " AND p2c.category_id = '" . $data['category_id'] . "'";
+							}
+							$sql .= " GROUP BY pa.text ORDER BY atso.sort_order ASC, pa.text ASC";
+                                                        
+							$query = $this->db->query($sql);
+
+							return $query->rows;
+						}
+                                                
+                                                public function getHighestProductPrice($category_id) {
+                                                    $sql = "SELECT p.price AS price, ((p.price * (((	SELECT IFNULL(SUM(tra.rate), 0) FROM " . DB_PREFIX . "tax_rule tru LEFT JOIN " . DB_PREFIX . "tax_rate tra ON (tru.tax_rate_id = tra.tax_rate_id) WHERE tru.tax_class_id = p.tax_class_id AND tra.type = 'P') / 100) + 1)) + (SELECT IFNULL(SUM(tra.rate), 0) FROM " . DB_PREFIX . "tax_rule tru LEFT JOIN " . DB_PREFIX . "tax_rate tra ON (tru.tax_rate_id = tra.tax_rate_id)WHERE tru.tax_class_id = p.tax_class_id AND tra.type = 'F')) AS gross_price FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_category p2c ON (p.product_id = p2c.product_id) WHERE p2c.category_id = '" . $category_id . "' GROUP BY p.product_id ORDER BY p.price DESC LIMIT 0,1";
+                                                    $query = $this->db->query($sql);
+                                                    
+                                                    if ($query->row) {
+                                                        return $query->row['gross_price'] ? $query->row['gross_price'] : $query->row['price'];
+                                                    } else {
+                                                        return 0;
+                                                    }                                     
+                                                    
+                                                }
+				]]>
+            </add>
+        </operation>
+		
+    </file>
+	
+    <file name="catalog/model/checkout/order.php">
+        <operation>
+            <search position="after"><![CDATA[$this->cache->delete('product');]]>
+            </search>
+            <add><![CDATA[
+						$this->cache->delete('getTotalProducts');
+				]]>
+            </add>
+        </operation>
+    </file>
+    
+    
+    <file name="admin/model/catalog/product.php">
+        <operation>
+            <search position="replace"><![CDATA[$product_attribute_query = $this->db->query("SELECT pa.attribute_id, ad.name FROM " . DB_PREFIX . "product_attribute pa LEFT JOIN " . DB_PREFIX . "attribute a ON (pa.attribute_id = a.attribute_id) LEFT JOIN " . DB_PREFIX . "attribute_description ad ON (a.attribute_id = ad.attribute_id) WHERE pa.product_id = '" . (int)$product_id . "' AND ad.language_id = '" . (int)$this->config->get('config_language_id') . "' GROUP BY pa.attribute_id");]]>
+            </search>
+            <add><![CDATA[
+            
+				$product_attribute_query = $this->db->query("SELECT pa.attribute_id, ad.name FROM " . DB_PREFIX . "product_attribute pa LEFT JOIN " . DB_PREFIX . "attribute a ON (pa.attribute_id = a.attribute_id) LEFT JOIN " . DB_PREFIX . "attribute_description ad ON (a.attribute_id = ad.attribute_id) WHERE pa.product_id = '" . (int)$product_id . "' AND ad.language_id = '" . (int)$this->config->get('config_language_id') . "' /*GROUP BY pa.attribute_id*/");
+                                $count = array();
+                                
+		]]>
+            </add>
+        </operation>
+
+        <operation>
+            <search position="replace"><![CDATA[$this->db->query("INSERT INTO " . DB_PREFIX . "product_attribute SET product_id = '" . (int)$product_id . "', attribute_id = '" . (int)$product_attribute['attribute_id'] . "', language_id = '" . (int)$language_id . "', text = '" .  $this->db->escape($product_attribute_description['text']) . "'");]]>
+            </search>
+            <add><![CDATA[   
+                    
+                    if (!isset($usedAttributes)) {
+                    	$usedAttributes = array();
+                    }
+                    
+                    $hash = md5($product_id . $product_attribute_description['text'] . $language_id);
+
+                    if (!isset($usedAttributes[$hash])) {
+                    	$usedAttributes[$hash] = true;
+                    	$this->db->query("INSERT INTO " . DB_PREFIX . "product_attribute SET product_id = '" . (int)$product_id . "', attribute_id = '" . (int)$product_attribute['attribute_id'] . "', language_id = '" . (int)$language_id . "', text = '" .  $this->db->escape($product_attribute_description['text']) . "'");
+                    }
+
+		]]>
+            </add>
+        </operation>
+        
+        <operation>
+            <search position="replace"><![CDATA[$this->db->query("DELETE FROM " . DB_PREFIX . "product_attribute WHERE product_id = '" . (int)$product_id . "' AND attribute_id = '" . (int)$product_attribute['attribute_id'] . "'");]]>
+            </search>
+            <add><![CDATA[
+            		if ($this->config->get('an_filters_attributes_filters_allow_multiple_values')) {
+                    	//$this->db->query("DELETE FROM " . DB_PREFIX . "product_attribute WHERE product_id = '" . (int)$product_id . "' AND attribute_id = '" . (int)$product_attribute['attribute_id'] . "'");
+                    	} else {
+                    		$this->db->query("DELETE FROM " . DB_PREFIX . "product_attribute WHERE product_id = '" . (int)$product_id . "' AND attribute_id = '" . (int)$product_attribute['attribute_id'] . "'");
+                    	}
+		]]>
+            </add>
+        </operation>
+        
+         <operation>
+            <search position="replace"><![CDATA[$product_attribute_description_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_attribute WHERE product_id = '" . (int)$product_id . "' AND attribute_id = '" . (int)$product_attribute['attribute_id'] . "'");]]>
+            </search>
+            <add><![CDATA[
+            
+                        if (!isset($count[$product_attribute['attribute_id']])) {
+                            $count[$product_attribute['attribute_id']] = 0;
+                        }
+                        $limit = " LIMIT " . $count[$product_attribute['attribute_id']] . ", 1";
+                        $count[$product_attribute['attribute_id']] ++;
+                        
+			$product_attribute_description_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_attribute WHERE product_id = '" . (int)$product_id . "' AND attribute_id = '" . (int)$product_attribute['attribute_id'] . "'" . $limit);
+                        
+                        
+		]]>
+            </add>
+        </operation>
+        
+        <operation>
+            <search position="after"><![CDATA[$this->cache->delete('product');]]>
+            </search>
+            <add><![CDATA[
+						$this->cache->delete('getTotalProducts');
+				]]>
+            </add>
+        </operation>
+    </file>
+	
+</modification>

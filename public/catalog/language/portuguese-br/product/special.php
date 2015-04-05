@@ -5,7 +5,7 @@ $_['heading_title']     = 'Promoções';
 // Text
 $_['text_empty']        = 'No momento não há promoções para exibir.';
 $_['text_quantity']     = 'Qtd:';
-$_['text_manufacturer'] = 'Fabricantes:';
+$_['text_manufacturer'] = 'Marcas:';
 $_['text_model']        = 'Código de produto:'; 
 $_['text_points']       = 'Pontos de fidelidade:'; 
 $_['text_price']        = 'Preço:'; 

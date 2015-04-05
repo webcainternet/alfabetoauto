@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']		= 'Fabricantes';
+$_['heading_title']		= 'Marcas';
 
 // Text
 $_['text_success']		 = 'Fabricante atualizado com sucesso!';
@@ -29,7 +29,7 @@ $_['entry_type']         = 'Tipo:';
 
 // Error
 
-$_['error_permission']	= 'Atenção: Você não possui permissão para alterar os fabricantes!';
+$_['error_permission']	= 'Atenção: Você não possui permissão para alterar os Marcas!';
 $_['error_name']		= 'O nome do fabricante deve ter entre 3 a 64 caracteres!';
 $_['error_product']		= 'Atenção: este fabricante não pode ser removido pois está atribuído a %s produto(s)!';
 ?>

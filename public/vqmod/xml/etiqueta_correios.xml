@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <id>Etiqueta de Envio - Padrão Correios</id>
+    <version>1.0.2</version>
+    <vqmver>2.5.1</vqmver>
+    <author>César Henrique</author>
+    
+    <!-- Adicione o botão à página do pedido -->
+    <file name="admin/view/template/sale/order_info.tpl">
+        <operation>
+            <search position="before"><![CDATA[<a href="<?php echo $invoice; ?>" target="_blank" class="button"><?php echo $button_invoice; ?></a><a href="<?php echo $cancel; ?>" class="button"><?php echo $button_cancel; ?></a>]]></search>
+            <add><![CDATA[<a href="<?php echo $sticker; ?>" target="_blank" title="Imprimir Etiqueta dos Correios" class="button">Imprimir Etiqueta</a>]]></add>
+        </operation>
+    </file>
+    
+    <file name="admin/controller/sale/order.php">
+        <operation>
+            <search position="after"><![CDATA[ $this->data['invoice'] = $this->url->link('sale/order/invoice', 'token=' . $this->session->data['token'], 'SSL'); ]]></search>
+            <add><![CDATA[ $this->data['sticker'] = $this->url->link('sale/order/sticker', 'token=' . $this->session->data['token'] . $url, 'SSL'); ]]></add>
+        </operation>
+        
+        <operation>
+            <search position="after"><![CDATA[ $this->data['text_missing'] = $this->language->get('text_missing'); ]]></search>
+            <add><![CDATA[ $this->data['button_address'] = $this->language->get('button_address'); ]]></add>
+        </operation>
+        
+        <operation>
+            <search position="after"><![CDATA[ $this->data['invoice'] = $this->url->link('sale/order/invoice', 'token=' . $this->session->data['token'] . '&order_id=' . (int)$this->request->get['order_id'], 'SSL'); ]]></search>
+            <add><![CDATA[  $this->data['sticker'] = $this->url->link('sale/order/sticker', 'token=' . $this->session->data['token'] . '&order_id=' . (int)$this->request->get['order_id'], 'SSL'); ]]></add>
+        </operation>
+        
+        <operation> 
+            <search position="before"><![CDATA[ public function invoice() { ]]></search>
+            <add><![CDATA[ 	  	public function sticker() {
+		$this->language->load('sale/order');
+
+		$this->data['title'] = $this->language->get('heading_title');
+
+		if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
+			$this->data['base'] = HTTPS_SERVER;
+		} else {
+			$this->data['base'] = HTTP_SERVER;
+		}
+		//observao
+		$this->data['direction'] = $this->language->get('direction');
+		
+		$this->load->model('sale/order');
+
+		$this->load->model('setting/setting');
+
+		$this->data['orders'] = array();
+
+		$orders = array();
+
+		if (isset($this->request->post['selected'])) {
+			$orders = $this->request->post['selected'];
+		} elseif (isset($this->request->get['order_id'])) {
+			$orders[] = $this->request->get['order_id'];
+		}
+
+		foreach ($orders as $order_id) {
+			$order_info = $this->model_sale_order->getOrder($order_id);
+
+			if ($order_info) {
+				$store_info = $this->model_setting_setting->getSetting('config', $order_info['store_id']);
+				
+				if ($store_info) {
+					$store_address   = $store_info['config_address'];
+					$store_telephone = $store_info['config_telephone'];
+				} else {
+					$store_address   = $this->config->get('config_address');
+					$store_telephone = $this->config->get('config_telephone');
+					
+				}
+				
+				if ($order_info['invoice_no']) {
+					$invoice_no = $order_info['invoice_prefix'] . $order_info['invoice_no'];
+				} else {
+					$invoice_no = '';
+				}
+				
+				if ($order_info['shipping_address_format']) {
+					$format = $order_info['shipping_address_format'];
+				} else {
+				$format = '{nome} {sobrenome}' . "\n" . '{empresa}' . "\n" . '{telefone}' . "\n" . '{endereco_1}' . "\n" . '{endereco_2}' . "\n" . '{cidade}' . "/" . '{sigla}' . "\n" . '{cep}' . "\n" . '{pais}';
+				}
+
+				$find = array(
+					'{nome}',
+					'{sobrenome}',
+					'{empresa}',
+					'{endereco_1}',
+					'{endereco_2}',
+					'{cidade}',
+					'{cep}',
+					'{estado}',
+					'{sigla}',
+					'{pais}',
+					'{telefone}'
+				);
+
+				$replace = array(
+					'nome'		 => $order_info['shipping_firstname'],
+					'sobrenome'  => $order_info['shipping_lastname'],
+					'empresa'    => $order_info['shipping_company'],
+					'endereco_1' => $order_info['shipping_address_1'],
+					'endereco_2' => $order_info['shipping_address_2'],
+					'cidade'     => $order_info['shipping_city'],
+					'cep'        => $order_info['shipping_postcode'],
+					'estado'     => $order_info['shipping_zone'],
+					'sigla'      => $order_info['shipping_zone_code'],
+					'pais'       => $order_info['shipping_country'],
+					'telefone'   => $order_info['telephone']
+				);
+
+				$endereco_entrega = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
+
+				if ($order_info['payment_address_format']) {
+					$format = $order_info['payment_address_format'];
+				} else {
+					$format = '{nome} {sobrenome}' . "\n" . '{empresa}' . "\n" . '{telefone}' . "\n" . '{endereco_1}' . "\n" . '{endereco_2}' . "\n" . '{cidade}' . "/" . '{sigla}' . "\n" . '{cep}' . "\n" . '{pais}';
+				}
+
+				$find = array(
+					'{nome}',
+					'{sobrenome}',
+					'{empresa}',
+					'{endereco_1}',
+					'{endereco_2}',
+					'{cidade}',
+					'{cep}',
+					'{estado}',
+					'{sigla}',
+					'{pais}',
+					'{telefone}'
+				);
+
+				$replace = array(
+					'nome' 		 => $order_info['shipping_firstname'],
+					'sobrenome'  => $order_info['shipping_lastname'],
+					'empresa'    => $order_info['shipping_company'],
+					'endereco_1' => $order_info['shipping_address_1'],
+					'endereco_2' => $order_info['shipping_address_2'],
+					'cidade'     => $order_info['shipping_city'],
+					'cep'  	     => $order_info['shipping_postcode'],
+					'estado'     => $order_info['shipping_zone'],
+					'sigla'      => $order_info['shipping_zone_code'],
+					'pais'       => $order_info['payment_country'],
+					'telefone'   => $order_info['telephone']
+				);
+
+				$endereco_pagamento = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
+
+				$this->data['orders'][] = array(
+					'loja'             => $order_info['store_name'],
+					'endereco_loja'    => nl2br($store_address),
+					'telefone_loja'    => $store_telephone,
+					'endereco_entrega' => $endereco_entrega,
+					'cep'			   => $order_info['shipping_postcode'],
+					'correios'         => $order_info['shipping_code']
+				);
+			}
+		}
+		$this->template = 'sale/etiqueta_correios.tpl';
+		$this->response->setOutput($this->render());
+	}
+  ]]></add>
+        </operation>
+    </file>  
+
+</modification>

@@ -1,10 +1,10 @@
 <?php
 // Heading
-$_['heading_title']       = 'Fabricantes';
+$_['heading_title']       = 'Marcas';
 
 // Text
 $_['text_module']         = 'Módulos';
-$_['text_success']        = 'Módulo Fabricantes atualizado com sucesso!';
+$_['text_success']        = 'Módulo Marcas atualizado com sucesso!';
 $_['text_content_top']    = 'Conteúdo do Topo';
 $_['text_content_bottom'] = 'Conteúdo do Rodapé';
 $_['text_column_left']    = 'Coluna da Esquerda';
@@ -24,7 +24,7 @@ $_['entry_status']       = 'Situação:';
 $_['entry_sort_order']   = 'Ordem:';
 
 // Error
-$_['error_permission']   = 'Atenção: Você não possui permissão para modificar módulo Fabricantes!';
+$_['error_permission']   = 'Atenção: Você não possui permissão para modificar módulo Marcas!';
 $_['error_dimension']    = 'Largura e altura da dimensão é obrigatória!';
 $_['error_image']        = 'Largura e altura são obrigatórios!';
 ?>

@@ -335,7 +335,7 @@
 	border-left:0;
 }
 .camera_next:hover > span, .camera_prev:hover > span {
-	color:#e9962e;
+	color:#f7505a;
 }
 .camera_prev > span {
 	display: block;
@@ -471,10 +471,10 @@
 	background: #b7b7b7;
 }
 .camera_wrap .camera_pag .camera_pag_ul li:hover  {
-	background: #e9962e;
+	background: #f7505a;
 }
 .camera_wrap .camera_pag .camera_pag_ul li.cameracurrent  {
-	background: #e9962e;
+	background: #f7505a;
 }
 .camera_pag_ul li img {
 	border: 4px solid #e6e6e6;

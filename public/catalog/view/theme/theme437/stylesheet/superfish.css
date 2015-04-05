@@ -36,7 +36,7 @@ ul.sf-menu > li.current>a,
 ul.sf-menu > li>a:hover,
 ul.sf-menu > li.sfHover>a,
 ul.sf-menu > ul > li.active>a  {
-	color:#e9962e
+	color:#f7505a
 	}
 .sf-menu .sf-mega {
 	display: none;
@@ -64,7 +64,7 @@ ul.sf-menu > ul > li.active>a  {
 	border-top:1px solid #000;
 }
 .sf-mega-section >li a:hover, .sf-mega-section >li.sfHover>a {
-	color:#e9962e;
+	color:#f7505a;
 	background-color:#474646;
 }
 .sf-mega-section >li a {
@@ -121,7 +121,7 @@ ul.sf-menu > ul > li.active>a  {
 }
 /*****************************************************/
 #menu-icon {
-	background: #e9962e;
+	background: #f7505a;
 	color: #FFFFFF;
 	cursor: pointer;
 	display: block;
@@ -203,7 +203,7 @@ ul.sf-menu > ul > li.active>a  {
 }
 .sf-menu-phone  li  i {
 	top: 8px;
-	color:#e9962e;
+	color:#f7505a;
 	font-size:21px;
 	padding:0 20px;
 	right:5px
