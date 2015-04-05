@@ -1159,6 +1159,7 @@ header #cart .empty {
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
 	color:#B3B2AE;
+	display: none;
 }
 .box .box-content .box-product ul li:hover .quick-view-button {
 	opacity:1;
