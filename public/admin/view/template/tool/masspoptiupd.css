@@ -1,0 +1,7 @@
+#content .left,#content .right {
+padding: 4px !important;
+}
+
+.table_val_upd_m1 td {
+border: none;
+}

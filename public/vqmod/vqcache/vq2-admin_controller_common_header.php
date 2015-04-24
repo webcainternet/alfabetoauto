@@ -132,6 +132,148 @@ class ControllerCommonHeader extends Controller {
 			$this->data['affiliate'] = $this->url->link('sale/affiliate', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['attribute'] = $this->url->link('catalog/attribute', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['attribute_group'] = $this->url->link('catalog/attribute_group', 'token=' . $this->session->data['token'], 'SSL');
+
+	if(version_compare(VERSION, '1.5.4.1', '>')) {
+	$this->language->load('tool/masspattrupd');
+	} else {
+    	$this->load->language('tool/masspattrupd');
+	}
+	
+	$begin_code='<li><a class="parent">'.$this->language->get('masstxt_menu1').'</a><ul>';
+	$end_code='</ul></li>';
+	if (!isset($middle_code)) { $middle_code=''; }
+	$middle_code.='<li><a href="'.$this->url->link('tool/masspattrupd', 'token=' . $this->session->data['token'], 'SSL').'">'.$this->language->get('masstxt_menu_attributes').'</a></li>';
+	$this->data['mass_p_u_code']=$begin_code.$middle_code.$end_code;
+	
+
+	if(version_compare(VERSION, '1.5.4.1', '>')) {
+	$this->language->load('tool/masspcategupd');
+	} else {
+    	$this->load->language('tool/masspcategupd');
+	}
+
+	$begin_code='<li><a class="parent">'.$this->language->get('masstxt_menu1').'</a><ul>';
+	$end_code='</ul></li>';
+	if (!isset($middle_code)) { $middle_code=''; }
+	$middle_code.='<li><a href="'.$this->url->link('tool/masspcategupd', 'token=' . $this->session->data['token'], 'SSL').'">'.$this->language->get('masstxt_menu_categories').'</a></li>';
+	$this->data['mass_p_u_code']=$begin_code.$middle_code.$end_code;
+	
+
+	if(version_compare(VERSION, '1.5.4.1', '>')) {
+	$this->language->load('tool/masspdiscoupd');
+	} else {
+    	$this->load->language('tool/masspdiscoupd');
+	}
+	
+	$begin_code='<li><a class="parent">'.$this->language->get('masstxt_menu1').'</a><ul>';
+	$end_code='</ul></li>';
+	if (!isset($middle_code)) { $middle_code=''; }
+	$middle_code.='<li><a href="'.$this->url->link('tool/masspdiscoupd', 'token=' . $this->session->data['token'], 'SSL').'">'.$this->language->get('masstxt_menu_disco_spec').'</a></li>';
+	$this->data['mass_p_u_code']=$begin_code.$middle_code.$end_code;
+	
+
+	if(version_compare(VERSION, '1.5.4.1', '>')) {
+	$this->language->load('tool/masspdwupd');
+	} else {
+    	$this->load->language('tool/masspdwupd');
+	}
+
+	$begin_code='<li><a class="parent">'.$this->language->get('masstxt_menu1').'</a><ul>';
+	$end_code='</ul></li>';
+	if (!isset($middle_code)) { $middle_code=''; }
+	$middle_code.='<li><a href="'.$this->url->link('tool/masspdwupd', 'token=' . $this->session->data['token'], 'SSL').'">'.$this->language->get('masstxt_menu_d_w').'</a></li>';
+	$this->data['mass_p_u_code']=$begin_code.$middle_code.$end_code;
+	
+
+	if(version_compare(VERSION, '1.5.4.1', '>')) {
+	$this->language->load('tool/masspfiltersupd');
+	$begin_code='<li><a class="parent">'.$this->language->get('masstxt_menu1').'</a><ul>';
+	$end_code='</ul></li>';
+	if (!isset($middle_code)) { $middle_code=''; }
+	$middle_code.='<li><a href="'.$this->url->link('tool/masspfiltersupd', 'token=' . $this->session->data['token'], 'SSL').'">'.$this->language->get('masstxt_menu_filters').'</a></li>';
+	$this->data['mass_p_u_code']=$begin_code.$middle_code.$end_code;
+	} else {
+	$this->data['mass_p_u_code']="";
+	}
+	
+
+	if(version_compare(VERSION, '1.5.4.1', '>')) {
+	$this->language->load('tool/massplayoutupd');
+	} else {
+    	$this->load->language('tool/massplayoutupd');
+	}
+	
+	$begin_code='<li><a class="parent">'.$this->language->get('masstxt_menu1').'</a><ul>';
+	$end_code='</ul></li>';
+	if (!isset($middle_code)) { $middle_code=''; }
+	$middle_code.='<li><a href="'.$this->url->link('tool/massplayoutupd', 'token=' . $this->session->data['token'], 'SSL').'">'.$this->language->get('masstxt_menu_price').'</a></li>';
+	$this->data['mass_p_u_code']=$begin_code.$middle_code.$end_code;
+	
+
+	if(version_compare(VERSION, '1.5.4.1', '>')) {
+	$this->language->load('tool/masspmanufupd');
+	} else {
+    	$this->load->language('tool/masspmanufupd');
+	}
+	
+	$begin_code='<li><a class="parent">'.$this->language->get('masstxt_menu1').'</a><ul>';
+	$end_code='</ul></li>';
+	if (!isset($middle_code)) { $middle_code=''; }
+	$middle_code.='<li><a href="'.$this->url->link('tool/masspmanufupd', 'token=' . $this->session->data['token'], 'SSL').'">'.$this->language->get('masstxt_menu_manufacturer').'</a></li>';
+	$this->data['mass_p_u_code']=$begin_code.$middle_code.$end_code;
+	
+
+	if(version_compare(VERSION, '1.5.4.1', '>')) {
+	$this->language->load('tool/masspoptiupd');
+	} else {
+    	$this->load->language('tool/masspoptiupd');
+	}
+	
+	$begin_code='<li><a class="parent">'.$this->language->get('masstxt_menu1').'</a><ul>';
+	$end_code='</ul></li>';
+	if (!isset($middle_code)) { $middle_code=''; }
+	$middle_code.='<li><a href="'.$this->url->link('tool/masspoptiupd', 'token=' . $this->session->data['token'], 'SSL').'">'.$this->language->get('masstxt_menu_options').'</a></li>';
+	$this->data['mass_p_u_code']=$begin_code.$middle_code.$end_code;
+	
+
+	if(version_compare(VERSION, '1.5.4.1', '>')) {
+	$this->language->load('tool/massppriceupd');
+	} else {
+    	$this->load->language('tool/massppriceupd');
+	}
+	
+	$begin_code='<li><a class="parent">'.$this->language->get('masstxt_menu1').'</a><ul>';
+	$end_code='</ul></li>';
+	if (!isset($middle_code)) { $middle_code=''; }
+	$middle_code.='<li><a href="'.$this->url->link('tool/massppriceupd', 'token=' . $this->session->data['token'], 'SSL').'">'.$this->language->get('masstxt_menu_price').'</a></li>';
+	$this->data['mass_p_u_code']=$begin_code.$middle_code.$end_code;
+	
+
+	if(version_compare(VERSION, '1.5.4.1', '>')) {
+	$this->language->load('tool/masspstockupd');
+	} else {
+    	$this->load->language('tool/masspstockupd');
+	}
+	
+	$begin_code='<li><a class="parent">'.$this->language->get('masstxt_menu1').'</a><ul>';
+	$end_code='</ul></li>';
+	if (!isset($middle_code)) { $middle_code=''; }
+	$middle_code.='<li><a href="'.$this->url->link('tool/masspstockupd', 'token=' . $this->session->data['token'], 'SSL').'">'.$this->language->get('masstxt_menu_quantity').'</a></li>';
+	$this->data['mass_p_u_code']=$begin_code.$middle_code.$end_code;
+	
+
+	if(version_compare(VERSION, '1.5.4.1', '>')) {
+	$this->language->load('tool/massptagsupd');
+	} else {
+    	$this->load->language('tool/massptagsupd');
+	}
+
+	$begin_code='<li><a class="parent">'.$this->language->get('masstxt_menu1').'</a><ul>';
+	$end_code='</ul></li>';
+	if (!isset($middle_code)) { $middle_code=''; }
+	$middle_code.='<li><a href="'.$this->url->link('tool/massptagsupd', 'token=' . $this->session->data['token'], 'SSL').'">'.$this->language->get('masstxt_menu_tags').'</a></li>';
+	$this->data['mass_p_u_code']=$begin_code.$middle_code.$end_code;
+	
 			$this->data['backup'] = $this->url->link('tool/backup', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['banner'] = $this->url->link('design/banner', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['category'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'], 'SSL');
