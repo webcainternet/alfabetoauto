@@ -33,6 +33,7 @@
   <p class="login-padd"><?php echo $text_register_account; ?></p>
   <a id="button-account" class="button-cont-right"><?php echo $button_continue; ?><i class="fa fa-arrow-circle-right"></i></a>
   <div class="clear"></div>
+
 </div>
 </div>
 <div id="login" class="col-sm-6">
@@ -65,3 +66,10 @@
 </div>
 </div>
 </div>
+
+<div>
+	Para sua comodidade, você pode fazer o login com sua conta do Facebook:<br>
+	  <?php if (!$this->customer->isLogged()) { ?>
+	<a class="ocx-facebook-login-trigger ocx-fbl-button ocx-standard ocx-icon" href="javascript:void(0);"><?php echo $this->config->get('facebook_login_button_name_' . $this->config->get('config_language_id')); ?></a>
+	<?php } ?>
+	</div>

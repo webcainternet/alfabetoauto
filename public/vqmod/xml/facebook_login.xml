@@ -1,0 +1,55 @@
+<modification>
+	<id>OC-Extensions.com - Facebook Login</id>
+	<version>1.0</version>
+	<vqmver>1.0.8</vqmver>
+	<author>oc-extensions.com</author>
+
+	<file name="catalog/controller/common/header.php">
+		<operation error="log">
+			<search position="after"><![CDATA[$this->data['title'] = $this->document->getTitle();]]></search>
+			<add><![CDATA[
+			$this->document->addScript('catalog/view/javascript/jquery/jquery-migrate-1.2.1.js'); 
+			$this->document->addScript('catalog/view/javascript/jquery/jquery.facebooklogin.js'); 
+			
+			if (file_exists('catalog/view/theme/' . $this->config->get('config_template') . '/stylesheet/facebook_login.css')) {
+				$this->document->addStyle('catalog/view/theme/' . $this->config->get('config_template') . '/stylesheet/facebook_login.css');
+			} else {
+				$this->document->addStyle('catalog/view/theme/default/stylesheet/facebook_login.css');
+			}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search position="before"><![CDATA[$this->language->load('common/header');]]></search>
+			<add><![CDATA[
+			$this->data['facebook_login_app_id'] = $this->config->get('facebook_login_app_id');
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/view/theme/*/template/common/header.tpl">
+		<operation error="log">
+			<search position="after"><![CDATA[<?php echo $google_analytics; ?>]]></search>
+			<add><![CDATA[
+			<script type="text/javascript"><!--
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId      : <?php echo $facebook_login_app_id; ?>, // App ID
+					status     : true, // check login status
+					cookie     : true, // enable cookies to allow the server to access the session
+					xfbml      : true  // parse XFBML
+				});
+			};
+
+			// Load the SDK Asynchronously
+			(function(d){
+				var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+				js = d.createElement('script'); js.id = id; js.async = true;
+				js.src = "//connect.facebook.net/en_US/all.js";
+				d.getElementsByTagName('head')[0].appendChild(js);
+			}(document));
+			//--></script>
+			]]></add>
+		</operation>
+	</file>
+	
+</modification>

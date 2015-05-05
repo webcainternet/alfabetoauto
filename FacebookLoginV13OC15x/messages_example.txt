@@ -1,0 +1,29 @@
+REGISTRATION EMAIL:
+===================
+
+**Subject:
+----------
+{store_name} - Thank you for registering
+
+
+**Message:
+----------
+Welcome and thank you for registering at {store_name}!
+
+Your account has now been created and you can log in by using your email address and password by visiting our website or at the following URL: {login_link}
+
+Login info:
+E-Mail: {email}
+Password: {password}
+
+Upon logging in, you will be able to access other services including reviewing past orders, printing invoices and editing your account information.
+
+Thanks,
+{store_name}
+
+
+**Extra info message:
+---------------------
+Registration system require some info that couldn't be imported from your Facebook account.
+
+Plese provide info described below. (will request this info only first time)

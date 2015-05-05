@@ -177,9 +177,9 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 							<?php echo $currency; ?>
 							<?php echo $language; ?>
 							<ul class="socials">
-								<li><a href="https://facebook.com/"><i class="fa fa-facebook-square"></i></a></li>
-								<li><a href="//twitter.com"><i class="fa fa-twitter-square"></i></a></li>
-								<li><a href="#"><i class="fa fa-rss-square"></i></a></li>
+								<li><a href="https://www.facebook.com/alfabetoauto"><i class="fa fa-facebook-square"></i> /alfabetoauto</a></li>
+								<!-- <li><a href="//twitter.com"><i class="fa fa-twitter-square"></i></a></li>
+								<li><a href="#"><i class="fa fa-rss-square"></i></a></li> -->
 							</ul>
 							<ul class="links links2">
 							<?php if (!$logged) { ?>
