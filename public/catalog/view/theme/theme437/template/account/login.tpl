@@ -66,9 +66,20 @@
 		</div>
 	  </div>
   </div>
-  <?php echo $content_bottom; ?></div>
+  <?php echo $content_bottom; ?>
+
+
+<div>
+	Para sua comodidade, você pode fazer o login com sua conta do Facebook:<br>
+	  <?php if (!$this->customer->isLogged()) { ?>
+	<a class="ocx-facebook-login-trigger ocx-fbl-button ocx-standard ocx-icon" href="javascript:void(0);"><?php echo $this->config->get('facebook_login_button_name_' . $this->config->get('config_language_id')); ?></a>
+	<?php } ?>
+	</div>
+
+  </div>
 
 <?php echo $column_right; ?>
+
   
 <script type="text/javascript"><!--
 $('#login input').keydown(function(e) {

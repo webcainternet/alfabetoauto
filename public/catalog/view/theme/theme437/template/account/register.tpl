@@ -1,4 +1,6 @@
 <?php echo $header; ?>
+
+
 <?php if ($error_warning) { ?>
 <div class="col-sm-12">
     <div class="warning"><?php echo $error_warning; ?></div>
@@ -12,9 +14,23 @@
 	<?php } ?>
   </div>
   <h1><?php echo $heading_title; ?></h1>
+
+
   
   <div class="box-container">
   <p><?php echo $text_account_already; ?></p>
+
+
+<br>
+<div>
+	Para sua comodidade, você pode fazer o login com sua conta do Facebook:<br>
+	  <?php if (!$this->customer->isLogged()) { ?>
+	<a class="ocx-facebook-login-trigger ocx-fbl-button ocx-standard ocx-icon" href="javascript:void(0);"><?php echo $this->config->get('facebook_login_button_name_' . $this->config->get('config_language_id')); ?></a>
+	<?php } ?>
+	</div>
+
+	<br>
+
 	  <form class="form-horizontal" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="register">
 		<h2><?php echo $text_your_details; ?></h2>
 		<div class="content">
