@@ -347,6 +347,14 @@
 		</div>
 	</div>
 	<?php } ?>
+
+	<div class="tabs">
+		<div class="tab-heading">Comentários do Facebook</div>
+		<div class="tab-content">
+			<div class="fb-comments" data-href="<?php echo "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]; ?>" data-numposts="10" data-colorscheme="light" width="100%"></div>
+		</div>
+	</div>
+
 	<?php if ($review_status) { ?>
 	<div class="tabs" id="tab-review">
 		<div class="tab-heading">
