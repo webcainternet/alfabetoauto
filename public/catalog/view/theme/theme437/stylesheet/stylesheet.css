@@ -3625,3 +3625,6 @@ z-index:8;
 .right {
 	float: right;
 }
+.option {
+	margin-top:10px;
+}
