@@ -81,14 +81,14 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div id="copyright" style="float: left; width: 50px;">
-					<img src="/image/comodo_sa_transp.png" height="43">
+					<img src="/image/comodo_sa_transp.png" height="43" style="min-width: 35px;">
 				</div>
 				
-				<div id="copyright" style="float: left; width: 45%; padding-top: 25px;">
+				<div id="copyright" style="float: left; width: 45%; padding-top: 25px; min-width: 300px;">
 					<?php echo $powered; ?><!-- [[%FOOTER_LINK]] -->
 				</div>
 
-				<div id="copyright" style="float: left; width: 49%; text-align: right;">
+				<div id="copyright" style="float: left; width: 49%; text-align: right; min-width: 330px;">
 					<img src="/image/pagseguro.jpg" height="40" style="height: 40px;">
 				</div>
 			</div>
