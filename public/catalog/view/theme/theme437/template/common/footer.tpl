@@ -80,8 +80,16 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<div id="copyright">
+				<div id="copyright" style="float: left; width: 50px;">
+					<img src="/image/comodo_sa_transp.png" height="43">
+				</div>
+				
+				<div id="copyright" style="float: left; width: 45%; padding-top: 25px;">
 					<?php echo $powered; ?><!-- [[%FOOTER_LINK]] -->
+				</div>
+
+				<div id="copyright" style="float: left; width: 49%; text-align: right;">
+					<img src="/image/footer-bandeiras.png" height="23" style="height: 23px;margin-top: 10px;">
 				</div>
 			</div>
 		</div>
