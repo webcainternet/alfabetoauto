@@ -89,7 +89,7 @@
 				</div>
 
 				<div id="copyright" style="float: left; width: 49%; text-align: right;">
-					<img src="/image/footer-bandeiras.png" height="23" style="height: 23px;margin-top: 10px;">
+					<img src="/image/pagseguro.jpg" height="40" style="height: 40px;">
 				</div>
 			</div>
 		</div>
