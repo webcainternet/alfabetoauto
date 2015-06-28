@@ -30,6 +30,10 @@ class ControllerShippingCorreios extends Controller {
 		$this->data['text_pac'] = $this->language->get('text_pac');
 		$this->data['text_sedex_10'] = $this->language->get('text_sedex_10');
 		$this->data['text_esedex'] = $this->language->get('text_esedex');
+		$this->data['text_sedex_12'] = $this->language->get('text_sedex_12');
+		$this->data['text_pac_grandes_formatos'] = $this->language->get('text_pac_grandes_formatos');
+		$this->data['text_pac_cobrar'] = $this->language->get('text_pac_cobrar');
+		$this->data['text_total'] = $this->language->get('text_total');		
 		
 		$this->data['text_sedex_cobrar_contrato'] = $this->language->get('text_sedex_cobrar_contrato');
 		$this->data['text_sedex_hoje'] = $this->language->get('text_sedex_hoje');
@@ -163,10 +167,22 @@ class ControllerShippingCorreios extends Controller {
 			$this->data['correios_41106'] = $this->config->get('correios_41106');
 		}
 		
+		if (isset($this->request->post['correios_total_41106'])) {
+			$this->data['correios_total_41106'] = $this->request->post['correios_total_41106'];
+		} else {
+			$this->data['correios_total_41106'] = $this->config->get('correios_total_41106');
+		}		
+		
 		if (isset($this->request->post['correios_40010'])) {
 			$this->data['correios_40010'] = $this->request->post['correios_40010'];
 		} else {
 			$this->data['correios_40010'] = $this->config->get('correios_40010');
+		}
+
+		if (isset($this->request->post['correios_total_40010'])) {
+			$this->data['correios_total_40010'] = $this->request->post['correios_total_40010'];
+		} else {
+			$this->data['correios_total_40010'] = $this->config->get('correios_total_40010');
 		}
 		
 		if (isset($this->request->post['correios_40045'])) {
@@ -175,11 +191,23 @@ class ControllerShippingCorreios extends Controller {
 			$this->data['correios_40045'] = $this->config->get('correios_40045');
 		}
 		
+		if (isset($this->request->post['correios_total_40045'])) {
+			$this->data['correios_total_40045'] = $this->request->post['correios_total_40045'];
+		} else {
+			$this->data['correios_total_40045'] = $this->config->get('correios_total_40045');
+		}		
+		
 		if (isset($this->request->post['correios_40215'])) {
 			$this->data['correios_40215'] = $this->request->post['correios_40215'];
 		} else {
 			$this->data['correios_40215'] = $this->config->get('correios_40215');
 		}
+		
+		if (isset($this->request->post['correios_total_40215'])) {
+			$this->data['correios_total_40215'] = $this->request->post['correios_total_40215'];
+		} else {
+			$this->data['correios_total_40215'] = $this->config->get('correios_total_40215');
+		}		
 
 		if (isset($this->request->post['correios_81019'])) {
 			$this->data['correios_81019'] = $this->request->post['correios_81019'];
@@ -187,12 +215,24 @@ class ControllerShippingCorreios extends Controller {
 			$this->data['correios_81019'] = $this->config->get('correios_81019');
 		}
 		
+		if (isset($this->request->post['correios_total_81019'])) {
+			$this->data['correios_total_81019'] = $this->request->post['correios_total_81019'];
+		} else {
+			$this->data['correios_total_81019'] = $this->config->get('correios_total_81019');
+		}		
+		
 		// sedex a cobrar com contrato
 		if (isset($this->request->post['correios_40126'])) {
 			$this->data['correios_40126'] = $this->request->post['correios_40126'];
 		} else {
 			$this->data['correios_40126'] = $this->config->get('correios_40126');
-		}		
+		}
+
+		if (isset($this->request->post['correios_total_40126'])) {
+			$this->data['correios_total_40126'] = $this->request->post['correios_total_40126'];
+		} else {
+			$this->data['correios_total_40126'] = $this->config->get('correios_total_40126');
+		}				
 		
 		// sedex hoje
 		if (isset($this->request->post['correios_40290'])) {
@@ -201,12 +241,24 @@ class ControllerShippingCorreios extends Controller {
 			$this->data['correios_40290'] = $this->config->get('correios_40290');
 		}
 		
+		if (isset($this->request->post['correios_total_40290'])) {
+			$this->data['correios_total_40290'] = $this->request->post['correios_total_40290'];
+		} else {
+			$this->data['correios_total_40290'] = $this->config->get('correios_total_40290');
+		}		
+		
 		// sedex com contrato
 		if (isset($this->request->post['correios_40096'])) {
 			$this->data['correios_40096'] = $this->request->post['correios_40096'];
 		} else {
 			$this->data['correios_40096'] = $this->config->get('correios_40096');
 		}
+		
+		if (isset($this->request->post['correios_total_40096'])) {
+			$this->data['correios_total_40096'] = $this->request->post['correios_total_40096'];
+		} else {
+			$this->data['correios_total_40096'] = $this->config->get('correios_total_40096');
+		}		
 
 		// sedex com contrato
 		if (isset($this->request->post['correios_40436'])) {
@@ -214,6 +266,12 @@ class ControllerShippingCorreios extends Controller {
 		} else {
 			$this->data['correios_40436'] = $this->config->get('correios_40436');
 		}
+
+		if (isset($this->request->post['correios_total_40436'])) {
+			$this->data['correios_total_40436'] = $this->request->post['correios_total_40436'];
+		} else {
+			$this->data['correios_total_40436'] = $this->config->get('correios_total_40436');
+		}		
 		
 		// sedex com contrato
 		if (isset($this->request->post['correios_40444'])) {
@@ -222,12 +280,24 @@ class ControllerShippingCorreios extends Controller {
 			$this->data['correios_40444'] = $this->config->get('correios_40444');
 		}
 		
+		if (isset($this->request->post['correios_total_40444'])) {
+			$this->data['correios_total_40444'] = $this->request->post['correios_total_40444'];
+		} else {
+			$this->data['correios_total_40444'] = $this->config->get('correios_total_40444');
+		}		
+		
 		// sedex com contrato
 		if (isset($this->request->post['correios_40568'])) {
 			$this->data['correios_40568'] = $this->request->post['correios_40568'];
 		} else {
 			$this->data['correios_40568'] = $this->config->get('correios_40568');
 		}
+		
+		if (isset($this->request->post['correios_total_40568'])) {
+			$this->data['correios_total_40568'] = $this->request->post['correios_total_40568'];
+		} else {
+			$this->data['correios_total_40568'] = $this->config->get('correios_total_40568');
+		}		
 		
 		// sedex com contrato
 		if (isset($this->request->post['correios_40606'])) {
@@ -236,12 +306,11 @@ class ControllerShippingCorreios extends Controller {
 			$this->data['correios_40606'] = $this->config->get('correios_40606');
 		}
 		
-		// pac com contrato
-		if (isset($this->request->post['correios_41068'])) {
-			$this->data['correios_41068'] = $this->request->post['correios_41068'];
+		if (isset($this->request->post['correios_total_40606'])) {
+			$this->data['correios_total_40606'] = $this->request->post['correios_total_40606'];
 		} else {
-			$this->data['correios_41068'] = $this->config->get('correios_41068');
-		}
+			$this->data['correios_total_40606'] = $this->config->get('correios_total_40606');
+		}		
 		
 		// pac com contrato
 		if (isset($this->request->post['correios_41068'])) {
@@ -249,6 +318,12 @@ class ControllerShippingCorreios extends Controller {
 		} else {
 			$this->data['correios_41068'] = $this->config->get('correios_41068');
 		}
+		
+		if (isset($this->request->post['correios_total_41068'])) {
+			$this->data['correios_total_41068'] = $this->request->post['correios_total_41068'];
+		} else {
+			$this->data['correios_total_41068'] = $this->config->get('correios_total_41068');
+		}		
 		
 		// e-sedex prioritário
 		if (isset($this->request->post['correios_81027'])) {
@@ -257,12 +332,24 @@ class ControllerShippingCorreios extends Controller {
 			$this->data['correios_81027'] = $this->config->get('correios_81027');
 		}
 		
+		if (isset($this->request->post['correios_total_81027'])) {
+			$this->data['correios_total_81027'] = $this->request->post['correios_total_81027'];
+		} else {
+			$this->data['correios_total_81027'] = $this->config->get('correios_total_81027');
+		}		
+		
 		// e-sedex express
 		if (isset($this->request->post['correios_81035'])) {
 			$this->data['correios_81035'] = $this->request->post['correios_81035'];
 		} else {
 			$this->data['correios_81035'] = $this->config->get('correios_81035');
 		}
+		
+		if (isset($this->request->post['correios_total_81035'])) {
+			$this->data['correios_total_81035'] = $this->request->post['correios_total_81035'];
+		} else {
+			$this->data['correios_total_81035'] = $this->config->get('correios_total_81035');
+		}		
 		
 		// e-sedex grupo 1
 		if (isset($this->request->post['correios_81868'])) {
@@ -271,6 +358,12 @@ class ControllerShippingCorreios extends Controller {
 			$this->data['correios_81868'] = $this->config->get('correios_81868');
 		}
 		
+		if (isset($this->request->post['correios_total_81868'])) {
+			$this->data['correios_total_81868'] = $this->request->post['correios_total_81868'];
+		} else {
+			$this->data['correios_total_81868'] = $this->config->get('correios_total_81868');
+		}		
+		
 		// e-sedex grupo 2
 		if (isset($this->request->post['correios_81833'])) {
 			$this->data['correios_81833'] = $this->request->post['correios_81833'];
@@ -278,11 +371,68 @@ class ControllerShippingCorreios extends Controller {
 			$this->data['correios_81833'] = $this->config->get('correios_81833');
 		}
 		
+		if (isset($this->request->post['correios_total_81833'])) {
+			$this->data['correios_total_81833'] = $this->request->post['correios_total_81833'];
+		} else {
+			$this->data['correios_total_81833'] = $this->config->get('correios_total_81833');
+		}		
+		
 		// e-sedex grupo 3
 		if (isset($this->request->post['correios_81850'])) {
 			$this->data['correios_81850'] = $this->request->post['correios_81850'];
 		} else {
 			$this->data['correios_81850'] = $this->config->get('correios_81850');
+		}
+		
+		if (isset($this->request->post['correios_total_81850'])) {
+			$this->data['correios_total_81850'] = $this->request->post['correios_total_81850'];
+		} else {
+			$this->data['correios_total_81850'] = $this->config->get('correios_total_81850');
+		}		
+		
+		// PAC Grandes Formatos
+		if (isset($this->request->post['correios_41300'])) {
+			$this->data['correios_41300'] = $this->request->post['correios_41300'];
+		} else {
+			$this->data['correios_41300'] = $this->config->get('correios_41300');
+		}
+		
+		if (isset($this->request->post['correios_total_41300'])) {
+			$this->data['correios_total_41300'] = $this->request->post['correios_total_41300'];
+		} else {
+			$this->data['correios_total_41300'] = $this->config->get('correios_total_41300');
+		}		
+
+		// PAC a Cobrar
+		if (isset($this->request->post['correios_41262'])) {
+			$this->data['correios_41262'] = $this->request->post['correios_41262'];
+		} else {
+			$this->data['correios_41262'] = $this->config->get('correios_41262');
+		}
+		
+		if (isset($this->request->post['correios_total_41262'])) {
+			$this->data['correios_total_41262'] = $this->request->post['correios_total_41262'];
+		} else {
+			$this->data['correios_total_41262'] = $this->config->get('correios_total_41262');
+		}		
+
+		// Sedex 12
+		if (isset($this->request->post['correios_40169'])) {
+			$this->data['correios_40169'] = $this->request->post['correios_40169'];
+		} else {
+			$this->data['correios_40169'] = $this->config->get('correios_40169');
+		}
+		
+		if (isset($this->request->post['correios_total_40169'])) {
+			$this->data['correios_total_40169'] = $this->request->post['correios_total_40169'];
+		} else {
+			$this->data['correios_total_40169'] = $this->config->get('correios_total_40169');
+		}				
+		
+		if (isset($this->request->post['correios_sort_order'])) {
+			$this->data['correios_sort_order'] = $this->request->post['correios_sort_order'];
+		} else {
+			$this->data['correios_sort_order'] = $this->config->get('correios_sort_order');
 		}
 		
 		if (isset($this->request->post['correios_sort_order'])) {

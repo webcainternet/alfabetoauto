@@ -1,25 +1,33 @@
 <?php
 class ModelShippingCorreios extends Model {
 	
-	private $valor_max = 10000; 	// máximo valor declarado, em reais
+	// máximo valor declarado, em reais
+	private $valor_declarado_max = 10000;
 	
-	private $altura_max = 105; 		// todas as medidas em cm
-	private $largura_max = 105;
-	private $comprimento_max = 105;
+	// medida padrão de cada lado da caixa, ou seja, 200cm / 3 = 66,66... (arrendondamos esse valor). onde 200 é o máximo da soma dos lados	
+	// cubagem máxima da caixa, ou seja, 66,66^3
+	private $cubagem_max = 296207.4163;
 	
-	private $altura_min = 2;
-	private $largura_min = 11;
-	private $comprimento_min = 16;
+	// cubagem mínima da caixa levando em conta uma medida de 16cm de cada lado da caixa.
+	private $cubagem_min = 4096;	
 	
-	private $soma_dim_max = 200; 	// medida máxima das somas da altura, largura, comprimento
+	// medida padrão de cada lado da caixa para grandes formatos, ou seja, 300cm / 3 = 100 onde 300 é o máximo da soma dos lados para grandes formatos
+	// cubagem máxima da caixa para grandes formatos, ou seja, 100^3
+	private $cubagem_pac_gf_max = 1000000;
 	
-	private $peso_max 				= 30;	// padrão, em kg
+	// esse limite do Sedex Hoje não tem em nenhum documento dos Correios e por tentativa e erro descobri um número próximo de 52cm de cada lado 
+	private $cubagem_sedex_hoje_max = 140608;		
 	
-	private $peso_max_pac_sedex 	= 30; 	// em kg
-	private $peso_max_esedex 		= 15; 	// em kg
-	private $peso_max_sedex10_hoje 	= 10; 	// em kg
+	private $peso_max 					= 30;	// padrão, em kg
+	private $peso_pac_sedex_max 		= 30; 	// em kg
+	private $peso_esedex_max 			= 15; 	// em kg
+	private $peso_sedex10_12_hoje_max 	= 10; 	// em kg
 	
-	private $peso_min = 0.300;  			// em kg
+	private $peso_min 					= 0.3; 	// em kg
+
+	// altura, largura ou comprimento não podem ser maiores que 105cm
+	private $lados_max 			= 105; // em cm	
+	private $lados_pac_gf_max 	= 150; // em cm	
 	
 	private $nCdServico = array();
 	private $servicos 	= array();
@@ -40,14 +48,17 @@ class ModelShippingCorreios extends Model {
 		'SEDEX'				=> '40010',
 		'40010'				=> 'SEDEX',
 
-		'SEDEX a Cobrar'	=> '40045',
-		'40045'				=> 'SEDEX a Cobrar',
+		'SEDEX Pagamento na Entrega'	=> '40045',
+		'40045'							=> 'SEDEX Pagamento na Entrega',
 
-		'SEDEX a Cobrar - contrato'	=> '40126',
-		'40126'						=> 'SEDEX a Cobrar - contrato',
+		'SEDEX Pagamento na Entrega - contrato'	=> '40126',
+		'40126'									=> 'SEDEX Pagamento na Entrega - contrato',
 
 		'SEDEX 10'			=> '40215',
 		'40215'				=> 'SEDEX 10',
+		
+		'SEDEX 12'			=> '40169',
+		'40169'				=> 'SEDEX 12',		
 
 		'SEDEX Hoje'		=> '40290',
 		'40290'				=> 'SEDEX Hoje',
@@ -70,8 +81,14 @@ class ModelShippingCorreios extends Model {
 		'PAC'				 => '41106',
 		'41106'				 => 'PAC',
 		
+		'PAC Pagamento na Entrega'	=> '41262',
+		'41262'				 		=> 'PAC Pagamento na Entrega',		
+		
 		'PAC - contrato'	 => '41068',
 		'41068'				 => 'PAC - contrato',
+		
+		'PAC Grandes Formatos - contrato'	=> '41300',
+		'41300'				 				=> 'PAC Grandes Formatos - contrato',		
 		
 		'e-SEDEX'			 => '81019',
 		'81019'				 => 'e-SEDEX',		
@@ -96,8 +113,20 @@ class ModelShippingCorreios extends Model {
 		$this->peso_max = $peso;
 	}
 	
+	private function setCubagemMax($cubagem) {
+		$this->cubagem_max = $cubagem;
+	}
+	
 	private function setServicos($servicos) {
 		$this->servicos = $servicos;
+	}
+
+	private function resetServicos() {
+		$this->servicos = array();
+	}
+
+	private function setLadosMax($medida) {
+		$this->lados_max = $medida;
 	}	
 	
 	// função responsável pelo retorno à loja dos valores finais dos valores dos fretes
@@ -124,92 +153,141 @@ class ModelShippingCorreios extends Model {
 			// obtém só a parte numérica do CEP
 			$this->cep_origem = preg_replace ("/[^0-9]/", '', $this->config->get('correios_postcode'));
 			$this->cep_destino = preg_replace ("/[^0-9]/", '', $address['postcode']);
-
-			$this->nCdServico[$this->peso_max_pac_sedex]	= array();	
-			$this->nCdServico[$this->peso_max_esedex]		= array();	
-			$this->nCdServico[$this->peso_max_sedex10_hoje]	= array();				
 			
+			// classes de serviços agrupados conforme suas propriedades. Cada classe é uma chamada ao WebService dos Correios
+			$this->nCdServico['pac_sedex'] =  array(
+					'peso_max' 			=> $this->peso_pac_sedex_max,
+					'lados_max' 		=> $this->lados_max,
+					'cubagem_max' 		=> $this->cubagem_max
+				);
+			$this->nCdServico['sedex10_12_hoje'] = array(
+					'peso_max' 			=> $this->peso_sedex10_12_hoje_max,
+					'lados_max' 		=> $this->lados_max,
+					'cubagem_max' 		=> $this->cubagem_max
+				);		
+			$this->nCdServico['esedex'] = array(
+					'peso_max' 			=> $this->peso_esedex_max,
+					'lados_max' 		=> $this->lados_max,
+					'cubagem_max' 		=> $this->cubagem_max
+				);	
+			$this->nCdServico['pac_gf'] = array(
+					'peso_max' 			=> $this->peso_pac_sedex_max,
+					'lados_max' 		=> $this->lados_pac_gf_max,
+					'cubagem_max' 		=> $this->cubagem_pac_gf_max
+				);
+			$this->nCdServico['sedex_hoje'] = array(
+					'peso_max' 			=> $this->peso_sedex10_12_hoje_max,
+					'lados_max' 		=> $this->lados_max,
+					'cubagem_max' 		=> $this->cubagem_sedex_hoje_max
+				);				
+				
+			$servicos['pac_sedex'] = array();
+			$servicos['sedex10_12_hoje'] = array();
+			$servicos['esedex']  = array();
+			$servicos['pac_gf'] = array();
+			$servicos['sedex_hoje'] = array();
+
 			// serviços sem contrato
 			if($this->config->get('correios_' . $this->correios['PAC'])){
-				$this->nCdServico[$this->peso_max_pac_sedex][] = $this->correios['PAC'];
+				$servicos['pac_sedex'][] = $this->correios['PAC'];
 			}			
 			if($this->config->get('correios_' . $this->correios['SEDEX'])){
-				$this->nCdServico[$this->peso_max_pac_sedex][] = $this->correios['SEDEX'];
+				$servicos['pac_sedex'][] = $this->correios['SEDEX'];
 			}
-			if($this->config->get('correios_' . $this->correios['SEDEX a Cobrar'])){
-				$this->nCdServico[$this->peso_max_pac_sedex][] = $this->correios['SEDEX a Cobrar'];
+			if($this->config->get('correios_' . $this->correios['SEDEX Pagamento na Entrega'])){
+				$servicos['pac_sedex'][] = $this->correios['SEDEX Pagamento na Entrega'];
 			}
+			if($this->config->get('correios_' . $this->correios['PAC Pagamento na Entrega'])){
+				$servicos['pac_sedex'][] = $this->correios['PAC Pagamento na Entrega'];
+			}			
 			if($this->config->get('correios_' . $this->correios['SEDEX 10'])){
-				$this->nCdServico[$this->peso_max_sedex10_hoje][] = $this->correios['SEDEX 10'];
+				$servicos['sedex10_12_hoje'][]= $this->correios['SEDEX 10'];
 			}
 			if($this->config->get('correios_' . $this->correios['SEDEX Hoje'])){
-				$this->nCdServico[$this->peso_max_sedex10_hoje][] = $this->correios['SEDEX Hoje'];
+				$servicos['sedex_hoje'][]= $this->correios['SEDEX Hoje'];
 			}
+			if($this->config->get('correios_' . $this->correios['SEDEX 12'])){
+				$servicos['sedex10_12_hoje'][] = $this->correios['SEDEX 12'];
+			}			
 			// serviços com contrato			
 			if(trim($this->config->get('correios_contrato_codigo')) != "" && trim($this->config->get('correios_contrato_senha')) != ""){
 				$this->contrato_codigo = $this->config->get('correios_contrato_codigo');
 				$this->contrato_senha = $this->config->get('correios_contrato_senha');
 				
-				if($this->config->get('correios_' . $this->correios['SEDEX a Cobrar - contrato'])){
-					$this->nCdServico[$this->peso_max_pac_sedex][] = $this->correios['SEDEX a Cobrar - contrato'];
+				if($this->config->get('correios_' . $this->correios['SEDEX Pagamento na Entrega - contrato'])){
+					$servicos['pac_sedex'][] = $this->correios['SEDEX Pagamento na Entrega - contrato'];
 				}
 				if($this->config->get('correios_' . $this->correios['SEDEX - contrato 1'])){
-					$this->nCdServico[$this->peso_max_pac_sedex][] = $this->correios['SEDEX - contrato 1'];
+					$servicos['pac_sedex'][] = $this->correios['SEDEX - contrato 1'];
 				}
 				if($this->config->get('correios_' . $this->correios['SEDEX - contrato 2'])){
-					$this->nCdServico[$this->peso_max_pac_sedex][] = $this->correios['SEDEX - contrato 2'];
+					$servicos['pac_sedex'][] = $this->correios['SEDEX - contrato 2'];
 				}
 				if($this->config->get('correios_' . $this->correios['SEDEX - contrato 3'])){
-					$this->nCdServico[$this->peso_max_pac_sedex][] = $this->correios['SEDEX - contrato 3'];
+					$servicos['pac_sedex'][] = $this->correios['SEDEX - contrato 3'];
 				}
 				if($this->config->get('correios_' . $this->correios['SEDEX - contrato 4'])){
-					$this->nCdServico[$this->peso_max_pac_sedex][] = $this->correios['SEDEX - contrato 4'];
+					$servicos['pac_sedex'][] = $this->correios['SEDEX - contrato 4'];
 				}
 				if($this->config->get('correios_' . $this->correios['SEDEX - contrato 5'])){
-					$this->nCdServico[$this->peso_max_pac_sedex][] = $this->correios['SEDEX - contrato 5'];
+					$servicos['pac_sedex'][] = $this->correios['SEDEX - contrato 5'];
 				}
 				if($this->config->get('correios_' . $this->correios['PAC - contrato'])){
-					$this->nCdServico[$this->peso_max_pac_sedex][] = $this->correios['PAC - contrato'];
+					$servicos['pac_sedex'][] = $this->correios['PAC - contrato'];
 				}
 				if($this->config->get('correios_' . $this->correios['e-SEDEX'])){
-					$this->nCdServico[$this->peso_max_esedex][] = $this->correios['e-SEDEX'];
+					$servicos['esedex'][] = $this->correios['e-SEDEX'];
 				}
 				if($this->config->get('correios_' . $this->correios['e-SEDEX Prioritario'])){
-					$this->nCdServico[$this->peso_max_esedex][] = $this->correios['e-SEDEX Prioritario'];
+					$servicos['esedex'][] = $this->correios['e-SEDEX Prioritario'];
 				}
 				if($this->config->get('correios_' . $this->correios['e-SEDEX Express'])){
-					$this->nCdServico[$this->peso_max_esedex][] = $this->correios['e-SEDEX Express'];
+					$servicos['esedex'][] = $this->correios['e-SEDEX Express'];
 				}
 				if($this->config->get('correios_' . $this->correios['e-SEDEX grupo 1'])){
-					$this->nCdServico[$this->peso_max_esedex][] = $this->correios['e-SEDEX grupo 1'];
+					$servicos['esedex'][] = $this->correios['e-SEDEX grupo 1'];
 				}
 				if($this->config->get('correios_' . $this->correios['e-SEDEX grupo 2'])){
-					$this->nCdServico[$this->peso_max_esedex][] = $this->correios['e-SEDEX grupo 2'];
+					$servicos['esedex'][] = $this->correios['e-SEDEX grupo 2'];
 				}
 				if($this->config->get('correios_' . $this->correios['e-SEDEX grupo 3'])){
-					$this->nCdServico[$this->peso_max_esedex][] = $this->correios['e-SEDEX grupo 3'];
+					$servicos['esedex'][] =  $this->correios['e-SEDEX grupo 3'];
 				}
-			}			
-			foreach($this->nCdServico as $peso => $servicos){
+				if($this->config->get('correios_' . $this->correios['PAC Grandes Formatos - contrato'])){
+					$servicos['pac_gf'][] = $this->correios['PAC Grandes Formatos - contrato'];
+				}				
+			}
+			
+			foreach($this->nCdServico as $classe => $info){
 				
-				$this->setPesoMax($peso);
-				$this->setServicos($servicos);
+				$this->setPesoMax($info['peso_max']);
+				$this->setLadosMax($info['lados_max']);
+				$this->setCubagemMax($info['cubagem_max']);
+				$this->setServicos($servicos[$classe]);
 				
 				$caixas = $this->organizarEmCaixas($produtos);
-				// file_put_contents('filename.txt', print_r($caixas, true));
+				
+				// descomente a linha abaixo para visualizar em arquivos as caixas
+				// file_put_contents('filename' . $classe . '.txt', print_r($caixas, true));
+				
 				foreach ($caixas as $caixa) {
 					$this->setQuoteData($caixa);
-				}				
+				}
+				
+				$this->resetServicos();
 			}
 			
 			// ajustes finais
 			if ($this->quote_data) {
+				$total_compra = $this->cart->getSubTotal();
+				
 				$valor_adicional = (is_numeric($this->config->get('correios_adicional'))) ? $this->config->get('correios_adicional') : 0 ;
 
-				foreach ($this->quote_data as $codigo=>$data) {
+				foreach ($this->quote_data as $codigo => $data) {
 					
-					// soma o valor adicional ao valor final do frete - não aplicado ao Sedex a Cobrar
-					if($codigo != $this->correios['SEDEX a Cobrar'] || $codigo != $this->correios['SEDEX a Cobrar - contrato']) {
+					// soma o valor adicional ao valor final do frete - não aplicado serviços de pagamento na entrega
+					if($codigo != $this->correios['SEDEX Pagamento na Entrega'] || $codigo != $this->correios['SEDEX Pagamento na Entrega - contrato'] || $codigo != $this->correios['PAC Pagamento na Entrega']) {
+						
 						$new_cost = $this->quote_data[$codigo]['cost'] + ($this->quote_data[$codigo]['cost'] * ($valor_adicional/100));
 						// novo custo
 						$this->quote_data[$codigo]['cost'] = $new_cost;
@@ -217,12 +295,20 @@ class ModelShippingCorreios extends Model {
 						$this->quote_data[$codigo]['text'] = $this->currency->format($this->tax->calculate($new_cost, $this->config->get('correios_tax_class_id'), $this->config->get('config_tax')));
 					}
 					else{
-						// zera o valor do frete do Sedex a Cobrar para evitar de ser adiconado ao valor do carrinho
+						// zera o valor do frete do serviço de pagamento na entrega para evitar de ser adiconado ao valor do carrinho
 						$this->quote_data[$codigo]['cost'] = 0;
 					}
+					// frete grátis
+					if(trim($this->config->get('correios_total_' . $codigo)) != "" && $total_compra >= $this->config->get('correios_total_' . $codigo)) {
+						// zera o valor
+						$this->quote_data[$codigo]['cost'] = 0;
+						// novo texto 
+						$this->quote_data[$codigo]['text'] = $this->language->get('text_free');
+					}					
+					
 				}				
 				$method_data = array(
-					'code'         => 'correios',
+					'code'       => 'correios',
 					'title'      => $this->language->get('text_title'),
 					'quote'      => $this->quote_data,
 					'sort_order' => $this->config->get('correios_sort_order'),
@@ -231,7 +317,7 @@ class ModelShippingCorreios extends Model {
 			}
 			else if(!empty($this->mensagem_erro)){
 				$method_data = array(
-					'code'         => 'correios',
+					'code'       => 'correios',
 					'title'      => $this->language->get('text_title'),
 					'quote'      => $this->quote_data,
 					'sort_order' => $this->config->get('correios_sort_order'),
@@ -247,12 +333,10 @@ class ModelShippingCorreios extends Model {
 
 		// obtém o valor total da caixa
 		$total_caixa = $this->getTotalCaixa($caixa['produtos']);
-		$total_caixa = ($total_caixa > $this->valor_max) ? $this->valor_max : $total_caixa;
-		
-		list($weight, $height, $width, $length) = $this->ajustarDimensoes($caixa);
+		$total_caixa = ($total_caixa > $this->valor_declarado_max) ? $this->valor_declarado_max : $total_caixa;
 		
 		// fazendo a chamada ao site dos Correios e obtendo os dados
-		$servicos = $this->getServicos($weight, $total_caixa, $length, $width, $height);
+		$servicos = $this->getServicos($total_caixa, $caixa['peso'], $caixa['cubagem']);
 	
 		foreach ($servicos as $servico) {
 
@@ -261,8 +345,8 @@ class ModelShippingCorreios extends Model {
 			//if($servico['Erro'] == 0 && $valor_frete_sem_adicionais > 0) {
 			if($valor_frete_sem_adicionais > 0) {
 	
-				// subtrai do valor do frete as opções desabilitadas nas configurações do módulo - 'declarar valor' é obrigatório para sedex a cobrar
-				$cost = ($this->config->get('correios_declarar_valor') == 'n' && ($servico['Codigo'] != $this->correios['SEDEX a Cobrar'] || $servico['Codigo'] != $this->correios['SEDEX a Cobrar - contrato'])) ? ($servico['Valor'] - $servico['ValorValorDeclarado']) : $servico['Valor'];
+				// subtrai do valor do frete as opções desabilitadas nas configurações do módulo - 'declarar valor' é obrigatório para Sedex e PAC Pagamento na Entrega
+				$cost = ($this->config->get('correios_declarar_valor') == 'n' && ($servico['Codigo'] != $this->correios['SEDEX Pagamento na Entrega'] || $servico['Codigo'] != $this->correios['SEDEX Pagamento na Entrega - contrato'] || $servico['Codigo'] != $this->correios['PAC Pagamento na Entrega'])) ? ($servico['Valor'] - $servico['ValorValorDeclarado']) : $servico['Valor'];
 				$cost = ($this->config->get('correios_aviso_recebimento') == 'n') ? ($cost - $servico['ValorAvisoRecebimento']) : $cost;
 				$cost = ($this->config->get('correios_mao_propria') == 'n') ? ($cost - $servico['ValorMaoPropria']) : $cost;
 	
@@ -270,18 +354,12 @@ class ModelShippingCorreios extends Model {
 				if (isset($this->quote_data[$servico['Codigo']])) {
 					$cost += $this->quote_data[$servico['Codigo']]['cost'];
 				}					
-				// texto a ser exibido para Sedex a Cobrar
-				if($servico['Codigo'] == $this->correios['SEDEX a Cobrar'] || $servico['Codigo'] == $this->correios['SEDEX a Cobrar - contrato']){
-					$title = sprintf($this->language->get('text_'.$servico['Codigo']), $servico['PrazoEntrega'], $this->currency->format($cost));
-					$text = $this->currency->format($this->tax->calculate($cost, $this->config->get('correios_tax_class_id'), $this->config->get('config_tax')));
-				}
-				else{
-					$title = sprintf($this->language->get('text_'.$servico['Codigo']), $servico['PrazoEntrega']);
-					$text = $this->currency->format($this->tax->calculate($cost, $this->config->get('correios_tax_class_id'), $this->config->get('config_tax')));
-				}
+
+				$title = sprintf($this->language->get('text_'.$servico['Codigo']), $servico['PrazoEntrega']);
+				$text = $this->currency->format($this->tax->calculate($cost, $this->config->get('correios_tax_class_id'), $this->config->get('config_tax')));
 	
 				$this->quote_data[$servico['Codigo']] = array(
-					'code'           => 'correios.' . $servico['Codigo'],
+					'code'         => 'correios.' . $servico['Codigo'],
 					'title'        => $title,
 					'cost'         => $cost,
 					'tax_class_id' => $this->config->get('correios_tax_class_id'),
@@ -290,19 +368,19 @@ class ModelShippingCorreios extends Model {
 			}
 			// grava no log de erros do OpenCart a mensagem de erro retornado pelos Correios
 			else{
-				$this->mensagem_erro[] = $this->correios[$servico['Codigo']].': '.$servico['MsgErro'];
-				$this->log->write($this->correios[$servico['Codigo']].': '.$servico['MsgErro']);
+				$this->mensagem_erro[] = $this->correios[$servico['Codigo']].': ' . $servico['MsgErro'];
+				$this->log->write($this->correios[$servico['Codigo']].': ' . $servico['MsgErro']);
 			}
 		}
 	}
 	
 	// prepara a url de chamada ao site dos Correios
-	private function setUrl($peso, $valor, $comp, $larg, $alt){
+	private function setUrl($peso, $valor, $medida_lados){
 		
 		$url = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx?";
 		//$url = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo?"; // url alternativa disponibilizada pelos Correios.
-		$url .=	"nCdEmpresa=".$this->contrato_codigo;
-		$url .=	"&sDsSenha=".$this->contrato_senha;
+		$url .=	"nCdEmpresa=" . $this->contrato_codigo;
+		$url .=	"&sDsSenha=" . $this->contrato_senha;
 		$url .=	"&sCepOrigem=%s";
 		$url .=	"&sCepDestino=%s";
 		$url .=	"&nVlPeso=%s";
@@ -313,16 +391,16 @@ class ModelShippingCorreios extends Model {
 		$url .=	"&sCdMaoPropria=s";
 		$url .=	"&nVlValorDeclarado=%s";
 		$url .=	"&sCdAvisoRecebimento=s";
-		$url .=	"&nCdServico=".implode(',', $this->servicos);
+		$url .=	"&nCdServico=" . implode(',', $this->servicos);
 		$url .=	"&nVlDiametro=0";
 		$url .=	"&StrRetorno=xml";
 		
-		$this->url = sprintf($url, $this->cep_origem, $this->cep_destino, $peso, $comp, $larg, $alt, $valor);
+		$this->url = sprintf($url, $this->cep_origem, $this->cep_destino, $peso, $medida_lados, $medida_lados, $medida_lados, $valor);
 	}
 	
 	// conecta ao sites dos Correios e obtém o arquivo XML com os dados do frete
 	private function getXML($url){
-
+		
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -359,22 +437,26 @@ class ModelShippingCorreios extends Model {
 	}
 	
 	// faz a chamada e lê os dados no arquivo XML retornado pelos Correios 
-	public function getServicos($peso, $valor, $comp, $larg, $alt){
+	public function getServicos($total_caixa, $peso, $cubagem){
 
 		$dados = array();
 		
 		// troca o separador decimal de ponto para vírgula nos dados a serem enviados para os Correios
-		$peso 		= str_replace('.', ',', $peso);
+		$peso = ($peso >= $this->peso_min) ? $peso : $this->peso_min;
+		$peso = str_replace('.', ',', $peso);
 		
-		$valor 		= str_replace('.', ',', $valor);
-		$valor 		= number_format((float)$valor, 2, ',' , '.');
+		// total é arredondado pois algumas vezes o WebService dos Correios não aceita centavos
+		$valor = round($total_caixa);
 		
-		$comp 		= str_replace('.', ',', $comp);
-		$larg 		= str_replace('.', ',', $larg);
-		$alt 		= str_replace('.', ',', $alt);
+		// medida dos lados da caixa é a raiz cúbica da cubagem
+		$medida_lados = ($cubagem >= $this->cubagem_min) ? $this->raizCubica($cubagem) : $this->raizCubica($this->cubagem_min);
+		$medida_lados = str_replace('.', ',', $medida_lados);
 		
 		// ajusta a url de chamada
-		$this->setUrl($peso, $valor, $comp, $larg, $alt);
+		$this->setUrl($peso, $valor, $medida_lados);
+		
+		// habilite pra ver no log de erros a url com todos os parâmetros enviados para os Correios.
+		// $this->log->write($this->url);		
 
 		// faz a chamada e retorna o xml com os dados
 		$xml = $this->getXML($this->url);
@@ -393,8 +475,8 @@ class ModelShippingCorreios extends Model {
 				
 				foreach ($servicos as $servico) {
 					$codigo = $servico->getElementsByTagName('Codigo')->item(0)->nodeValue;
-					// Sedex 10 e Sedex Hoje não tem prazo adicional
-					$prazo = ($codigo == $this->correios['SEDEX 10'] || $codigo == $this->correios['SEDEX Hoje']) ? 0 : $prazo_adicional;
+					// Sedex 10, 12 e Sedex Hoje não tem prazo adicional
+					$prazo = ($codigo == $this->correios['SEDEX 10'] || $codigo == $this->correios['SEDEX Hoje'] || $codigo == $this->correios['SEDEX 12']) ? 0 : $prazo_adicional;
 					
 					$dados[$codigo] = array(
 						"Codigo" => $codigo,
@@ -445,37 +527,19 @@ class ModelShippingCorreios extends Model {
 	// pré-validação das dimensões e peso do produto 
   	private function validar($produto){
   		
-		if(!is_numeric($produto['height']) || !is_numeric($produto['width']) || !is_numeric($produto['length']) || !is_numeric($produto['weight'])){
-			$this->log->write(sprintf($this->language->get('error_dim'), $produto['name']));
-			return false;
-		}  			
+		$cubagem = (float)$produto['height'] * (float)$produto['width'] * (float)$produto['length'];
+		$peso = (float)$produto['weight'];
 		
-		$altura = $produto['height'];
-		$largura = $produto['width'];
-		$comprimento = $produto['length'];
-		$peso = $produto['weight'];
-	
-		if( $altura > $this->altura_max || $largura > $this->largura_max || $comprimento > $this->comprimento_max ){
-			$this->log->write(sprintf($this->language->get('error_dim_limite'), $this->comprimento_max, $this->largura_max, $this->altura_max, $produto['name'], $comprimento, $largura, $altura));
+		if(!$peso || $peso > $this->peso_max || !$cubagem || $cubagem > $this->cubagem_max || ($produto['height'] > $this->lados_max) || ($produto['width'] > $this->lados_max) || ($produto['length'] > $this->lados_max)){
+			$this->log->write(sprintf($this->language->get('error_limites'), $produto['name']));
+			
 			return false;
 		}
-		
-		$soma_dim = $altura + $largura + $comprimento;  			
-		if( $soma_dim > $this->soma_dim_max) {
-			$this->log->write(sprintf($this->language->get('error_dim_soma'), $this->soma_dim_max, $produto['name'], $soma_dim));
-			return false;
-		} 
-
-		if( $peso > $this->peso_max) {
-			$this->log->write(sprintf($this->language->get('error_peso'), $this->peso_max, $produto['name'], $peso));
-			return false;
-		}  			
  	
   		return true;
   	}
   	
-    // 'empacota' os produtos do carrinho em caixas com dimensões e peso dentro dos limites definidos pelos Correios
-    // algoritmo desenvolvido por: Thalles Cardoso <thallescard@gmail.com>
+    // 'empacota' os produtos do carrinho em caixas conforme peso, cubagem e dimensões limites dos Correios
   	private function organizarEmCaixas($produtos) {
   	
   		$caixas = array();
@@ -506,27 +570,18 @@ class ModelShippingCorreios extends Model {
   				if ($this->validar($prod_copy)){
   					 
    					// cria-se a caixa caso ela não exista.
-  					isset($caixas[$cx_num]['weight']) ? true : $caixas[$cx_num]['weight'] = 0;
-  					isset($caixas[$cx_num]['height']) ? true : $caixas[$cx_num]['height'] = 0;
-  					isset($caixas[$cx_num]['width']) ? true : $caixas[$cx_num]['width'] = 0;
-  					isset($caixas[$cx_num]['length']) ? true : $caixas[$cx_num]['length'] = 0;
+					isset($caixas[$cx_num]['peso']) ? true : $caixas[$cx_num]['peso'] = 0;
+					isset($caixas[$cx_num]['cubagem']) ? true : $caixas[$cx_num]['cubagem'] = 0;					
   	
-  					$new_width 	= $caixas[$cx_num]['width'] + $prod_copy['width'];
-  					$new_height = $caixas[$cx_num]['height'] + $prod_copy['height'];
-  					$new_length = $caixas[$cx_num]['length'] + $prod_copy['length'];
-  					$new_weight = $caixas[$cx_num]['weight'] + $prod_copy['weight'];
-  					
-  					$cabe_do_lado = ($new_width <= $this->largura_max) && $this->somaDimDentroLimite($caixas, $prod_copy, $cx_num, 'lado');
-  	
-  					$cabe_no_fundo = ($new_length <= $this->comprimento_max) && $this->somaDimDentroLimite($caixas, $prod_copy, $cx_num, 'fundo');
-  	
-  					$cabe_em_cima = ($new_height <= $this->altura_max) && $this->somaDimDentroLimite($caixas, $prod_copy, $cx_num, 'cima');
-  					
- 					$peso_dentro_limite = ($new_weight <= $this->peso_max);
+  					$peso = $caixas[$cx_num]['peso'] + $prod_copy['weight'];
+					$cubagem = $caixas[$cx_num]['cubagem'] + ($prod_copy['width'] * $prod_copy['height'] * $prod_copy['length']);
 					
-  					// o produto cabe na caixa
-  					if (($cabe_do_lado || $cabe_no_fundo || $cabe_em_cima) && $peso_dentro_limite) {
-  	
+ 					$peso_dentro_limite = ($peso <= $this->peso_max);
+					$cubagem_dentro_limite = ($cubagem <= $this->cubagem_max);
+					
+  					// o produto dentro do peso e dimensões estabelecidos pelos Correios
+  					if ($peso_dentro_limite && $cubagem_dentro_limite) {
+  						
   						// já existe o mesmo produto na caixa, assim incrementa-se a sua quantidade
   						if (isset($caixas[$cx_num]['produtos'][$prod_copy['key']])) {
   							$caixas[$cx_num]['produtos'][$prod_copy['key']]['quantity']++;
@@ -534,40 +589,10 @@ class ModelShippingCorreios extends Model {
   						// adiciona o novo produto
   						else {
   							$caixas[$cx_num]['produtos'][$prod_copy['key']] = $prod_copy;
-  						}
-  	
-  						// aumenta-se o peso da caixa
-  						$caixas[$cx_num]['weight'] += $prod_copy['weight'];
-  						
-  						// ajusta-se as dimensões da nova caixa 
-  						if ($cabe_do_lado) {
-  							$caixas[$cx_num]['width'] += $prod_copy['width'];
-  	
-  							// a caixa vai ficar com a altura do maior produto que estiver nela
-  							$caixas[$cx_num]['height'] = max($caixas[$cx_num]['height'], $prod_copy['height']);
-  	
-  							// a caixa vai ficar com o comprimento do maior produto que estiver nela
-  							$caixas[$cx_num]['length'] = max($caixas[$cx_num]['length'], $prod_copy['length']);
-  						} 
-  						else if ($cabe_no_fundo) {
-  							$caixas[$cx_num]['length'] += $prod_copy['length'];
-  	
-  							// a caixa vai ficar com a altura do maior produto que estiver nela
-  							$caixas[$cx_num]['height'] = max($caixas[$cx_num]['height'], $prod_copy['height']);
-  	
-  							// a caixa vai ficar com a largura do maior produto que estiver nela
-  							$caixas[$cx_num]['width'] = max($caixas[$cx_num]['width'], $prod_copy['width']);
-  	
-  						}
-  						else if ($cabe_em_cima) {
-  							$caixas[$cx_num]['height'] += $prod_copy['height'];
-  	
-  							//a caixa vai ficar com a altura do maior produto que estiver nela
-  							$caixas[$cx_num]['width'] = max($caixas[$cx_num]['width'], $prod_copy['width']);
-  	
-  							//a caixa vai ficar com a largura do maior produto que estiver nela
-  							$caixas[$cx_num]['length'] = max($caixas[$cx_num]['length'], $prod_copy['length']);
-  						}
+  						}						
+						
+						$caixas[$cx_num]['peso'] = $peso;
+						$caixas[$cx_num]['cubagem'] = $cubagem;
   					}
   					// tenta adicionar o produto que não coube em uma nova caixa
   					else{
@@ -584,7 +609,7 @@ class ModelShippingCorreios extends Model {
   		}
   		return $caixas;
   	}
-  	// retorna o valor total dos prodtos na caixa
+  	// retorna o valor total dos produtos na caixa
   	private function getTotalCaixa($products) {
   		$total = 0;
   	
@@ -593,61 +618,9 @@ class ModelShippingCorreios extends Model {
   		}
   		return $total;
   	}
-  	
-  	private function ajustarDimensoes($caixa){
-  		
-  		// a altura não pode ser maior que o comprimento, assim inverte-se as dimensões
-  		$height = $caixa['height'];
-  		$width = $caixa['width'];
-  		$length = $caixa['length'];
-  		$weight = $caixa['weight'];  		
-  		
-  		// se dimensões menores que a permitida, ajusta para o padrão
-  		if( $height < $this->altura_min){
-  			$height = $this->altura_min;
-  		}
-  		if($width < $this->largura_min){
-  			$width = $this->largura_min;
-  		}
-  		if($length < $this->comprimento_min ){
-  			$length = $this->comprimento_min;
-  		}
-  		if($weight < $this->peso_min ){
-  			$weight = $this->peso_min;
-  		}
-  		if( $height > $length){
-  			$temp = $height;
-  			$height = $length;
-  			$length = $temp;
-  		}  		
-  		
-  		return array($weight, $height, $width, $length);  	
-  	}
-	private function somaDimDentroLimite($caixas, $prod_copy, $cx_num, $orientacao){
-			
-		if($orientacao == 'lado') {
-			$width = $caixas[$cx_num]['width'] + $prod_copy['width'];
-			$height = max($caixas[$cx_num]['height'], $prod_copy['height']);
-			$length = max($caixas[$cx_num]['length'], $prod_copy['length']);
-		}
-		elseif($orientacao == 'fundo') {
-			$length = $caixas[$cx_num]['length'] + $prod_copy['length'];
-			$height = max($caixas[$cx_num]['height'], $prod_copy['height']);
-			$width = max($caixas[$cx_num]['width'], $prod_copy['width']);
-		}
-		elseif($orientacao == 'cima') {
-			$height = $caixas[$cx_num]['height'] + $prod_copy['height'];
-			$width = max($caixas[$cx_num]['width'], $prod_copy['width']);
-			$length = max($caixas[$cx_num]['length'], $prod_copy['length']);
-		}
-		else{
-			$width = $caixas[$cx_num]['width'];
-			$height = $caixas[$cx_num]['height'];
-			$length = $caixas[$cx_num]['length'];
-		}
-		$dentroLimite = ($width + $height + $length) <= $this->soma_dim_max;
-		
-		return $dentroLimite;
-	}
+
+	private function raizCubica($n) {
+		return pow($n, 1/3);
+	}	
 }
 ?>
