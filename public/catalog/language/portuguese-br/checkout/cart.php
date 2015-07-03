@@ -3,7 +3,25 @@
 $_['heading_title']          = 'Meu Carrinho de Compras';
 
 // Text
-$_['text_success']           = 'Você adicionou <a href="%s">%s</a> em seu <a href="%s">carrinho de compras</a> com sucesso!';
+$_['text_success']           = 'Você adicionou <a href="%s">%s</a> em seu <a href="%s">carrinho de compras</a> com sucesso!
+<!-- Google Code for Vendas Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 945883467;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "MQDtCK-sil4Qy5KEwwM";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/945883467/?label=MQDtCK-sil4Qy5KEwwM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>';
 $_['text_remove']            = 'Você modificou seu carrinho de compras com sucesso!';
 $_['text_coupon']            = 'Você aplicou o cupom de desconto com sucesso!';
 $_['text_voucher']           = 'Você aplicou o vale-presente com sucesso!';
