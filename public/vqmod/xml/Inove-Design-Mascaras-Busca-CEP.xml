@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id><![CDATA[<a style="text-decoration:none" href="http://www.inovedesign.net">InoveDesign.net - Soluções Web</a>]]></id>
+	<version><![CDATA[1.0]]></version>
+	<vqmver><![CDATA[2.4.0]]></vqmver>
+	<author><![CDATA[<a href="http://www.inovedesign.net">Paulo Siquiero - inovedesign.net</a>]]></author>
+	<file path="catalog/view/theme/*/template/common/" name="footer.tpl">
+		<operation info="">
+			<search position="replace">
+				<![CDATA[
+					</body></html>
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+					</body>
+					<script type="text/javascript" src="catalog/view/javascript/jquery.mask.min.js"></script>
+
+					<script type="text/javascript">
+						$(function() {
+							mascaras();
+						});
+						
+						function mascaras(){
+							var masksTel = ['(AA) A0000-0000', '(AA) A000-00009'],
+							maskBehaviorTel = function(val, e, field, options) {
+								return val.length > 14 ? masksTel[0] : masksTel[1];
+							};
+
+							$('input[name="telephone"], input[name="fax"]').mask(maskBehaviorTel, {onKeyPress: 
+							   function(val, e, field, options) {
+								   field.mask(maskBehaviorTel(val, e, field, options), {'translation': {'A': {pattern: /[1-9*]/}}});
+							   }
+							});
+							
+							var masksDoc = ['00.000.000/0000-00', '000.000.000-009999'],
+							maskBehaviorDoc = function(val, e, field, options) {
+								return val.replace(/\D/g, '').length > 11 ? masksDoc[0] : masksDoc[1];
+							};
+							
+							$('input[name="tax_id"]').mask(maskBehaviorDoc, {onKeyPress: 
+							   function(val, e, field, options) {
+								   field.mask(maskBehaviorDoc(val, e, field, options), options);
+							   }
+							});
+							
+							$('.postcode-register, .postcode-register2, .postcode-guest, .postcode-payment, .postcode-shipping, .postcode-addressform').mask('00.000-000');
+							
+							$('.postcode-register').focusout(function(){
+								cep('register');
+							});
+							
+							$('.postcode-register2').focusout(function(){
+								cep('register2');
+							});
+							
+							$('.postcode-guest').focusout(function(){
+								cep('guest');
+							});
+							
+							$('.postcode-payment').focusout(function(){
+								cep('payment');
+							});
+							
+							$('.postcode-shipping').focusout(function(){
+								cep('shipping');
+							});
+							
+							$('.postcode-addressform').focusout(function(){
+								cep('addressform');
+							});
+							
+							function cep(sufixo)
+							{
+								var campo, cep, url, estado;
+								url = $('base').attr('href') + 'index.php?route=account/register/cep';
+								campo = $('.postcode-' + sufixo)
+								var cep = campo.val().replace(/[^0-9]/g, "");
+								
+								if(cep && cep.length == 8)
+								{
+									$.ajax({
+										url: url + '&numero_cep=' + cep,
+										type: "POST",
+										dataType: 'json',
+										async: true,
+										beforeSend: function(){
+											campo.after('<span style="margin-left: 5px;" class="load-cep"> Aguarde...</span>');
+										},
+										success: function(data){
+											if(data)
+											{
+												if(data.valido == true)
+												{
+													$('.address-1-' + sufixo).val(data.rua + ', nº ');
+													$('.address-2-' + sufixo).val(data.bairro);
+													$('.city-' + sufixo).val(data.cidade);
+													
+													estado = nomeuf(data.siglauf);
+													
+													$('.zone-id-' + sufixo + ' > option').each(function() {
+														if($(this).text() == estado)
+														{
+															$(this).prop("selected", true);
+														}
+													});
+													
+													$('.address-1-' + sufixo).focus();
+													
+													$('.address-1-' + sufixo).setCursorPosition(data.rua.length + 5);
+												}
+											}
+										},
+										complete: function(){
+											$('.load-cep').remove();
+										}
+									});
+								}
+							}
+							
+							function nomeuf(sigla)
+							{
+								var estado;
+
+								switch(sigla)
+								{
+									case 'AC': estado = 'Acre'; break;
+									case 'AL': estado = 'Alagoas'; break;
+									case 'AP': estado = 'Amapá'; break;
+									case 'AM': estado = 'Amazonas'; break;
+									case 'BA': estado = 'Bahia'; break;
+									case 'CE': estado = 'Ceará'; break;
+									case 'DF': estado = 'Distrito Federal'; break;
+									case 'ES': estado = 'Espírito Santo'; break;
+									case 'GO': estado = 'Goiás'; break;
+									case 'MA': estado = 'Maranhão'; break;
+									case 'MT': estado = 'Mato Grosso'; break;
+									case 'MS': estado = 'Mato Grosso do Sul'; break;
+									case 'MG': estado = 'Minas Gerais'; break;
+									case 'PA': estado = 'Pará'; break;
+									case 'PB': estado = 'Paraíba'; break;
+									case 'PR': estado = 'Paraná'; break;
+									case 'PE': estado = 'Pernambuco'; break;
+									case 'PI': estado = 'Piauí'; break;
+									case 'RJ': estado = 'Rio de Janeiro'; break;
+									case 'RN': estado = 'Rio Grande do Norte'; break;
+									case 'RS': estado = 'Rio Grande do Sul'; break;
+									case 'RO': estado = 'Rondônia'; break;
+									case 'RR': estado = 'Roraima'; break;
+									case 'SC': estado = 'Santa Catarina'; break;
+									case 'SP': estado = 'São Paulo'; break;
+									case 'SE': estado = 'Sergipe'; break;
+									case 'TO': estado = 'Tocantins'; break;
+								}
+								
+								return estado;
+							}
+							
+							$.fn.setCursorPosition = function(pos) {
+								this.each(function(index, elem) {
+									if (elem.setSelectionRange) {
+										elem.setSelectionRange(pos, pos);
+									} else if (elem.createTextRange) {
+										var range = elem.createTextRange();
+										range.collapse(true);
+										range.moveEnd('character', pos);
+										range.moveStart('character', pos);
+										range.select();
+									}
+								});
+								return this;
+							};
+						}
+					</script>
+					
+					</html>
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/account/" name="register.tpl">
+		<operation info="">
+			<search position="replace" offset="47">
+				<![CDATA[
+					<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+					<tr>
+					  <td><span id="postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+					  <td><input type="text" name="postcode" class="postcode-register" value="<?php echo $postcode; ?>" />
+						<?php if ($error_postcode) { ?>
+						<span class="error"><?php echo $error_postcode; ?></span>
+						<?php } ?></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+						<td><input type="text" name="address_1" class="address-1-register" value="<?php echo $address_1; ?>" style="width: 70% !important;"/>
+						<?php if ($error_address_1) { ?>
+						<span class="error"><?php echo $error_address_1; ?></span>
+						<?php } ?></td>
+					</tr>
+					<tr>
+					  <td><?php echo $entry_address_2; ?></td>
+					  <td><input type="text" name="address_2" class="address-2-register" value="<?php echo $address_2; ?>" /></td>
+					</tr>
+					<tr>
+					  <td><span class="required">*</span> <?php echo $entry_city; ?></td>
+					  <td><input type="text" name="city" class="city-register" value="<?php echo $city; ?>" />
+						<?php if ($error_city) { ?>
+						<span class="error"><?php echo $error_city; ?></span>
+						<?php } ?></td>
+					</tr>
+					<tr>
+					  <td><span class="required">*</span> <?php echo $entry_country; ?></td>
+					  <td><select name="country_id" >
+						  <option value=""><?php echo $text_select; ?></option>
+						  <?php foreach ($countries as $country) { ?>
+						  <?php if ($country['country_id'] == $country_id) { ?>
+						  <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+						  <?php } else { ?>
+						  <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+						  <?php } ?>
+						  <?php } ?>
+						</select>
+						<?php if ($error_country) { ?>
+						<span class="error"><?php echo $error_country; ?></span>
+						<?php } ?></td>
+					</tr>
+					<tr>
+					  <td><span class="required">*</span> <?php echo $entry_zone; ?></td>
+					  <td><select name="zone_id" class="zone-id-register">
+						</select>
+						<?php if ($error_zone) { ?>
+						<span class="error"><?php echo $error_zone; ?></span>
+						<?php } ?></td>
+					</tr>
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/controller/account/" name="register.php">
+		<operation info="">
+			<search position="after" offset="23">
+				<![CDATA[
+					public function country() {
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+					public function cep() {
+						$cep = str_replace('_', '', str_replace('-', '', $this->request->get['numero_cep']));
+						
+						$ch = curl_init();
+
+						curl_setopt_array(
+							$ch,
+							array(
+								CURLOPT_URL 			=> "http://www.buscacep.correios.com.br/servicos/dnec/consultaEnderecoAction.do",
+								CURLOPT_POST			=> TRUE,
+								CURLOPT_POSTFIELDS		=> "relaxation={$cep}&TipoCep=ALL&semelhante=N&Metodo=listaLogradouro&TipoConsulta=relaxation&StartRow=1&EndRow=10&cfm=1",
+								CURLOPT_RETURNTRANSFER	=> TRUE
+							)
+						);
+
+						$response = curl_exec($ch);
+						curl_close($ch);
+
+						preg_match_all("/>(.*?)<\/td>/", $response, $matches);
+
+						$json = array(
+							'valido'	=> strpos($response, 'foi encontrado') ? false : true,
+							'rua' 		=> isset($matches[1][0]) ? utf8_encode($matches[1][0]) : '',
+							'bairro' 	=> isset($matches[1][1]) ? utf8_encode($matches[1][1]) : '',
+							'cidade' 	=> isset($matches[1][2]) ? utf8_encode($matches[1][2]) : '',
+							'siglauf' 	=> isset($matches[1][3]) ? utf8_encode($matches[1][3]) : '',
+							'cep' 		=> isset($matches[1][4]) ? utf8_encode($matches[1][4]) : '',
+						);
+						
+						$this->response->setOutput(json_encode($json));
+					}
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/controller/account/" name="register.php">
+		<operation info="">
+			<search position="before">
+				<![CDATA[
+					if ($this->request->post['country_id'] == '') {
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+					if(isset($this->request->post['tax_id']) && !empty($this->request->post['tax_id']))
+					{
+						$documento = $this->request->post['tax_id'];
+						$documentook = true;
+
+						if(empty($documento)) {$documentook = false;}
+
+						$cpf = str_pad(preg_replace('/[^0-9]/', '', $documento), 11, '0', STR_PAD_LEFT);
+				
+						if(strlen($cpf) != 11 || (int)$cpf == 0) {
+							$documentook = false;
+						} else if (
+							$cpf == '00000000000' || $cpf == '11111111111' || $cpf == '22222222222' || $cpf == '33333333333' ||
+							$cpf == '44444444444' || $cpf == '55555555555' || $cpf == '66666666666' || $cpf == '77777777777' || 
+							$cpf == '88888888888' || $cpf == '99999999999'
+						) {
+							$documentook = false;
+						} else {
+							for($t = 9; $t < 11; $t++) {
+								for($d = 0, $c = 0; $c < $t; $c++) {
+									$d += $cpf{$c} * (($t + 1) - $c);
+								}
+								$d = ((10 * $d) % 11) % 10;
+								if($cpf{$c} != $d) {
+									$documentook = false;
+								}
+							}
+						}
+						
+						if(!$documentook) {
+							$documentook = true;
+							
+							$cnpj = str_pad(preg_replace('/[^0-9]/', '', $documento), 14, '0', STR_PAD_LEFT);
+				
+							if(strlen($cnpj) != 14 || (int)$cnpj == 0) {
+								$documentook = false;
+							} else if (
+								$cnpj == "00000000000000" || $cnpj == "11111111111111" || $cnpj == "22222222222222" || $cnpj == "33333333333333" || 
+								$cnpj == "44444444444444" || $cnpj == "55555555555555" || $cnpj == "66666666666666" || $cnpj == "77777777777777" || 
+								$cnpj == "88888888888888" || $cnpj == "99999999999999"
+							) {
+								$documentook = false;
+							} else {
+								$t = strlen($cnpj) - 2;
+								$n = substr($cnpj, 0, $t);
+								$dgs = substr($cnpj, $t);
+								$soma = 0;
+								
+								$soma = ($n[0] * 5)+($n[1] * 4)+($n[2] * 3)+($n[3] * 2)+($n[4] * 9)+($n[5] * 8)+($n[6] * 7)+($n[7] * 6)+($n[8] * 5)+($n[9] * 4)+($n[10] * 3)+($n[11] * 2);
+								
+								if(($soma % 11 < 2 ? 0 : 11 - ($soma % 11)) != $dgs[0]) {
+									$documentook = false;
+								}
+								
+								$soma = ($n[0] * 6)+($n[1] * 5)+($n[2] * 4)+($n[3] * 3)+($n[4] * 2)+($n[5] * 9)+($n[6] * 8)+($n[7] * 7)+($n[8] * 6)+($n[9] * 5)+($n[10] * 4)+($n[11] * 3)+($dgs[0] * 2);
+
+								if(($soma % 11 < 2 ? 0 : 11 - ($soma % 11)) != $dgs[1]) {
+									$documentook = false;
+								}
+							}
+							
+						}
+
+						if(!$documentook) {
+							$this->error['tax_id'] = 'Atenção: O CNPJ ou CPF é inválido.';
+						}
+					}
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/controller/checkout/" name="register.php">
+		<operation info="">
+			<search position="before">
+				<![CDATA[
+					if ($this->request->post['country_id'] == '') {
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+					if(isset($this->request->post['tax_id']) && !empty($this->request->post['tax_id']))
+					{
+						$documento = $this->request->post['tax_id'];
+						$documentook = true;
+
+						if(empty($documento)) {$documentook = false;}
+
+						$cpf = str_pad(preg_replace('/[^0-9]/', '', $documento), 11, '0', STR_PAD_LEFT);
+				
+						if(strlen($cpf) != 11 || (int)$cpf == 0) {
+							$documentook = false;
+						} else if (
+							$cpf == '00000000000' || $cpf == '11111111111' || $cpf == '22222222222' || $cpf == '33333333333' ||
+							$cpf == '44444444444' || $cpf == '55555555555' || $cpf == '66666666666' || $cpf == '77777777777' || 
+							$cpf == '88888888888' || $cpf == '99999999999'
+						) {
+							$documentook = false;
+						} else {
+							for($t = 9; $t < 11; $t++) {
+								for($d = 0, $c = 0; $c < $t; $c++) {
+									$d += $cpf{$c} * (($t + 1) - $c);
+								}
+								$d = ((10 * $d) % 11) % 10;
+								if($cpf{$c} != $d) {
+									$documentook = false;
+								}
+							}
+						}
+						
+						if(!$documentook) {
+							$documentook = true;
+							
+							$cnpj = str_pad(preg_replace('/[^0-9]/', '', $documento), 14, '0', STR_PAD_LEFT);
+				
+							if(strlen($cnpj) != 14 || (int)$cnpj == 0) {
+								$documentook = false;
+							} else if (
+								$cnpj == "00000000000000" || $cnpj == "11111111111111" || $cnpj == "22222222222222" || $cnpj == "33333333333333" || 
+								$cnpj == "44444444444444" || $cnpj == "55555555555555" || $cnpj == "66666666666666" || $cnpj == "77777777777777" || 
+								$cnpj == "88888888888888" || $cnpj == "99999999999999"
+							) {
+								$documentook = false;
+							} else {
+								$t = strlen($cnpj) - 2;
+								$n = substr($cnpj, 0, $t);
+								$dgs = substr($cnpj, $t);
+								$soma = 0;
+								
+								$soma = ($n[0] * 5)+($n[1] * 4)+($n[2] * 3)+($n[3] * 2)+($n[4] * 9)+($n[5] * 8)+($n[6] * 7)+($n[7] * 6)+($n[8] * 5)+($n[9] * 4)+($n[10] * 3)+($n[11] * 2);
+								
+								if(($soma % 11 < 2 ? 0 : 11 - ($soma % 11)) != $dgs[0]) {
+									$documentook = false;
+								}
+								
+								$soma = ($n[0] * 6)+($n[1] * 5)+($n[2] * 4)+($n[3] * 3)+($n[4] * 2)+($n[5] * 9)+($n[6] * 8)+($n[7] * 7)+($n[8] * 6)+($n[9] * 5)+($n[10] * 4)+($n[11] * 3)+($dgs[0] * 2);
+
+								if(($soma % 11 < 2 ? 0 : 11 - ($soma % 11)) != $dgs[1]) {
+									$documentook = false;
+								}
+							}
+							
+						}
+
+						if(!$documentook) {
+							$json['error']['tax_id'] = 'Atenção: O CNPJ ou CPF é inválido.';
+						}
+					}
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/checkout/" name="checkout.tpl">
+		<operation info="">
+			<search position="replace" offset="11">
+				<![CDATA[
+					$('#button-account').live('click', function() {
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+					$('#button-account').live('click', function() {
+						$.ajax({
+							url: 'index.php?route=checkout/' + $('input[name=\'account\']:checked').attr('value'),
+							dataType: 'html',
+							beforeSend: function() {
+								$('#button-account').attr('disabled', true);
+								$('#button-account').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+							},		
+							complete: function() {
+								$('#button-account').attr('disabled', false);
+								$('.wait').remove();
+								mascaras();
+							},
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/checkout/" name="checkout.tpl">
+		<operation info="">
+			<search position="after">
+				<![CDATA[
+					$('#payment-address .checkout-content').slideDown('slow');
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+					mascaras();
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/checkout/" name="checkout.tpl">
+		<operation info="">
+			<search position="after">
+				<![CDATA[
+					$('#shipping-address .checkout-content').html(html);
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+					mascaras();
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/checkout/" name="register.tpl">
+		<operation info="">
+			<search position="replace" offset="61">
+				<![CDATA[
+					<h2><?php echo $text_your_address; ?></h2>
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+					<h2><?php echo $text_your_address; ?></h2>
+					<?php echo $entry_company; ?><br />
+					<input type="text" name="company" value="" class="large-field" />
+					<br /><br />
+					<div style="display: <?php echo (count($customer_groups) > 1 ? 'table-row' : 'none'); ?>;">
+						<?php echo $entry_customer_group; ?><br />
+						<?php foreach ($customer_groups as $customer_group) { ?>
+							<?php if ($customer_group['customer_group_id'] == $customer_group_id) { ?>
+								<input type="radio" name="customer_group_id" value="<?php echo $customer_group['customer_group_id']; ?>" id="customer_group_id<?php echo $customer_group['customer_group_id']; ?>" checked="checked" />
+								<label for="customer_group_id<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></label>
+								<br />
+							<?php } else { ?>
+								<input type="radio" name="customer_group_id" value="<?php echo $customer_group['customer_group_id']; ?>" id="customer_group_id<?php echo $customer_group['customer_group_id']; ?>" />
+								<label for="customer_group_id<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></label>
+								<br />
+							<?php } ?>
+						<?php } ?>
+						<br />
+					</div>
+					<div id="company-id-display"><span id="company-id-required" class="required">*</span> <?php echo $entry_company_id; ?><br />
+						<input type="text" name="company_id" value="" class="large-field" />
+						<br /><br />
+					</div>
+					<div id="tax-id-display"><span id="tax-id-required" class="required">*</span> <?php echo $entry_tax_id; ?><br />
+						<input type="text" name="tax_id" value="" class="large-field" />
+						<br /><br />
+					</div>
+					<span id="payment-postcode-required" class="required">*</span> <?php echo $entry_postcode; ?><br />
+					<input type="text" name="postcode" value="<?php echo $postcode; ?>" class="large-field postcode-register2" />
+					<br /><br />
+					<span class="required">*</span> <?php echo $entry_address_1; ?><br />
+					<input type="text" name="address_1" value="" class="large-field address-1-register2" />
+					<br /><br />
+					<?php echo $entry_address_2; ?><br />
+					<input type="text" name="address_2" value="" class="large-field address-2-register2" />
+					<br /><br />
+					<span class="required">*</span> <?php echo $entry_city; ?><br />
+					<input type="text" name="city" value="" class="large-field city-register2" />
+					<br /><br />
+					<span class="required">*</span> <?php echo $entry_country; ?><br />
+					<select name="country_id" class="large-field">
+						<option value=""><?php echo $text_select; ?></option>
+						<?php foreach ($countries as $country) { ?>
+							<?php if ($country['country_id'] == $country_id) { ?>
+								<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+							<?php } else { ?>
+								<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+							<?php } ?>
+						<?php } ?>
+					</select>
+					<br /><br />
+					<span class="required">*</span> <?php echo $entry_zone; ?><br />
+					<select name="zone_id" class="large-field zone-id-register2">
+					</select>
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/checkout/" name="guest.tpl">
+		<operation info="">
+			<search position="replace" offset="60">
+				<![CDATA[
+					<h2><?php echo $text_your_address; ?></h2>
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+					<h2><?php echo $text_your_address; ?></h2>
+					<?php echo $entry_company; ?><br />
+					<input type="text" name="company" value="<?php echo $company; ?>" class="large-field" />
+					<br /><br />
+					<div style="display: <?php echo (count($customer_groups) > 1 ? 'table-row' : 'none'); ?>;"> <?php echo $entry_customer_group; ?><br />
+						<?php foreach ($customer_groups as $customer_group) { ?>
+							<?php if ($customer_group['customer_group_id'] == $customer_group_id) { ?>
+								<input type="radio" name="customer_group_id" value="<?php echo $customer_group['customer_group_id']; ?>" id="customer_group_id<?php echo $customer_group['customer_group_id']; ?>" checked="checked" />
+								<label for="customer_group_id<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></label>
+								<br />
+							<?php } else { ?>
+								<input type="radio" name="customer_group_id" value="<?php echo $customer_group['customer_group_id']; ?>" id="customer_group_id<?php echo $customer_group['customer_group_id']; ?>" />
+								<label for="customer_group_id<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></label>
+								<br />
+							<?php } ?>
+						<?php } ?>
+						<br />
+					</div>
+					<div id="company-id-display"><span id="company-id-required" class="required">*</span> <?php echo $entry_company_id; ?><br />
+						<input type="text" name="company_id" value="<?php echo $company_id; ?>" class="large-field" />
+						<br /><br />
+					</div>
+					<div id="tax-id-display"><span id="tax-id-required" class="required">*</span> <?php echo $entry_tax_id; ?><br />
+						<input type="text" name="tax_id" value="<?php echo $tax_id; ?>" class="large-field" />
+						<br /><br />
+					</div>
+					<span id="payment-postcode-required" class="required">*</span> <?php echo $entry_postcode; ?><br />
+					<input type="text" name="postcode" value="<?php echo $postcode; ?>" class="large-field postcode-guest" />
+					<br /><br />
+					<span class="required">*</span> <?php echo $entry_address_1; ?><br />
+					<input type="text" name="address_1" value="<?php echo $address_1; ?>" class="large-field address-1-guest" />
+					<br /><br />
+					<?php echo $entry_address_2; ?><br />
+					<input type="text" name="address_2" value="<?php echo $address_2; ?>" class="large-field address-2-guest" />
+					<br /><br />
+					<span class="required">*</span> <?php echo $entry_city; ?><br />
+					<input type="text" name="city" value="<?php echo $city; ?>" class="large-field city-guest" />
+					<br /><br />
+					<span class="required">*</span> <?php echo $entry_country; ?><br />
+					<select name="country_id" class="large-field">
+						<option value=""><?php echo $text_select; ?></option>
+						<?php foreach ($countries as $country) { ?>
+							<?php if ($country['country_id'] == $country_id) { ?>
+								<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+							<?php } else { ?>
+								<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+							<?php } ?>
+						<?php } ?>
+					</select>
+					<br /><br />
+					<span class="required">*</span> <?php echo $entry_zone; ?><br />
+					<select name="zone_id" class="large-field zone-id-guest">
+					</select>
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/checkout/" name="payment_address.tpl">
+		<operation info="">
+			<search position="replace" offset="32">
+				<![CDATA[
+					<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+						<td><span id="payment-postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+						<td><input type="text" name="postcode" value="" class="large-field postcode-payment" /></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+						<td><input type="text" name="address_1" value="" class="large-field address-1-payment" /></td>
+					</tr>
+					<tr>
+						<td><?php echo $entry_address_2; ?></td>
+						<td><input type="text" name="address_2" value="" class="large-field address-2-payment" /></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_city; ?></td>
+						<td><input type="text" name="city" value="" class="large-field city-payment" /></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_country; ?></td>
+						<td><select name="country_id" class="large-field">
+						<option value=""><?php echo $text_select; ?></option>
+						<?php foreach ($countries as $country) { ?>
+							<?php if ($country['country_id'] == $country_id) { ?>
+								<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+							<?php } else { ?>
+								<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+							<?php } ?>
+						<?php } ?>
+						</select></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_zone; ?></td>
+						<td><select name="zone_id" class="large-field zone-id-payment">
+						</select></td>
+					</tr>
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/checkout/" name="shipping_address.tpl">
+		<operation info="">
+			<search position="replace" offset="32">
+				<![CDATA[
+					<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+						<td><span id="shipping-postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+						<td><input type="text" name="postcode" value="<?php echo $postcode; ?>" class="large-field postcode-shipping" /></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+						<td><input type="text" name="address_1" value="" class="large-field address-1-shipping" /></td>
+					</tr>
+					<tr>
+						<td><?php echo $entry_address_2; ?></td>
+						<td><input type="text" name="address_2" value="" class="large-field address-2-shipping" /></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_city; ?></td>
+						<td><input type="text" name="city" value="" class="large-field city-shipping" /></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_country; ?></td>
+						<td><select name="country_id" class="large-field">
+						<option value=""><?php echo $text_select; ?></option>
+						<?php foreach ($countries as $country) { ?>
+							<?php if ($country['country_id'] == $country_id) { ?>
+								<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+							<?php } else { ?>
+								<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+							<?php } ?>
+						<?php } ?>
+						</select></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_zone; ?></td>
+						<td><select name="zone_id" class="large-field zone-id-shipping">
+						</select></td>
+					</tr>
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/controller/checkout/" name="payment_address.php">
+		<operation info="">
+			<search position="before">
+				<![CDATA[
+					if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+					if(isset($this->request->post['tax_id']) && !empty($this->request->post['tax_id']))
+					{
+						$documento = $this->request->post['tax_id'];
+						$documentook = true;
+
+						if(empty($documento)) {$documentook = false;}
+
+						$cpf = str_pad(preg_replace('/[^0-9]/', '', $documento), 11, '0', STR_PAD_LEFT);
+				
+						if(strlen($cpf) != 11 || (int)$cpf == 0) {
+							$documentook = false;
+						} else if (
+							$cpf == '00000000000' || $cpf == '11111111111' || $cpf == '22222222222' || $cpf == '33333333333' ||
+							$cpf == '44444444444' || $cpf == '55555555555' || $cpf == '66666666666' || $cpf == '77777777777' || 
+							$cpf == '88888888888' || $cpf == '99999999999'
+						) {
+							$documentook = false;
+						} else {
+							for($t = 9; $t < 11; $t++) {
+								for($d = 0, $c = 0; $c < $t; $c++) {
+									$d += $cpf{$c} * (($t + 1) - $c);
+								}
+								$d = ((10 * $d) % 11) % 10;
+								if($cpf{$c} != $d) {
+									$documentook = false;
+								}
+							}
+						}
+						
+						if(!$documentook) {
+							$documentook = true;
+							
+							$cnpj = str_pad(preg_replace('/[^0-9]/', '', $documento), 14, '0', STR_PAD_LEFT);
+				
+							if(strlen($cnpj) != 14 || (int)$cnpj == 0) {
+								$documentook = false;
+							} else if (
+								$cnpj == "00000000000000" || $cnpj == "11111111111111" || $cnpj == "22222222222222" || $cnpj == "33333333333333" || 
+								$cnpj == "44444444444444" || $cnpj == "55555555555555" || $cnpj == "66666666666666" || $cnpj == "77777777777777" || 
+								$cnpj == "88888888888888" || $cnpj == "99999999999999"
+							) {
+								$documentook = false;
+							} else {
+								$t = strlen($cnpj) - 2;
+								$n = substr($cnpj, 0, $t);
+								$dgs = substr($cnpj, $t);
+								$soma = 0;
+								
+								$soma = ($n[0] * 5)+($n[1] * 4)+($n[2] * 3)+($n[3] * 2)+($n[4] * 9)+($n[5] * 8)+($n[6] * 7)+($n[7] * 6)+($n[8] * 5)+($n[9] * 4)+($n[10] * 3)+($n[11] * 2);
+								
+								if(($soma % 11 < 2 ? 0 : 11 - ($soma % 11)) != $dgs[0]) {
+									$documentook = false;
+								}
+								
+								$soma = ($n[0] * 6)+($n[1] * 5)+($n[2] * 4)+($n[3] * 3)+($n[4] * 2)+($n[5] * 9)+($n[6] * 8)+($n[7] * 7)+($n[8] * 6)+($n[9] * 5)+($n[10] * 4)+($n[11] * 3)+($dgs[0] * 2);
+
+								if(($soma % 11 < 2 ? 0 : 11 - ($soma % 11)) != $dgs[1]) {
+									$documentook = false;
+								}
+							}
+							
+						}
+
+						if(!$documentook) {
+							$json['error']['tax_id'] = 'Atenção: O CNPJ ou CPF é inválido.';
+						}
+					}
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/account/" name="address_form.tpl">
+		<operation info="">
+			<search position="replace" offset="47">
+				<![CDATA[
+					<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+						<td><span id="postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+						<td><input type="text" name="postcode" class="postcode-addressform" value="<?php echo $postcode; ?>" />
+						<?php if ($error_postcode) { ?>
+							<span class="error"><?php echo $error_postcode; ?></span>
+						<?php } ?></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+						<td><input type="text" name="address_1" class="address-1-addressform" style="width: 70%;" value="<?php echo $address_1; ?>" />
+						<?php if ($error_address_1) { ?>
+							<span class="error"><?php echo $error_address_1; ?></span>
+						<?php } ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $entry_address_2; ?></td>
+						<td><input type="text" name="address_2" class="address-2-addressform" value="<?php echo $address_2; ?>" /></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_city; ?></td>
+						<td><input type="text" name="city" class="city-addressform" value="<?php echo $city; ?>" />
+						<?php if ($error_city) { ?>
+							<span class="error"><?php echo $error_city; ?></span>
+						<?php } ?></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_country; ?></td>
+						<td><select name="country_id">
+							<option value=""><?php echo $text_select; ?></option>
+							<?php foreach ($countries as $country) { ?>
+								<?php if ($country['country_id'] == $country_id) { ?>
+									<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+								<?php } else { ?>
+									<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+								<?php } ?>
+							<?php } ?>
+						</select>
+						<?php if ($error_country) { ?>
+							<span class="error"><?php echo $error_country; ?></span>
+						<?php } ?></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_zone; ?></td>
+						<td><select name="zone_id" class="zone-id-addressform">
+						</select>
+						<?php if ($error_zone) { ?>
+						<span class="error"><?php echo $error_zone; ?></span>
+						<?php } ?></td>
+					</tr>
+				]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/controller/account/" name="address.php">
+		<operation info="">
+			<search position="before">
+				<![CDATA[
+					if ($this->request->post['country_id'] == '') {
+				]]>
+			</search>
+			<add>
+				<![CDATA[
+					if(isset($this->request->post['tax_id']) && !empty($this->request->post['tax_id']))
+					{
+						$documento = $this->request->post['tax_id'];
+						$documentook = true;
+
+						if(empty($documento)) {$documentook = false;}
+
+						$cpf = str_pad(preg_replace('/[^0-9]/', '', $documento), 11, '0', STR_PAD_LEFT);
+				
+						if(strlen($cpf) != 11 || (int)$cpf == 0) {
+							$documentook = false;
+						} else if (
+							$cpf == '00000000000' || $cpf == '11111111111' || $cpf == '22222222222' || $cpf == '33333333333' ||
+							$cpf == '44444444444' || $cpf == '55555555555' || $cpf == '66666666666' || $cpf == '77777777777' || 
+							$cpf == '88888888888' || $cpf == '99999999999'
+						) {
+							$documentook = false;
+						} else {
+							for($t = 9; $t < 11; $t++) {
+								for($d = 0, $c = 0; $c < $t; $c++) {
+									$d += $cpf{$c} * (($t + 1) - $c);
+								}
+								$d = ((10 * $d) % 11) % 10;
+								if($cpf{$c} != $d) {
+									$documentook = false;
+								}
+							}
+						}
+						
+						if(!$documentook) {
+							$documentook = true;
+							
+							$cnpj = str_pad(preg_replace('/[^0-9]/', '', $documento), 14, '0', STR_PAD_LEFT);
+				
+							if(strlen($cnpj) != 14 || (int)$cnpj == 0) {
+								$documentook = false;
+							} else if (
+								$cnpj == "00000000000000" || $cnpj == "11111111111111" || $cnpj == "22222222222222" || $cnpj == "33333333333333" || 
+								$cnpj == "44444444444444" || $cnpj == "55555555555555" || $cnpj == "66666666666666" || $cnpj == "77777777777777" || 
+								$cnpj == "88888888888888" || $cnpj == "99999999999999"
+							) {
+								$documentook = false;
+							} else {
+								$t = strlen($cnpj) - 2;
+								$n = substr($cnpj, 0, $t);
+								$dgs = substr($cnpj, $t);
+								$soma = 0;
+								
+								$soma = ($n[0] * 5)+($n[1] * 4)+($n[2] * 3)+($n[3] * 2)+($n[4] * 9)+($n[5] * 8)+($n[6] * 7)+($n[7] * 6)+($n[8] * 5)+($n[9] * 4)+($n[10] * 3)+($n[11] * 2);
+								
+								if(($soma % 11 < 2 ? 0 : 11 - ($soma % 11)) != $dgs[0]) {
+									$documentook = false;
+								}
+								
+								$soma = ($n[0] * 6)+($n[1] * 5)+($n[2] * 4)+($n[3] * 3)+($n[4] * 2)+($n[5] * 9)+($n[6] * 8)+($n[7] * 7)+($n[8] * 6)+($n[9] * 5)+($n[10] * 4)+($n[11] * 3)+($dgs[0] * 2);
+
+								if(($soma % 11 < 2 ? 0 : 11 - ($soma % 11)) != $dgs[1]) {
+									$documentook = false;
+								}
+							}
+							
+						}
+
+						if(!$documentook) {
+							$this->error['tax_id'] = 'Atenção: O CNPJ ou CPF é inválido.';
+						}
+					}
+				]]>
+			</add>
+		</operation>
+	</file>
+</modification>
