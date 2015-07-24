@@ -1,0 +1,200 @@
+<modification>
+	<id><![CDATA[Related products - old way and autocomplete]]></id>
+	<version><![CDATA[1]]></version>
+	<vqmver><![CDATA[2.3]]></vqmver>
+	<author><![CDATA[kruger]]></author>
+		<file path="/admin/language/english/catalog/" name="product.php">
+		<operation>
+			<search position="before"><![CDATA[$_['entry_related']          = 'Related Products:<br /><span class="help">(Autocomplete)</span>';]]></search>
+			<add><![CDATA[$_['entry_related_old']          = 'Related Products:';]]></add>
+		</operation>
+	</file>
+	<file path="/admin/controller/catalog/" name="product.php">
+		<operation>
+			<search position="before"><![CDATA[public function autocomplete() {]]></search>
+			<add><![CDATA[public function category() {
+		$this->load->model('catalog/product');
+		
+		if (isset($this->request->get['category_id'])) {
+			$category_id = $this->request->get['category_id'];
+		} else {
+			$category_id = 0;
+		}
+		
+		$product_data = array();
+		
+		$results = $this->model_catalog_product->getProductsByCategoryId($category_id);
+		
+		foreach ($results as $result) {
+			$product_data[] = array(
+				'product_id' => $result['product_id'],
+				'name'       => $result['name'],
+				'model'      => $result['model']
+			);
+		}
+		
+				
+		$this->response->setOutput(json_encode($product_data));
+	}
+	
+		public function related() {
+		$this->load->model('catalog/product');
+		
+		if (isset($this->request->post['product_related'])) {
+			$products = $this->request->post['product_related'];
+		} else {
+			$products = array();
+		}
+	
+		$product_data = array();
+		
+		foreach ($products as $product_id) {
+			$product_info = $this->model_catalog_product->getProduct($product_id);
+			
+			if ($product_info) {
+				$product_data[] = array(
+					'product_id' => $product_info['product_id'],
+					'name'       => $product_info['name'],
+					'model'      => $product_info['model']
+				);
+			}
+		}
+		
+	   	
+		$this->response->setOutput(json_encode($product_data));
+	}
+	
+      ]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[if (isset($this->request->post['product_related'])) {]]></search>
+			<add><![CDATA[$this->data['entry_related_old'] = $this->language->get('entry_related_old');]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[$this->data['entry_related'] = $this->language->get('entry_related');]]></search>
+			<add><![CDATA[$this->load->model('catalog/category');
+				
+		$this->data['categories'] = $this->model_catalog_category->getCategories(0);
+		
+		if (isset($this->request->post['product_category'])) {
+			$this->data['product_category'] = $this->request->post['product_category'];
+		} elseif (isset($this->request->get['product_id'])) {
+			$this->data['product_category'] = $this->model_catalog_product->getProductCategories($this->request->get['product_id']);
+		} else {
+			$this->data['product_category'] = array();
+		}]]></add>
+		</operation>
+	</file>
+	<file path="/admin/view/template/catalog/" name="product_form.tpl">
+		<operation>
+			<search position="before"><![CDATA[<td><?php echo $entry_related; ?></td>]]></search>
+			<add><![CDATA[<tr>
+            <td><?php echo $entry_related_old; ?></td>
+            <td><table>
+                <tr>
+                  <td style="padding: 0;" colspan="3"><select id="category" style="margin-bottom: 5px;" onchange="getProducts();">
+                      <?php foreach ($categories as $category) { ?>
+                      <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
+                      <?php } ?>
+                    </select></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0;"><select multiple="multiple" id="product" size="10" style="width: 350px;">
+                    </select></td>
+                  <td style="vertical-align: middle;"><input type="button" value="--&gt;" onclick="addRelated();" />
+                    <br />
+                    <input type="button" value="&lt;--" onclick="removeRelated();" /></td>
+                  <td style="padding: 0;"><select multiple="multiple" id="related" size="10" style="width: 350px;">
+                    </select></td>
+                </tr>
+              </table>
+              <div id="product_related">
+                <?php foreach ($product_related as $related_id) { ?>
+                <input type="hidden" name="product_related[]" value="<?php echo $related_id['product_id']; ?>" />
+                <?php } ?>
+              </div></td>
+          </tr>]]></add>
+		</operation>
+
+		<operation>
+			<search position="replace"><![CDATA[$(this).parent().remove();]]></search>
+			<add><![CDATA[
+      var id = $(this).parent().attr("id").match(/[\d]+$/);
+     	$('#related option[value='+id+']').remove();
+      $('#product_related input[value=\'' + id + '\']').remove();
+      $(this).parent().remove();]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[<?php echo $footer; ?>]]></search>
+			<add><![CDATA[<script type="text/javascript"><!--
+function addRelated() {
+	$('#product :selected').each(function() {
+		$(this).remove();
+		
+		$('#related option[value=\'' + $(this).attr('value') + '\']').remove();
+		
+		$('#related').append('<option value="' + $(this).attr('value') + '">' + $(this).text() + '</option>');
+		
+		$('#product_related input[value=\'' + $(this).attr('value') + '\']').remove();
+		
+		$('#product_related').append('<input type="hidden" name="product_related[]" value="' + $(this).attr('value') + '" />');
+	});
+}
+
+function removeRelated() {
+	$('#related :selected').each(function() {
+		$(this).remove();
+		
+	$('#product_related input[value=\'' + $(this).attr('value') + '\']').remove();
+	$("#product-related"+$(this).attr('value')).remove();	
+	});
+	
+}
+
+function getProducts() {
+	$('#product option').remove();
+
+	<?php if (isset($this->request->get['product_id'])) {?>
+	var product_id = '<?php echo $this->request->get['product_id'] ?>';
+	<?php } else { ?>
+	var product_id = 0;
+	<?php } ?>
+
+	$.ajax({
+		url: 'index.php?route=catalog/product/category&token=<?php echo $token; ?>&category_id=' + $('#category').attr('value'),
+		dataType: 'json',
+		success: function(data) {
+			for (i = 0; i < data.length; i++) {
+				if (data[i]['product_id'] == product_id) { continue; }
+	 			$('#product').append('<option value="' + data[i]['product_id'] + '">' + data[i]['name'] + ' (' + data[i]['model'] + ') </option>');
+			}
+		}
+	});
+}
+
+function getRelated() {
+	$('#related option').remove();
+	
+	$.ajax({
+		url: 'index.php?route=catalog/product/related&token=<?php echo $token; ?>',
+		type: 'POST',
+		dataType: 'json',
+		data: $('#product_related input'),
+		success: function(data) {
+			$('#product_related input').remove();
+			
+			for (i = 0; i < data.length; i++) {
+	 			$('#related').append('<option value="' + data[i]['product_id'] + '">' + data[i]['name'] + ' (' + data[i]['model'] + ') </option>');
+				
+				$('#product_related').append('<input type="hidden" name="product_related[]" value="' + data[i]['product_id'] + '" />');
+			}
+		}
+	});
+}
+
+getProducts();
+getRelated();
+//--></script>]]></add>
+		</operation>
+	</file>
+</modification>
